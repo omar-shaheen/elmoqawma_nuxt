@@ -15,7 +15,11 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
         cairo: ["Cairo", "sans-serif"],
       },
-
+      backgroundImage: {
+        linearGradient: "linear-gradient(60deg, #E24141 0%, rgb(50, 141, 202) 100%)",
+        linearGradient2: "linear-gradient(60deg, #080c14 0%, #080c14 100%)",
+        linearGradientBG: "linear-gradient(135deg,#ececec,#06b6d4)",
+      },
       colors: {
         transparent: "transparent",
         current: "currentColor",
@@ -36,6 +40,7 @@ module.exports = {
       },
       boxShadow: {
         dev: "0 0 12px rgba(0, 0, 0, 0.3)",
+        custom1: "0 2px 10px rgba(0, 0, 0, 0.1)",
       },
       screens: {
         sm: {max: "1024px"},

@@ -1,16 +1,18 @@
 <template>
-  <header class="bg-slate-100 dark:bg-fpDark2 sticky top-0 start-0 z-100 whitespace-nowrap">
+  <header class="bg-white dark:bg-fpDark2 sticky top-0 start-0 z-100 whitespace-nowrap py-4">
     <HeaderWhatsapp />
-    <div class="container flex items-center mx-auto py-2">
+    <div class="container flex items-center mx-auto">
       <div class="w-full lg:w-1/12 flex justify-between items-center">
         <nuxt-link :to="localePath('/')">
-          <img src="~/assets/images/global/logo.png" alt="logo transparent" class="w-16" />
+          <img src="~/assets/images/global/logo.png" alt="logo transparent" class="xl:w-20 w-16 max-w-none" />
         </nuxt-link>
-        <button type="button" class="dark:bg-white rounded-xl block lg:hidden" @click="globalStore.toggleMenu = !globalStore.toggleMenu">
+        <button type="button" class="dark:bg-white rounded-xl block lg:hidden"
+          @click="globalStore.toggleMenu = !globalStore.toggleMenu">
           <img src="~/assets/images/student/menu.svg" alt="" class="w-12" />
         </button>
       </div>
-      <div v-if="globalStore.toggleMenu" class="fixed inset-0 z-20 backdrop-blur-sm bg-black/[0.3] lg:hidden" @click="globalStore.toggleMenu = !globalStore.toggleMenu"></div>
+      <div v-if="globalStore.toggleMenu" class="fixed inset-0 z-20 backdrop-blur-sm bg-black/[0.3] lg:hidden"
+        @click="globalStore.toggleMenu = !globalStore.toggleMenu"></div>
       <HeaderNavLG />
       <Transition :name="locale == 'ar' ? 'slide-left' : 'slide-right'">
         <HeaderNavSM v-if="globalStore.toggleMenu" />
@@ -25,9 +27,9 @@
 </template>
 
 <script setup>
-import {useGlobalStore} from "@/store/GlobalStore";
+import { useGlobalStore } from "@/store/GlobalStore";
 const globalStore = useGlobalStore();
-const {locale} = useI18n();
+const { locale } = useI18n();
 // "active"
 onMounted(() => {
   document.documentElement.classList.add(localStorage.getItem("mode") || globalStore.mode);
@@ -66,18 +68,22 @@ onMounted(() => {
   transform: translateX(-100%);
   opacity: 0.5;
 }
+
 .menu-down-enter-active,
 .menu-down-leave-active {
   transition: all 0.2s linear;
 }
+
 .menu-down-enter-from,
 .menu-down-leave-to {
   opacity: 0;
   transform: translateY(-10px);
 }
+
 .z-100 {
   z-index: 100;
 }
+
 @media (min-width: 1024px) {
   .lg\:hidden {
     display: none !important;

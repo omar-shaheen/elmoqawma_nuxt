@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-fp1 dark:bg-fpDark1 py-3">
+  <section class="bg-transparent lg:border-b border-slate-200 py-3">
     <div class="container mx-auto flex justify-between xl:justify-center items-center">
-      <TopHeaderAdvertisements v-if="Object.keys(globalStore.appSettings).length != 0" />
       <TopHeaderSearch />
+      <TopHeaderAdvertisements v-if="Object.keys(globalStore.appSettings).length != 0" />
       <TopHeaderButtons />
       <HeaderButtons class="flex lg:hidden" />
     </div>

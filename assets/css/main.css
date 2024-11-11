@@ -53,7 +53,7 @@ body[dir="ltr"] {
 nav a {
   position: relative;
 }
-nav a::after {
+/* nav a::after {
   content: "";
   position: absolute;
   height: 3px;
@@ -62,7 +62,7 @@ nav a::after {
   bottom: -2px;
   background-color: #e24141;
   @apply transition-all duration-200 end-0;
-}
+} */
 nav > ul > li > a:hover::after,
 nav > ul > li > a.router-link-active::after {
   @apply start-0 transition-all duration-200 lg:w-full;
@@ -159,30 +159,7 @@ nav a.router-link-active {
     border-left-color: transparent;
   }
 }
-.custom-arrow-slider .splide__arrow--prev {
-  right: -3em !important;
-}
-.custom-arrow-slider .splide__arrow--next {
-  left: -3em !important;
-}
-.custom-arrow-slider .splide__arrow--next svg,
-.custom-arrow-slider .splide__arrow--prev svg {
-  display: none;
-}
-.custom-arrow-slider .splide__arrow--prev:focus {
-  outline: none;
-  border: none;
-}
-.custom-arrow-slider .splide__arrow--prev {
-  background-image: url("~/assets/images/global/arrow_right.png");
-  background-size: cover;
-  /* right: -1em; */
-}
-.custom-arrow-slider .splide__arrow--next {
-  background-image: url("~/assets/images/global/arrow_left.png");
-  background-size: cover;
-  /* left: -1em; */
-}
+
 @media (min-width: 1025px) {
   .shadow-winer {
     box-shadow: 2px 3px 10px #8a8a8a8f;
@@ -263,8 +240,8 @@ nav a.router-link-active {
   cursor: not-allowed !important;
 }
 .hero-section {
-  background-blend-mode: color-burn;
-  background-color: rgba(0, 0, 0, 0.15);
+  /* background-blend-mode: color-burn;
+  background-color: rgba(0, 0, 0, 0.15); */
 
   background-size: cover;
 }
@@ -437,3 +414,78 @@ nav.student > button.active-link::before {
 .ql-container {
   height: 250px !important;
 }
+
+
+/* ***************************************** */
+
+/* ***************************************** */
+
+/* ***************************************** */
+
+/* ***************************************** */
+
+/* ***************************************** */
+
+.splide__track {
+  @apply py-5;
+}
+
+/* ***************************************** */
+.custom-arrow-slider .splide__arrow {
+  @apply bg-white text-fpLightBack;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+  top: 50%;
+  opacity: 0;
+}
+.custom-arrow-slider:hover .splide__arrow {
+  opacity: 1;
+}
+.custom-arrow-slider .splide__arrow--prev:hover,
+.custom-arrow-slider .splide__arrow--next:hover {
+  @apply bg-fp3 text-fpLightBack;
+}
+.custom-arrow-slider .splide__arrow--prev:after,
+.custom-arrow-slider .splide__arrow--next:after {
+  font-size: 20px;
+}
+.custom-arrow-slider .splide__arrow:hover:not(:disabled) {
+  @apply bg-fp3 text-white;
+  opacity: 1;
+}
+.custom-arrow-slider .splide__arrow svg {
+  fill: #444;
+  height: 1em;
+  width: 1em;
+}
+.custom-arrow-slider .splide__arrow:hover svg {
+  fill: #fff;
+}
+.custom-arrow-slider .splide__arrow--next {
+  left: auto;
+  right: -50px;
+}
+.custom-arrow-slider .splide__arrow--prev {
+  left: -50px;
+  right: auto;
+}
+.custom-arrow-slider .splide__arrows--rtl .splide__arrow--next {
+  left: -50px;
+  right: auto;
+}
+.custom-arrow-slider:hover .splide__arrows--rtl .splide__arrow--next {
+  left: 0px;
+}
+.custom-arrow-slider .splide__arrows--rtl .splide__arrow--prev {
+  left: auto;
+  right: -50px;
+}
+.custom-arrow-slider:hover .splide__arrows--rtl .splide__arrow--prev {
+  right: 0px;
+}
+/************************************/

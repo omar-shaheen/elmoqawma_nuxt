@@ -70,8 +70,9 @@ const options = {
 .reviews .splide__arrows {
   display: flex;
   justify-content: flex-end;
-  margin-top: -65px;
-  gap: 14px;
+  align-items: center;
+  /* margin-top: -65px; */
+  gap: 0 14px;
 }
 .reviews .splide__arrow:hover {
   background-color: #f4d237;

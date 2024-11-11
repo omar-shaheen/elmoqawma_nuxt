@@ -1,5 +1,6 @@
 <template>
-  <Html :lang="currentLocale" oncontextmenu="return false">
+  <!-- <Html :lang="currentLocale" oncontextmenu="return false"> -->
+  <Html :lang="currentLocale" oncontextmenu="return true">
     <Body :dir="dir" class="dark:bg-gray-900 overflow-x-clip sm:pb-0">
       <ButtonUp />
       <NuxtLoadingIndicator />
