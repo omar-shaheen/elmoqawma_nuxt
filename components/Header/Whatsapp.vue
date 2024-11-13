@@ -6,7 +6,7 @@
   >
     <img src="~/assets/images/global/whatsapp.png" alt="whatsapp" class="w-12" />
   </a>
-  <span id="bar-scroll" class="absolute start-0 h-2 bg-fp2 rounded-e-full"></span>
+  <span id="bar-scroll" class="scroll_bar_style"></span>
 </template>
 <script setup>
 import {useGlobalStore} from "@/store/GlobalStore";

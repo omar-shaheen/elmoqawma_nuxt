@@ -1,5 +1,5 @@
 <template>
-  <div :title="$t('profile')" class="btn_actions_header" @click="globalStore.hoverProfile = !globalStore.hoverProfile"
+  <div :title="$t('profile')" class="btn_actions_header hover:brightness-110 hover:animate-pulse" @click="globalStore.hoverProfile = !globalStore.hoverProfile"
     @mouseleave="globalStore.hoverProfile = false" v-if="auth.isLoggedIn">
     <Icon name="ph-user-circle-fill" class="text-2xl group-hover:text-white" />
     <transition name="menu-down" v-show="globalStore.hoverProfile">

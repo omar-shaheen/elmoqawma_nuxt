@@ -7,26 +7,33 @@
     <HomeHero />
     <!-- <HomeNumbers /> -->
 
+    <div class="hidden text-center my-20 grid grid-cols-8 gap-x-2 container mx-auto">
+      <button
+        class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white">
+        <Icon name="ic:baseline-account-balance-wallet" class="text-2xl" />
+      </button>
+    </div>
+
     <section class="py-8 lg:pt-24" v-if="globalStore.homeData.teachers.length > 0">
-      <Waves :title="t('teachers')" />
+      <Waves :title="t('teachers')" :linkUrl="localePath('/teachers')" :linkTitle="t('all_teachers')" />
       <div class="container mx-auto">
         <HomeTeachers :teachers="globalStore.homeData.teachers" />
       </div>
     </section>
     <section class="lg:py-0" v-if="globalStore.homeData.subjects.length > 0">
-      <Waves :title="t('classes_courses')" />
+      <Waves :title="t('classes_courses')" :linkUrl="localePath('/subjects')" :linkTitle="t('all_subjects')" />
       <div class="lg:container mx-auto">
         <HomeSubjects :subjects="globalStore.homeData.subjects" />
       </div>
     </section>
     <section class="lg:py-0" v-if="globalStore.homeData.sections.length > 0">
-      <Waves :title="t('classes')" />
+      <Waves :title="t('classes')" :linkUrl="localePath('/sections')" :linkTitle="t('all_classes')" />
       <div class="container mx-auto">
         <HomeSections :sections="globalStore.homeData.sections" />
       </div>
     </section>
     <section class="py-8 lg:py-0" v-if="globalStore.homeData.offers.length > 0">
-      <Waves :title="t('all_offers')" />
+      <Waves :title="t('all_offers')" :linkUrl="localePath('/sections')" :linkTitle="t('all_offers')" />
       <div class="container mx-auto">
         <HomeOffers :offers="globalStore.homeData.offers" />
       </div>

@@ -13,7 +13,7 @@
       {{ $t("create_new_account") }}
     </nuxt-link>
     <button @click.stop="auth.openModalWallet = true" v-if="auth.isLoggedIn"
-      class="text-fp3 bg-slate-100 hover:bg-slate-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 dark:text-white transition-colors text-center focus:ring-4 focus:ring-fp3 font-bold rounded-lg text-md px-2 py-1.5 block focus:outline-none dark:focus:ring-fp3 w-fit">
+      class="custom_btn1 hover:animate-gradient-xy !text-sm !m-0 !p-1">
       <Icon name="game-icons:wallet" class="text-green-400 text-2xl me-1" />
       إشحن محفظتك الأن
     </button>

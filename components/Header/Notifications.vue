@@ -1,5 +1,5 @@
 <template>
-  <button :title="$t('notification_course_offer_post')" type="button" class="btn_actions_header"
+  <button :title="$t('notification_course_offer_post')" type="button" class="btn_actions_header hover:brightness-110 hover:animate-pulse"
     @click="globalStore.hoverNotification = !globalStore.hoverNotification"
     @mouseleave="globalStore.hoverNotification = false" v-if="auth.isLoggedIn">
     <Icon name="mdi-bell" class="text-2xl text-inherit" />

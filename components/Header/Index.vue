@@ -35,7 +35,7 @@ onMounted(() => {
   document.documentElement.classList.add(localStorage.getItem("mode") || globalStore.mode);
   let barScroll = document.getElementById("bar-scroll");
   window.addEventListener("scroll", function () {
-    barScroll.style.cssText = `width:${Math.trunc((window.pageYOffset / (document.documentElement.scrollHeight - window.outerHeight)) * 100)}%;`;
+    barScroll.style.cssText = `width:${Math.trunc((window.scrollY / (document.documentElement.scrollHeight - window.outerHeight)) * 100)}%;`;
   });
 });
 </script>
