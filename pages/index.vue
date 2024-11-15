@@ -7,14 +7,7 @@
     <HomeHero />
     <!-- <HomeNumbers /> -->
 
-    <div class="hidden text-center my-20 grid grid-cols-8 gap-x-2 container mx-auto">
-      <button
-        class="hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full bg-indigo-500 shadow-lg shadow-indigo-500/50 text-white">
-        <Icon name="ic:baseline-account-balance-wallet" class="text-2xl" />
-      </button>
-    </div>
-
-    <section class="py-8 lg:pt-24" v-if="globalStore.homeData.teachers.length > 0">
+    <section class="py-8" v-if="globalStore.homeData.teachers.length > 0">
       <Waves :title="t('teachers')" :linkUrl="localePath('/teachers')" :linkTitle="t('all_teachers')" />
       <div class="container mx-auto">
         <HomeTeachers :teachers="globalStore.homeData.teachers" />
