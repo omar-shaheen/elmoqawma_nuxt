@@ -38,14 +38,12 @@
         <HomeOffers :offers="globalStore.homeData.offers" />
       </div>
     </section>
-    <section id="reviews" class="reviews pt-24" v-if="globalStore.homeData.reviews.length > 0">
+    <section id="reviews" class="reviews py-8" v-if="globalStore.homeData.reviews.length > 0">
+      <Waves :title="t('students_said_about_us')" :linkUrl="localePath('/review')"
+        iconName="solar:stars-minimalistic-bold-duotone" :linkTitle="t('write_review')" />
+
       <div class="container mx-auto">
         <HomeReviews :reviews="globalStore.homeData.reviews" />
-        <nuxt-link :to="localePath('/review')"
-          class="text-white bg-fp2 hover:bg-fp1 transition-colors focus:ring-4 focus:ring-fp2 font-bold rounded-lg text-lg px-4 py-2.5 my-10 block focus:outline-none dark:focus:ring-fp2 w-fit mx-auto mt-10">
-          <Icon name="ic-outline-mode-edit-outline" class="text-3xl -mt-2" />
-          {{ $t("write_review") }}
-        </nuxt-link>
       </div>
     </section>
   </div>

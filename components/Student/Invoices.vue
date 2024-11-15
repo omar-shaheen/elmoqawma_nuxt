@@ -59,7 +59,7 @@
                   <span class="block rounded-md font-bold mx-auto">
                     <button @click="globalStore.HashURLFile(`${invoice.photo != null ? `${baseURL}/images/${invoice.photo}` : ``}`)" target="_blank">
                       <img v-if="invoice.photo" :src="`${baseURL}/images/${invoice.photo}`" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
-                      <img v-else src="~/assets/images/global/avatar.jpg" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
+                      <img v-else src="/imgs/avatar.png" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
                     </button>
                   </span>
                 </td>

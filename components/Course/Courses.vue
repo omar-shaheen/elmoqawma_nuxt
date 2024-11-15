@@ -34,7 +34,7 @@
 
           <div class="flex items-center mt-4">
             <img v-if="course.teacher.photo" :src="`${baseURL}/images/${course.teacher.photo}`" class="sm:mb-4 object-cover w-10 h-10 rounded-full inline" alt="teacher photo" />
-            <img v-else src="~/assets/images/global/avatar.jpg" class="sm:mb-4 object-cover w-10 h-10 rounded-full inline" alt="teacher photo" />
+            <img v-else src="/imgs/avatar.png" class="sm:mb-4 object-cover w-10 h-10 rounded-full inline" alt="teacher photo" />
             <nuxt-link :to="localePath(`/teacher/${course.teacher.id}`)" class="font-medium text-xl text-fp1 ms-2">{{ course.teacher["name_" + currentLocale] }}</nuxt-link>
           </div>
         </div>

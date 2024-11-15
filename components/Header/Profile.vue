@@ -1,7 +1,7 @@
 <template>
-  <div :title="$t('profile')" class="btn_actions_header hover:brightness-110 hover:animate-pulse" @click="globalStore.hoverProfile = !globalStore.hoverProfile"
+  <div :title="$t('profile')" class="relative" @mouseenter="globalStore.hoverProfile = !globalStore.hoverProfile"
     @mouseleave="globalStore.hoverProfile = false" v-if="auth.isLoggedIn">
-    <Icon name="ph-user-circle-fill" class="text-2xl group-hover:text-white" />
+    <Icon name="ph-user-circle-fill" class="btn_actions_header hover:brightness-110 hover:animate-pulse" />
     <transition name="menu-down" v-show="globalStore.hoverProfile">
       <!-- style="display: none" -->
       <div
@@ -10,7 +10,7 @@
           <div>
             <img v-if="auth.user.photo" :src="`${baseURL}/images/${auth.user.photo}`"
               class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
-            <img v-else src="~/assets/images/global/avatar.jpg"
+            <img v-else src="/imgs/avatar.png"
               class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
           </div>
           <div>
@@ -27,58 +27,58 @@
         <ul class="flex flex-col divide-y divide-gray-200 dark:divide-fpDark2 overflow-y-scroll no-scroll">
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('profile')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ic:baseline-account-box" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("profile") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ic:baseline-account-box" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("profile") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('courses')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ic:outline-ondemand-video" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("my_courses") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ic:outline-ondemand-video" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("my_courses") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('offers')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ic:baseline-card-giftcard" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("my_offers") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ic:baseline-card-giftcard" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("my_offers") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('files')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ph:files-bold" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("my_files") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ph:files-bold" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("my_files") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('certificates')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="fluent:certificate-24-regular" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("my_certificates") }}</span>
+              class="link_dropdown_link">
+              <Icon name="fluent:certificate-24-regular" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("my_certificates") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('exams')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ic:outline-help-center" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("my_exams") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ic:outline-help-center" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("my_exams") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('invoices')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="fa6-solid:file-invoice-dollar" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("invoices") }}</span>
+              class="link_dropdown_link">
+              <Icon name="fa6-solid:file-invoice-dollar" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("invoices") }}</span>
             </nuxt-link>
           </li>
           <li>
             <nuxt-link :to="localePath(`/student`)" @click="StudentStore.setValueStudentMenu('settings')"
-              class="bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block">
-              <Icon name="ic:outline-settings" class="text-4xl" />
-              <span class="text-lg ms-2">{{ $t("settings") }}</span>
+              class="link_dropdown_link">
+              <Icon name="ic:outline-settings" class="text-2xl" />
+              <span class="text-base font-medium ms-2">{{ $t("settings") }}</span>
             </nuxt-link>
           </li>
         </ul>

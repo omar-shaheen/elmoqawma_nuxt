@@ -6,8 +6,8 @@
         {{ title }}
       </strong>
       <NuxtLink :to="linkUrl" class="custom_btn1 hover:animate-gradient-xy !text-lg !m-0">
-        {{linkTitle}}
-        <Icon name="solar:map-arrow-left-line-duotone" class="size-6 rotate-45" />
+        {{ linkTitle }}
+        <Icon :name="iconName ? iconName : `solar:map-arrow-left-line-duotone`" class="size-6 rotate-45" />
       </NuxtLink>
     </div>
     <div>
@@ -33,7 +33,8 @@ const props = defineProps({
   title: String,
   isPage: Boolean,
   linkUrl: String,
-  linkTitle: String
+  linkTitle: String,
+  iconName: String
 });
 </script>
 

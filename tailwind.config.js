@@ -19,6 +19,7 @@ module.exports = {
         linearGradient: "linear-gradient(60deg, #E24141 0%, rgb(50, 141, 202) 100%)",
         linearGradient2: "linear-gradient(60deg, #080c14 0%, #080c14 100%)",
         linearGradientBG: "linear-gradient(135deg,#ececec,#06b6d4)",
+        linearGradient3: "linear-gradient(90deg,#2e2d8d 0,#624ea0 40%)",
       },
       colors: {
         transparent: "transparent",

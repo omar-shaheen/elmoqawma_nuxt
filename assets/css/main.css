@@ -517,3 +517,7 @@ nav.student > button.active-link::before {
 .scroll_bar_style {
   @apply fixed start-0 top-0 h-2 bg-fp2 rounded-e-full bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] z-10 before:content-[''] before:absolute before:inset-[0] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-full active:bg-violet-700 focus:ring-violet-700;
 }
+
+.link_dropdown_link {
+  @apply bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block;
+}

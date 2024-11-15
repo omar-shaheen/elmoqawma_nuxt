@@ -1,47 +1,74 @@
 <template>
   <ClientOnly>
-    <div>
-      <div class="parent_reviews">
-        <h2 class="font-bold text-fp2 text-xl lg:text-4xl">{{ $t("students_said_about_us") }}</h2>
-      </div>
-      <Splide :options="options" class="container px-0 mx-auto review">
-        <SplideSlide class="splide__slide py-10" v-for="review in props.reviews" :key="review.id">
-          <div class="shadow-md py-8 rounded-lg md:mx-4 sm:mx-1 dark:bg-fpDark2 flex flex-col h-full">
-            <div class="p-3 lg:p-10 pt-10 lg:pt-20 rounded-md relative">
-              <Icon class="text-8xl text-fp2 me-1 absolute end-0 -top-12 w-10 lg:w-14" name="ic:baseline-star-purple500" />
-              <p
-                class="whitespace-nowrap overflow-hidden text-ellipsis hover:whitespace-normal transition-all text-justify border-r-2 border_r show_border_r relative font-medium text-md lg:text-2xl dark:text-fpLightGray border-fp1 ps-4"
-                v-html="review.comment"
-              ></p>
-              <div class="flex mt-10 ps-5 lg:ps-10">
-                <img
-                  v-if="review.user.photo"
-                  :src="review.user.oauth_type == null ? `${baseURL}/images/${review.user.photo}` : `${review.user.photo}`"
-                  class="w-14 h-14 lg:w-20 lg:h-20 rounded-full"
-                  alt=""
-                />
-                <img v-else src="~/assets/images/global/avatar.jpg" alt="user photo" class="w-20 h-20 rounded-full block object-cover" />
-                <div class="ms-2">
-                  <p class="text-fp1 font-bold text-lg lg:text-2xl block" v-text="review.user['name_' + currentLocale]"></p>
-                  <nuxt-link :to="localePath(`/section/${review.section.id}`)" class="text-fp1 font-bold text-lg lg:text-2xl block">
-                    <span class="text-fpDark3">{{ $t("section") }}: </span>
-                    {{ review.section.id == 1 ? $t("general") : review.section["name_" + currentLocale] }}</nuxt-link
-                  >
-                  <!-- <span class="text-fp1 font-medium lg:text-xl" v-text="review.user.created_at"></span> -->
-                  <div class="mt-1 flex">
-                    <Icon v-for="i in 5" class="text-3xl text-fp2" name="ic:baseline-star-purple500" />
+
+    <div class="flex flex-col md:flex-row place-content-center">
+
+      <!-- Left Side: Selected Testimonial -->
+      <div class="lg:p-4 lg:w-4/12">
+        <div v-if="selectedReview">
+          <div class="shadow-md rounded-lg dark:bg-fpDark2 flex flex-col h-full">
+            <div class="p-3 lg:p-10 rounded-md relative">
+              <div class="flex flex-col justify-center items-center text-center">
+                <div class="w-14 h-14 lg:w-20 lg:h-20 rounded-full overflow-hidden">
+                  <img :src="selectedReview.user.photo ? getPhotoUrl(selectedReview.user) : defaultAvatar"
+                    class="w-full h-full object-cover" alt="user photo" />
+                </div>
+                <div class="mt-3">
+                  <p class="text-fp1 font-bold text-lg lg:text-xl block"
+                    v-text="selectedReview.user['name_' + currentLocale]"></p>
+                  <nuxt-link :to="localePath(`/section/${selectedReview.section.id}`)"
+                    class="text-fp1 font-bold text-sm lg:text-md block">
+                    <span class="text-fpDark3">{{ $t('section') }}: </span>
+                    {{
+                      selectedReview.section.id == 1
+                        ? $t('general')
+                        : selectedReview.section['name_' + currentLocale]
+                    }}
+                  </nuxt-link>
+
+                  <div class="my-3 flex justify-center">
+                    <Icon v-for="i in 5" :key="i" class="text-3xl text-fp2"
+                      name="solar:stars-minimalistic-bold-duotone" />
                   </div>
+
+                  <p class="relative font-medium text-md lg:text-base dark:text-fpLightGray"
+                    v-html="selectedReview.comment"></p>
                 </div>
               </div>
             </div>
           </div>
-        </SplideSlide>
-      </Splide>
+        </div>
+      </div>
+
+      <!-- Right Side: Client Images -->
+      <div class="lg:p-4 lg:w-8/12">
+        <div class="flex items-center flex-wrap justify-center gap-4">
+          <div v-for="review in props.reviews" :key="review.id">
+            <div class="w-16 h-16 rounded-full overflow-hidden shadow-lg bg-white relative z-[1]"
+              @click="selectReview(review)">
+              <img :src="review.user.photo
+                ? review.user.oauth_type == null
+                  ? `${baseURL}/images/${review.user.photo}`
+                  : `${review.user.photo}`
+                : defaultAvatar
+                " class="cursor-pointer w-full h-full object-contain block" alt="user photo" />
+
+              <div v-if="selectedReview && selectedReview.id === review.id"
+                class="absolute top-0 left-0 p-1 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 w-full h-full aspect-square rounded-full z-[-1]">
+                <div class="rounded-full h-full w-full bg-slate-100 dark:bg-zinc-900 background-blur-md"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
+
   </ClientOnly>
 </template>
 <script setup>
-const {currentLocale, dir} = useLang();
+const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const props = defineProps({
   reviews: {
@@ -50,21 +77,22 @@ const props = defineProps({
   },
 });
 
-const options = {
-  direction: dir.value,
-  paginationDirection: dir.value,
-  pagination: true,
-  type: "loop",
-  interval: 4000,
-  autoplay: true,
-  perPage: 2,
-  breakpoints: {
-    1024: {
-      arrows: false,
-      perPage: 1,
-    },
-  },
+const selectedReview = ref(null);
+const selectReview = (review) => {
+  selectedReview.value = review;
 };
+const defaultAvatar = '/imgs/avatar.png';
+const getPhotoUrl = (user) => {
+  return user.oauth_type == null
+    ? `${baseURL}/images/${user.photo}`
+    : `${user.photo}`;
+};
+onMounted(() => {
+  if (props.reviews.length > 0) {
+    selectedReview.value = props.reviews[0];
+  }
+});
+
 </script>
 <style>
 .reviews .splide__arrows {
@@ -74,20 +102,25 @@ const options = {
   /* margin-top: -65px; */
   gap: 0 14px;
 }
+
 .reviews .splide__arrow:hover {
   background-color: #f4d237;
 }
+
 .reviews .splide__arrow {
   border-color: #f4d237;
-  @apply rounded-full border-2 border-solid  flex items-center justify-center w-14 h-14;
+  @apply rounded-full border-2 border-solid flex items-center justify-center w-14 h-14;
 }
+
 .reviews .splide__arrow:hover svg {
   fill: white !important;
 }
+
 .reviews .splide__arrow splide__arrow--next {
   transform: rotate(180deg);
   margin-top: -26px;
 }
+
 .reviews .splide__arrow svg {
   fill: #f4d237;
   font-size: 12px;
