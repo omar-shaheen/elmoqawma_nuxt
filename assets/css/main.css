@@ -431,7 +431,7 @@ nav.student > button.active-link::before {
 /* ***************************************** */
 
 .splide__track {
-  @apply py-5;
+  /* @apply py-5; */
 }
 
 /* ***************************************** */
@@ -507,6 +507,10 @@ nav.student > button.active-link::before {
   @apply cursor-pointer text-white font-bold relative text-[14px] mx-auto mt-5 py-2 px-3 text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[30px] z-10 hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[35px] before:hover:blur-xl before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700 flex justify-center items-center gap-x-2;
 }
 
+.btn_custom2 {
+  @apply bg-gradient-to-r from-violet-500 to-pink-500 hover:from-violet-600 hover:to-pink-600 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out focus:outline-none;
+}
+
 /* .btn_actions_header {
   @apply bg-gray-200/50 hover:bg-fp1 dark:bg-fpDark2 xl:dark:bg-fpDark1 text-fp3 dark:text-fp2 hover:dark:text-white hover:text-white rounded-full p-2 border border-gray-100;
 } */
@@ -521,3 +525,33 @@ nav.student > button.active-link::before {
 .link_dropdown_link {
   @apply bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2 transition block;
 }
+
+.text_clip {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500;
+}
+
+.splide__slide {
+  @apply !pb-7;
+}
+
+.item_notif {
+  @apply flex items-center bg-gray-100 hover:bg-gray-200 dark:bg-fpDark2 dark:hover:bg-fpDark3 text-fp1 hover:text-fp2 p-2;
+}
+
+/* Webkit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, #ffcccc, #ffe6b3); /* Soft playful background */
+  border-radius: 0; /* Rounded track */
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #8b5cf6, #0ea5e9); /* Colorful thumb */
+  border-radius: 30px; /* Rounded thumb */
+  border: 1px solid #fff; /* Gives a nice border for thumb contrast */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff3300, #ff9900); /* Changes on hover */
+}
+

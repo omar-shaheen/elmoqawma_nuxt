@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-transparent lg:border-b border-slate-200 py-3">
+  <section class="bg-transparent lg:border-b border-slate-200 py-1">
     <div class="container mx-auto flex justify-between xl:justify-center items-center">
       <TopHeaderSearch />
       <TopHeaderAdvertisements v-if="Object.keys(globalStore.appSettings).length != 0" />

@@ -1,7 +1,7 @@
 <template>
   <div :title="$t('profile')" class="relative" @mouseenter="globalStore.hoverProfile = !globalStore.hoverProfile"
     @mouseleave="globalStore.hoverProfile = false" v-if="auth.isLoggedIn">
-    <Icon name="ph-user-circle-fill" class="btn_actions_header hover:brightness-110 hover:animate-pulse" />
+    <Icon name="ph:user-duotone" class="btn_actions_header hover:brightness-110 hover:animate-pulse p-1" />
     <transition name="menu-down" v-show="globalStore.hoverProfile">
       <!-- style="display: none" -->
       <div

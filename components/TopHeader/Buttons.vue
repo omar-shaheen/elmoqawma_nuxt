@@ -14,7 +14,7 @@
     </nuxt-link>
     <button @click.stop="auth.openModalWallet = true" v-if="auth.isLoggedIn"
       class="custom_btn1 hover:animate-gradient-xy !text-sm !m-0 !p-1">
-      <Icon name="game-icons:wallet" class="text-green-400 text-2xl me-1" />
+      <Icon name="solar:wallet-money-bold-duotone" class="text-2xl me-1" />
       إشحن محفظتك الأن
     </button>
   </div>

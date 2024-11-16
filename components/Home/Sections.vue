@@ -2,7 +2,7 @@
   <Splide :options="options" class="splide_sections custom-arrow-slider">
     <SplideSlide class="" v-for="section in props.sections" :key="section.id">
       <nuxt-link :to="localePath(`/section/${section.id}`)"
-        class="rounded-2xl relative z-20 hover:scale-105 transition-all group text-fp1 hover:text-fp3 dark:text-fp2 dark:hover:text-fp3">
+        class="rounded-2xl relative text-fp1 hover:text-fp3 dark:text-fp2 dark:hover:text-fp3">
         <!-- <p class="absolute z-10 inset-x-0 top-0 lg:-top-20 bg-white dark:bg-fpDark2 text-fp2 text-center text-xl lg:text-3xl font-bold py-2 transition-all lg:group-hover:top-0 whitespace-nowrap"
           v-text="section['name_' + currentLocale]"></p> -->
         <img :src="`${baseURL}/images/${section.photo}`" class="rounded-2xl" alt="post image" />
@@ -32,7 +32,7 @@ const options = {
   interval: 4000,
   pagination: false,
   perPage: 3,
-  gap: "2rem",
+  gap: "1rem",
   breakpoints: {
     768: {
       perPage: 2,
@@ -41,8 +41,6 @@ const options = {
     640: {
       perPage: 1,
       gap: "1rem",
-      // pagination: true,
-      arrows: false,
     },
   },
 };

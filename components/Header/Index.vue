@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white dark:bg-fpDark2 sticky top-0 start-0 z-100 whitespace-nowrap py-4">
+  <header class="bg-white dark:bg-fpDark2 sticky top-0 start-0 z-100 whitespace-nowrap py-2">
     <HeaderWhatsapp />
     <div class="container flex items-center mx-auto">
       <div class="w-full lg:w-1/12 flex justify-between items-center">

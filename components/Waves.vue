@@ -1,11 +1,11 @@
 <template>
   <div class="relative pt-10 bg-linearGradient mb-10">
-    <div class="container mx-auto flex justify-between items-center">
+    <div class="container mx-auto flex justify-between items-center" :class="class2">
       <strong class="block text-2xl md:text-5xl text-white font-bold" data-aos="fade-right" data-aos-duration="1500"
         data-aos-anchor-placement="top-bottom" v-if="title">
         {{ title }}
       </strong>
-      <NuxtLink :to="linkUrl" class="custom_btn1 hover:animate-gradient-xy !text-lg !m-0">
+      <NuxtLink :to="linkUrl" class="custom_btn1 hover:animate-gradient-xy !text-lg !m-0" v-if="linkUrl && linkTitle">
         {{ linkTitle }}
         <Icon :name="iconName ? iconName : `solar:map-arrow-left-line-duotone`" class="size-6 rotate-45" />
       </NuxtLink>
@@ -34,7 +34,8 @@ const props = defineProps({
   isPage: Boolean,
   linkUrl: String,
   linkTitle: String,
-  iconName: String
+  iconName: String,
+  class2: String
 });
 </script>
 

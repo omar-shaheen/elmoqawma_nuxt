@@ -1,10 +1,10 @@
 <template>
   <ClientOnly>
 
-    <div class="flex flex-col md:flex-row place-content-center">
+    <div class="flex flex-col lg:flex-row place-content-center">
 
       <!-- Left Side: Selected Testimonial -->
-      <div class="lg:p-4 lg:w-4/12">
+      <div class="lg:p-4 lg:w-5/12 order-2 lg:order-1">
         <div v-if="selectedReview">
           <div class="shadow-md rounded-lg dark:bg-fpDark2 flex flex-col h-full">
             <div class="p-3 lg:p-10 rounded-md relative">
@@ -41,10 +41,10 @@
       </div>
 
       <!-- Right Side: Client Images -->
-      <div class="lg:p-4 lg:w-8/12">
+      <div class="lg:p-4 lg:w-7/12 order-1 lg:order-2 lg:mb-0 mb-16">
         <div class="flex items-center flex-wrap justify-center gap-4">
           <div v-for="review in props.reviews" :key="review.id">
-            <div class="w-16 h-16 rounded-full overflow-hidden shadow-lg bg-white relative z-[1]"
+            <div class="lg:w-20 lg:h-20 w-16 h-16 rounded-full overflow-hidden shadow-lg bg-white relative z-[1]"
               @click="selectReview(review)">
               <img :src="review.user.photo
                 ? review.user.oauth_type == null

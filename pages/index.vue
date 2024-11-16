@@ -7,31 +7,31 @@
     <HomeHero />
     <!-- <HomeNumbers /> -->
 
-    <section class="py-8" v-if="globalStore.homeData.teachers.length > 0">
+    <section class="py-0 pt-8" v-if="globalStore.homeData.teachers.length > 0">
       <Waves :title="t('teachers')" :linkUrl="localePath('/teachers')" :linkTitle="t('all_teachers')" />
       <div class="container mx-auto">
         <HomeTeachers :teachers="globalStore.homeData.teachers" />
       </div>
     </section>
-    <section class="lg:py-0" v-if="globalStore.homeData.subjects.length > 0">
+    <section class="py-0" v-if="globalStore.homeData.subjects.length > 0">
       <Waves :title="t('classes_courses')" :linkUrl="localePath('/subjects')" :linkTitle="t('all_subjects')" />
       <div class="lg:container mx-auto">
         <HomeSubjects :subjects="globalStore.homeData.subjects" />
       </div>
     </section>
-    <section class="lg:py-0" v-if="globalStore.homeData.sections.length > 0">
+    <section class="py-0" v-if="globalStore.homeData.sections.length > 0">
       <Waves :title="t('classes')" :linkUrl="localePath('/sections')" :linkTitle="t('all_classes')" />
       <div class="container mx-auto">
         <HomeSections :sections="globalStore.homeData.sections" />
       </div>
     </section>
-    <section class="py-8 lg:py-0" v-if="globalStore.homeData.offers.length > 0">
-      <Waves :title="t('all_offers')" :linkUrl="localePath('/sections')" :linkTitle="t('all_offers')" />
+    <section class="py-0" v-if="globalStore.homeData.offers.length > 0">
+      <Waves :title="t('all_offers')" :linkUrl="localePath('/offers')" :linkTitle="t('all_offers')" />
       <div class="container mx-auto">
         <HomeOffers :offers="globalStore.homeData.offers" />
       </div>
     </section>
-    <section id="reviews" class="reviews py-8" v-if="globalStore.homeData.reviews.length > 0">
+    <section id="reviews" class="reviews py-0 pb-4" v-if="globalStore.homeData.reviews.length > 0">
       <Waves :title="t('students_said_about_us')" :linkUrl="localePath('/review')"
         iconName="solar:stars-minimalistic-bold-duotone" :linkTitle="t('write_review')" />
 

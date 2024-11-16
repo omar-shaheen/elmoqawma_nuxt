@@ -10,19 +10,19 @@
     </button>
     <button title="Dark mode and Light mode" :class="auth.isLoggedIn ? '' : 'ms-auto'"
       @click.stop="globalStore.toggleDarkmode()" class="btn_actions_header hover:brightness-110 hover:animate-pulse">
-      <Icon class="text-2xl" name="ph-moon-fill" v-show="globalStore.mode == 'light'" />
-      <Icon id="toggleMode" class="text-2xl" name="ph-sun-fill" v-show="globalStore.mode == 'dark'" />
+      <Icon class="text-2xl" name="line-md:sunny-filled-loop-to-moon-filled-loop-transition" v-show="globalStore.mode == 'light'" />
+      <Icon id="toggleMode" class="text-2xl" name="line-md:sun-rising-twotone-loop" v-show="globalStore.mode == 'dark'" />
     </button>
     <button v-if="auth.isLoggedIn" title="إشحن محفظتك الأن" type="button" @click.stop="auth.openModalWallet = true"
       class="btn_actions_header hover:brightness-110 hover:animate-pulse">
-      <Icon name="ic:baseline-account-balance-wallet" class="text-2xl" :class="locale == 'ar' ? 'rotate-180' : ''" />
+      <Icon name="solar:wallet-money-bold-duotone" class="text-2xl" />
     </button>
     <HeaderNotifications />
     <HeaderProfile />
 
     <button :title="t('logout')" type="button" @click="auth.logout()"
       class="btn_actions_header hover:brightness-110 hover:animate-pulse grid place-content-center" v-if="auth.isLoggedIn">
-      <Icon name="ic-twotone-log-out" class="text-2xl" :class="locale == 'ar' ? 'rotate-180' : ''" />
+      <Icon name="solar:logout-3-broken" class="text-2xl" :class="locale == 'ar' ? '' : 'rotate-180'" />
     </button>
   </div>
 </template>

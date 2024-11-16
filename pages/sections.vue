@@ -1,16 +1,16 @@
 <template>
   <section class="py-8 lg:pb-24">
+    <Waves :title="t('all_offers')" class2="text-center !justify-center" />
     <div class="container mx-auto">
       <div class="mt-10">
-        <h2 class="text-3xl lg:text-5xl text-fp2 dark:text-fp1 font-bold border-b-2 border-fp2 w-fit mx-auto pb-2 lg:pb-6 mb-16">{{ $t("classes") }}</h2>
         <Skeleton type="image" :count="3" v-if="sections.length == 0" />
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
-          <nuxt-link
-            :to="localePath(`/section/${section.id}`)"
-            v-for="section in sections"
-            class="link_classe relative z-20 hover:scale-105 shadow-lg transition-all overflow-hidden border-0"
-          >
-            <img :src="`${baseURL}/images/${section.photo}`" alt="post image" class="object-cover rounded-2xl" />
+          <nuxt-link :to="localePath(`/section/${section.id}`)" v-for="section in sections" :key="section.id"
+            class="rounded-2xl relative text-fp1 hover:text-fp3 dark:text-fp2 dark:hover:text-fp3">
+            <img :src="`${baseURL}/images/${section.photo}`" class="rounded-2xl" alt="post image" />
+            <div class="p-3 pt-0">
+              <p class="custom_btn1 hover:animate-gradient-xy !text-xl" v-text="section['name_' + currentLocale]"></p>
+            </div>
           </nuxt-link>
         </div>
       </div>
@@ -18,7 +18,8 @@
   </section>
 </template>
 <script setup>
-const {currentLocale, dir} = useLang();
+const { currentLocale, dir } = useLang();
+const { t } = useI18n();
 const baseURL = useRuntimeConfig().public.baseURL;
 let sections = ref([]);
 const getSections = () => {
