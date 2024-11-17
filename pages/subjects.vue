@@ -1,5 +1,5 @@
 <template>
-  <section class="py-8 lg:pb-24">
+  <section class="pb-8 lg:pb-24">
     <Waves :title="t('subjects')" class2="text-center !justify-center" />
     <div class="container mx-auto">
       <div class="mt-10">

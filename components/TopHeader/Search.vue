@@ -2,7 +2,7 @@
   <div class="w-full lg:w-1/3 relative" :class="auth.isLoggedIn ? 'sm:hidden' : ''">
     <div class="relative h-fit w-full mx-auto">
       <input @input="e => searchCourses(e.target.value)" id="posts-search" type="text" :placeholder="$t('search')"
-        class="focus:outline-none bg-slate-50 focus:bg-slate-100 dark:bg-fpDark2 text-black placeholder:text-fpLightGray rounded-xl p-6 py-2 font-medium text-lg w-full border" />
+        class="focus:outline-none bg-slate-50 focus:bg-slate-100 dark:bg-fpDark2 text-black dark:text-fpLightBack placeholder:text-fpLightGray rounded-xl p-6 py-2 font-medium text-lg w-full border dark:border-gray-600" />
       <Icon name="streamline:definition-search-book-solid"
         class="absolute bg-transparent h-full end-3 top-0 grid place-items-center text-3xl text-slate-400" />
     </div>

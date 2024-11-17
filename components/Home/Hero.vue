@@ -2,36 +2,37 @@
   <section class="lg:pt-5 relative hero-section">
     <!-- :style="`background-image: url('${baseURL}/images/${globalStore.appSettings.bg_hero}')`" -->
     <div class="container mx-auto flex flex-col lg:flex-row items-center relative z-10 h-full">
-      <div class="lg:w-1/2 mt-8">
+      <div class="lg:w-1/2 md:mt-8 mt-4">
         <div class="flex flex-col justify-center" v-if="Object.keys(globalStore.appSettings).length > 0">
           <div class="mb-5">
-            <h1 class="text-3xl lg:text-6xl !leading-[1.4] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"
+            <h1
+              class="md:text-6xl text-xl !leading-[1.4] font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500"
               v-text="globalStore.appSettings.title_hero"></h1>
           </div>
-          <h3 class="lg:text-2xl text-lg leading-tight font-medium text-gray-600 dark:text-slate-300">
+          <h3 class="md:text-2xl text-base leading-tight font-medium text-gray-600 dark:text-slate-300">
             "انضم إلى منصة المقاومة في الفيزياء الآن، وابدأ رحلتك نحو التميز . مع دعم مستمر ومحتوى تعليمي متجدد، ستكون
             دائمًا على استعداد لتحقيق أفضل النتائج في مادة الفيزياء. تذكر، النجاح يبدأ من هنا!"
           </h3>
         </div>
 
-        <div class="flex items-center flex-wrap sm:gap-y-6 gap-x-5 w-full mt-10">
+        <div class="flex items-center flex-wrap lg:justify-start justify-center md:gap-y-6 gap-y-1 md:gap-x-5 gap-x-4 w-full md:mt-10 mt-5">
           <nuxt-link v-if="!auth.isLoggedIn" :to="localePath('/login')"
-            class="lg:hidden text-white whitespace-nowrap bg-fp2 hover:bg-fp3 dark:bg-fp1 dark:hover:bg-fp2 transition font-bold rounded-lg text-md lg:text-lg text-center px-4 py-2 lg:py-2.5 block focus:outline-none dark:focus:ring-fp2">
+            class="lg:hidden custom_btn1 hover:animate-gradient-xy md:!text-base !text-sm !mx-0 md:p-3 !p-1">
             {{ $t("login") }}
-            <Icon name="mdi-lock-open" class="text-white text-xl -mt-1" />
+            <Icon name="mdi-lock-open" class="text-white md:text-xl text-base" />
           </nuxt-link>
           <nuxt-link v-if="!auth.isLoggedIn" :to="localePath('/register')"
-            class="lg:hidden text-white whitespace-nowrap bg-fp2 hover:bg-fp3 dark:bg-fp1 dark:hover:bg-fp2 transition font-bold rounded-lg text-md lg:text-lg text-center px-5 lg:px-4 py-2 lg:py-2.5 block focus:outline-none dark:focus:ring-fp2">
+            class="lg:hidden custom_btn1 hover:animate-gradient-xy md:!text-base !text-sm !mx-0 md:p-3 !p-1">
             {{ $t("create_new_account") }}
-            <Icon name="mdi-account-plus" class="text-white text-xl -mt-1" />
+            <Icon name="mdi-account-plus" class="text-white md:text-xl text-base" />
           </nuxt-link>
-          <nuxt-link :to="localePath('/contact')" class="custom_btn1 hover:animate-gradient-xy !text-base !mx-0">
+          <nuxt-link :to="localePath('/contact')" class="custom_btn1 hover:animate-gradient-xy md:!text-base !text-sm !mx-0 md:p-3 !p-1">
             {{ $t("contact") }}
-            <Icon name="ic:outline-contact-mail" class="text-white text-xl -mt-1" />
+            <Icon name="ic:outline-contact-mail" class="text-white md:text-xl text-base" />
           </nuxt-link>
-          <nuxt-link :to="localePath('/sections')" class="custom_btn1 hover:animate-gradient-xy !text-base !mx-0">
+          <nuxt-link :to="localePath('/sections')" class="custom_btn1 hover:animate-gradient-xy md:!text-base !text-sm !mx-0 md:p-3 !p-1">
             {{ $t("all_offers") }}
-            <Icon name="ic:round-card-giftcard" class="text-white text-xl" />
+            <Icon name="ic:round-card-giftcard" class="text-white md:text-xl text-base" />
           </nuxt-link>
         </div>
       </div>

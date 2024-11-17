@@ -199,5 +199,10 @@
   "code": "Copoun",
   "incoives": "Incoives",
   "all_inovoices": "Invoices",
-  "exam": "pass the quiz and get the certifications "
+  "exam": "pass the quiz and get the certifications ",
+  "classes": "classes",
+  "teachers": "teachers",
+  "subjects": "subjects",
+  "by": "by",
+  "go_course": "go_course"
 }

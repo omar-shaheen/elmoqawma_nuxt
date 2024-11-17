@@ -6,7 +6,7 @@
       <!-- Left Side: Selected Testimonial -->
       <div class="lg:p-4 lg:w-5/12 order-2 lg:order-1">
         <div v-if="selectedReview">
-          <div class="shadow-md rounded-lg dark:bg-fpDark2 flex flex-col h-full">
+          <div class="shadow-md rounded-lg dark:bg-fpDark2 border border-gray-100 flex flex-col h-full">
             <div class="p-3 lg:p-10 rounded-md relative">
               <div class="flex flex-col justify-center items-center text-center">
                 <div class="w-14 h-14 lg:w-20 lg:h-20 rounded-full overflow-hidden">
@@ -42,16 +42,18 @@
 
       <!-- Right Side: Client Images -->
       <div class="lg:p-4 lg:w-7/12 order-1 lg:order-2 lg:mb-0 mb-16">
-        <div class="flex items-center flex-wrap justify-center gap-4">
+        <div class="flex items-center flex-wrap justify-center md:gap-4 gap-3">
           <div v-for="review in props.reviews" :key="review.id">
-            <div class="lg:w-20 lg:h-20 w-16 h-16 rounded-full overflow-hidden shadow-lg bg-white relative z-[1]"
+            <div class="md:w-20 md:h-20 w-12 h-12 rounded-full overflow-hidden shadow-sm bg-white relative z-[1] border border-gray-100"
               @click="selectReview(review)">
               <img :src="review.user.photo
                 ? review.user.oauth_type == null
                   ? `${baseURL}/images/${review.user.photo}`
                   : `${review.user.photo}`
                 : defaultAvatar
-                " class="cursor-pointer w-full h-full object-contain block" alt="user photo" />
+                " class="cursor-pointer w-full h-full object-contain block" 
+                  :class="selectedReview && selectedReview.id === review.id ? 'opacity-100 shadow-2xl' : 'opacity-80'"
+                alt="user photo" />
 
               <div v-if="selectedReview && selectedReview.id === review.id"
                 class="absolute top-0 left-0 p-1 animate-spin drop-shadow-2xl bg-gradient-to-bl from-pink-400 via-purple-400 to-indigo-600 w-full h-full aspect-square rounded-full z-[-1]">
@@ -67,9 +69,11 @@
 
   </ClientOnly>
 </template>
+
 <script setup>
-const { currentLocale, dir } = useLang();
+const { currentLocale } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
+
 const props = defineProps({
   reviews: {
     type: Array,
@@ -78,22 +82,47 @@ const props = defineProps({
 });
 
 const selectedReview = ref(null);
-const selectReview = (review) => {
-  selectedReview.value = review;
-};
+const currentIndex = ref(0);
+const autoPlayInterval = ref(null);
 const defaultAvatar = '/imgs/avatar.png';
+
+const selectReview = (review, index = null) => {
+  selectedReview.value = review;
+  if (index !== null) currentIndex.value = index;
+  restartAutoPlay();
+};
+
 const getPhotoUrl = (user) => {
   return user.oauth_type == null
     ? `${baseURL}/images/${user.photo}`
     : `${user.photo}`;
 };
+
+const autoPlayReviews = () => {
+  autoPlayInterval.value = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % props.reviews.length;
+    selectedReview.value = props.reviews[currentIndex.value];
+  }, 3000);
+};
+
+const restartAutoPlay = () => {
+  if (autoPlayInterval.value) clearInterval(autoPlayInterval.value);
+  autoPlayReviews();
+};
+
 onMounted(() => {
   if (props.reviews.length > 0) {
     selectedReview.value = props.reviews[0];
+    currentIndex.value = 0;
+    autoPlayReviews();
   }
 });
-
+onUnmounted(() => {
+  if (autoPlayInterval.value) clearInterval(autoPlayInterval.value);
+});
 </script>
+
+
 <style>
 .reviews .splide__arrows {
   display: flex;

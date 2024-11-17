@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/3 hidden lg:flex items-center gap-x-2 bg-white text-fp3 rounded-full px-6 py-4">
+  <div class="w-1/3 hidden lg:flex items-center gap-x-2 bg-white dark:bg-transparent text-fp3 rounded-full px-6 py-4">
     <!-- <p id="text_top_top_header" class="text_top_top_header text-white border-e-2 pe-1 font-bold h-6"></p> -->
     <p ref="text_top_top_header" class="text_top_top_header border-e-2 text-fp3 font-bold h-6 mx-auto"></p>
   </div>

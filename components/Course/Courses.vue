@@ -1,34 +1,32 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
-    <div class="bg-white border rounded-xl overflow-hidden shadow-md group" v-for="course in props.courses"
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="bg-white dark:bg-fpDark2 border rounded-xl overflow-hidden shadow-md group" v-for="course in props.courses"
       :key="course.id">
 
-      <div class="flex items-center m-3">
-        <img v-if="course.teacher.photo" :src="`${baseURL}/images/${course.teacher.photo}`"
+      <!-- <div v-if="course.teacher.photo" class="flex items-center m-3">
+        <img :src="`${baseURL}/images/${course.teacher.photo}`"
           class="sm:mb-4 object-cover w-10 h-10 rounded-full inline" alt="teacher photo" />
-        <img v-else src="/imgs/avatar.png" class="sm:mb-4 object-cover w-10 h-10 rounded-full inline"
-          alt="teacher photo" />
         <nuxt-link :to="localePath(`/teacher/${course.teacher.id}`)" class="font-extrabold text_clip ms-2">{{
           course.teacher["name_" + currentLocale] }}</nuxt-link>
-      </div>
+      </div> -->
 
       <nuxt-link :to="localePath(`/course/${course.id}`)">
         <img :src="`${baseURL}/images/${course.photo}`" alt="post image"
           class="w-full h-[250px] object-cover rounded-t-2xl" />
       </nuxt-link>
-      <div class="bg-white">
+      <div class="bg-white dark:bg-fpDark2">
         <div class="py-4 px-2">
           <div class="flex flex-col gap-2">
-            <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+            <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
               <Icon name="ph:student-duotone" class="size-5" />
               {{ $t("number_subscriptions") }} {{
                 course.subscribers }}
             </span>
-            <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+            <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
               <Icon name="mingcute:classify-2-line" class="size-5" />
               {{ course.section["name_" + currentLocale] }}
             </span>
-            <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+            <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
               <Icon name="ic:twotone-local-offer" class="size-5" />
               {{ $t("discount") }} {{ course.discount }}
               {{ course.currency.name }}

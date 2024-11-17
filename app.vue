@@ -4,7 +4,7 @@
     <Body :dir="dir" class="dark:bg-gray-900 overflow-x-clip sm:pb-0">
       <ButtonUp />
       <NuxtLoadingIndicator />
-      <Loader />
+      <!-- <Loader /> -->
       <!-- v-if="Object.keys(globalStore.appSettings).length != 0" -->
       <NuxtLayout>
         <NuxtPage />

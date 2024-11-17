@@ -1,23 +1,24 @@
 <template>
-  <section class="py-8 lg:py-24">
+  <section class="pb-8 lg:pb-24">
     <Waves :title="t('all_offers')" class2="text-center !justify-center" />
     <div class="container mx-auto">
       <Skeleton type="card" :count="3" v-if="offers.length == 0" />
+      <!-- <pre dir="ltr" class="text-gray-200">{{ offers }}</pre> -->
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-5 gap-y-8 h-fit" v-if="offers.length > 0">
-        <div class="bg-white border rounded-xl overflow-hidden shadow-md group" v-for="offer in offers" :key="offer.id">
+        <div class="bg-white dark:bg-fpDark2 border rounded-xl overflow-hidden shadow-md group" v-for="offer in offers" :key="offer.id">
           <nuxt-link :to="localePath(`/offer/${offer.id}`)">
             <img :src="`${baseURL}/images/${offer.photo}`" alt="post image"
               class="w-full h-[250px] object-cover rounded-t-2xl" />
           </nuxt-link>
-          <div class="bg-white">
+          <div class="bg-white dark:bg-fpDark2">
             <div class="py-4 px-2">
               <div class="flex items-center gap-x-5">
-                <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+                <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
                   <Icon name="ph:student-duotone" class="size-5" />
                   {{ $t("number_subscriptions") }}
                   {{ offer.subscribers }}
                 </span>
-                <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+                <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
                   <Icon name="solar:calendar-broken" class="size-5" />
                   <bdi>{{ offer.duration.replace(/-/g, "/") }}</bdi>
                 </span>

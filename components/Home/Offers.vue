@@ -1,20 +1,20 @@
 <template v-if="offers.length > 0">
   <Splide :options="options" class="custom-arrow-slider offers_pkg">
     <SplideSlide class="rounded-2xl overflow-hidden sm:pb-20" v-for="offer in props.offers" :key="offer.id">
-      <div class="bg-white border rounded-xl overflow-hidden shadow-md group">
+      <div class="bg-white dark:bg-fpDark2 border dark:border-fpDark2 rounded-xl overflow-hidden shadow-md group">
         <nuxt-link :to="localePath(`/offer/${offer.id}`)">
           <img :src="`${baseURL}/images/${offer.photo}`" alt="post image"
             class="w-full h-[250px] object-cover rounded-t-2xl" />
         </nuxt-link>
-        <div class="bg-white">
+        <div class="bg-white dark:bg-fpDark2">
           <div class="py-4 px-2">
             <div class="flex items-center gap-x-5">
-              <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+              <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
                 <Icon name="ph:student-duotone" class="size-5" />
                 {{ $t("number_subscriptions") }}
                 {{ offer.subscribers }}
               </span>
-              <span class="text-sm lg:text-base font-medium flex items-center gap-x-1">
+              <span class="dark:text-slate-200 text-sm lg:text-base font-medium flex items-center gap-x-1">
                 <Icon name="solar:calendar-broken" class="size-5" />
                 <bdi>{{ offer.duration.replace(/-/g, "/") }}</bdi>
               </span>

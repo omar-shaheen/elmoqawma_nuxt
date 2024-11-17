@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {useTostStore} from "@/store/TostStore";
-import {useGlobalStore} from "@/store/GlobalStore";
-const globalStore = useGlobalStore();
+// import {useGlobalStore} from "@/store/GlobalStore";
+// const globalStore = useGlobalStore();
 const tost = useTostStore();
 export const useOfferStore = defineStore("offer", {
   state: () => {
