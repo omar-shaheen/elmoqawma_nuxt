@@ -2,7 +2,6 @@ import {defineStore} from "pinia";
 import {useTostStore} from "@/store/TostStore";
 // import {useGlobalStore} from "@/store/GlobalStore";
 // const globalStore = useGlobalStore();
-const tost = useTostStore();
 export const useOfferStore = defineStore("offer", {
   state: () => {
     return {
@@ -14,6 +13,7 @@ export const useOfferStore = defineStore("offer", {
   },
   actions: {
     async getOfferApi(ID) {
+      const tost = useTostStore();
       try {
         await $fetch(`${useRuntimeConfig().public.apiURL}/getOffer/${ID}`, {
           headers: {

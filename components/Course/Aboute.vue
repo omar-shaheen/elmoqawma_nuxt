@@ -1,29 +1,38 @@
 <template>
   <div>
-    <a :href="`${baseURL}/images/${course.description_photo}`" target="_blank" class="flex justify-center items-center w-full">
-      <img :src="`${baseURL}/images/${course.description_photo}`" class="w-auto object-cover lg:max-h-[800px]" />
-    </a>
-    <div class="border border-gray-300 rounded-lg mt-20">
-      <h1 class="font-bold text-3xl mb-4 whitespace-nowrap text-fp1 p-4 border-b-2 border-fp1 shadow-md line-right text-center">{{ $t("course_aboute") }}</h1>
-      <p class="p-4 lg:pr-10 font-bold text-md lg:text-lg space-y-2 dark:text-fpLightBack" v-html="course['description_' + currentLocale]"></p>
-    </div>
+    <div class="grid md:grid-cols-2">
+      <div>
+        <img :src="`${baseURL}/images/${course.description_photo}`" class="w-full rounded-xl shadow-xl" />
+      </div>
 
-    <div class="border border-gray-300 rounded-lg mt-20">
-      <h1 class="font-bold text-xl lg:text-3xl mb-4 whitespace-nowrap text-fp1 p-4 border-b-2 border-fp1 shadow-md line-right text-center">{{ $t("trainers") }}</h1>
-      <div class="lg:w-1/6 pb-4 mt-2 px-4 flex flex-col justify-center">
-        <img v-if="course.teacher.photo" :src="`${baseURL}/images/${course.teacher.photo}`" class="rounded-lg" alt="" />
-        <img v-else src="https://www.pngmart.com/files/22/User-Avatar-Profile-PNG-Isolated-Transparent-Picture.png" alt="user photo" class="rounded-lg" />
-        <nuxt-link :to="localePath(`/teacher/${course.teacher.id}`)" class="text-2xl text-fp1 text-center font-bold whitespace-nowrap sm:mt-4">{{
-          course.teacher["name_" + currentLocale]
-        }}</nuxt-link>
+      <div class="md:p-4 p-2 mt-4 md:mt-0">
+        <h1 class="font-bold text-lg md:text-3xl mb-2 md:mb-4 text_clip">
+          {{ $t("course_aboute") }}</h1>
+        <div class="text-sm md:text-lg !text-fpDark1 dark:!text-white" v-html="course['description_' + currentLocale]">
+        </div>
+
+        <div class="mt-10 border-t">
+          <h2 class="font-bold text-lg md:text-xl mb-4 text_clip p-4">
+            {{ $t("trainers") }}
+          </h2>
+          <div class="pb-4 mt-2 px-4">
+            <nuxt-link :to="localePath(`/teacher/${course.teacher.id}`)" class="md:text-2xl text-lg text_clip font-bold flex items-center gap-4">
+              <img v-if="course.teacher.photo" :src="`${baseURL}/images/${course.teacher.photo}`"
+                class="w-12 lg:w-16 rounded-full shadow-xl" alt="" />
+              <img v-else src="/imgs/avatar.png" alt="user photo" class="w-12 lg:w-16 rounded-full shadow-xl" />
+              {{ course.teacher["name_" + currentLocale] }}
+            </nuxt-link>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import {useCourseStore} from "@/store/CourseStore";
+import { useCourseStore } from "@/store/CourseStore";
 const CourseStore = useCourseStore();
 const course = CourseStore.getCourse;
-const {currentLocale, dir} = useLang();
+const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 </script>

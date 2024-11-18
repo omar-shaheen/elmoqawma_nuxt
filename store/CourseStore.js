@@ -3,8 +3,6 @@ import {useTostStore} from "@/store/TostStore";
 import {useAuthStore} from "@/store/AuthStore";
 import {usePayStore} from "@/store/PayStore";
 import {useGlobalStore} from "@/store/GlobalStore";
-const auth = useAuthStore();
-const tost = useTostStore();
 const errors = reactive(useErrors());
 export const useCourseStore = defineStore("course", {
   state: () => {

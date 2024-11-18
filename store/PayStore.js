@@ -4,7 +4,6 @@ import {useCourseStore} from "@/store/CourseStore";
 import {useOfferStore} from "@/store/OfferStore";
 import {useAuthStore} from "@/store/AuthStore";
 import {useGlobalStore} from "@/store/GlobalStore";
-const tost = useTostStore();
 const errors = reactive(useErrors());
 export const usePayStore = defineStore("usePayStore", {
   state: () => {
@@ -102,6 +101,7 @@ export const usePayStore = defineStore("usePayStore", {
       return (this.payData.show = true);
     },
     setValueOrder(type, id, price = 1, lecture_views = false) {
+      const tost = useTostStore();
       if (!lecture_views && type === "lecture" && useCourseStore().getCourse.subscribed) {
         return tost.add({
           type: "error",

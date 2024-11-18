@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./components/**/*.{js,vue,ts}", "./layouts/**/*.vue", "./pages/**/*.vue", "./plugins/**/*.{js,ts}", "./nuxt.config.{js,ts}"],
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+  ],
   darkMode: "class",
   theme: {
     extend: {
@@ -16,7 +22,8 @@ module.exports = {
         cairo: ["Cairo", "sans-serif"],
       },
       backgroundImage: {
-        linearGradient: "linear-gradient(60deg, #E24141 0%, rgb(50, 141, 202) 100%)",
+        linearGradient:
+          "linear-gradient(60deg, #E24141 0%, rgb(50, 141, 202) 100%)",
         linearGradient2: "linear-gradient(60deg, #080c14 0%, #080c14 100%)",
         linearGradientBG: "linear-gradient(135deg,#ececec,#06b6d4)",
         linearGradient3: "linear-gradient(90deg,#2e2d8d 0,#624ea0 40%)",
@@ -44,7 +51,7 @@ module.exports = {
         custom1: "0 2px 10px rgba(0, 0, 0, 0.1)",
       },
       screens: {
-        sm: {max: "1024px"},
+        sm: { max: "1024px" },
       },
     },
   },

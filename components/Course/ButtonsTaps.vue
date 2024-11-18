@@ -1,38 +1,96 @@
 <template>
-  <div class="shadow-lg pt-4">
-    <div class="container mx-auto flex sm:flex-col sm:gap-y-5 justify-between sm:border-t sm:pt-5">
-      <button
-        @click="CourseStore.setValueTap('aboute')"
-        :class="[CourseStore.showTap == 'aboute' ? 'border-fp1 text-fp1/90' : 'border-transparent text-fpDarkGray']"
-        class="hover:text-fp1 transition duration-200 font-bold text-xl border-b-4 hover:border-fp1 pb-4 px-10"
-      >
-        {{ $t("course_aboute") }}
-      </button>
-      <button
-        @click="CourseStore.setValueTap('lectures')"
-        :class="[CourseStore.showTap == 'lectures' ? 'border-fp1 text-fp1/90' : 'border-transparent text-fpDarkGray']"
-        class="hover:text-fp1 transition duration-200 font-bold text-xl border-b-4 hover:border-fp1 pb-4 px-10"
-      >
-        {{ $t("course_lectures") }}
-      </button>
-      <button
-        @click="CourseStore.setValueTap('files')"
-        :class="[CourseStore.showTap == 'files' ? 'border-fp1 text-fp1/90' : 'border-transparent text-fpDarkGray']"
-        class="hover:text-fp1 transition duration-200 font-bold text-xl border-b-4 hover:border-fp1 pb-4 px-10"
-      >
-        {{ $t("course_files") }}
-      </button>
-      <button
-        @click="CourseStore.setValueTap('comments')"
-        :class="[CourseStore.showTap == 'comments' ? 'border-fp1 text-fp1/90' : 'border-transparent text-fpDarkGray']"
-        class="hover:text-fp1 transition duration-200 font-bold text-xl border-b-4 hover:border-fp1 pb-4 px-10"
-      >
-        {{ $t("course_comments") }}
-      </button>
+  <div class="pt-4 mt-4">
+    <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:pt-5">
+
+      <!-- Tab Button "aboute" -->
+      <div class="relative group cursor-pointer" @click="CourseStore.setValueTap('aboute')">
+        <div class="relative w-full h-14 opacity-90 overflow-hidden rounded-xl z-10"
+          :class="[CourseStore.showTap == 'aboute' ? 'bg-black' : '']">
+          <div
+            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
+            :class="[CourseStore.showTap == 'aboute' ? 'translate-x-[30rem] bg-gradient-to-r from-gray-500 to-white/10' : '']">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            <button name="text" class="input font-semibold lg:text-lg text-base h-full opacity-90 w-full px-2 py-3 rounded-xl"
+              :class="[CourseStore.showTap == 'aboute' ? 'bg-black' : 'bg-fpDark2']">
+              {{ $t("course_aboute") }}
+            </button>
+          </div>
+          <div class="absolute duration-1000 w-full h-[100px]"
+            :class="[CourseStore.showTap == 'aboute' ? 'animate-spin bg-gradient-to-r from-pink-500 to-violet-500 blur-[25px]' : '']">
+          </div>
+        </div>
+      </div>
+      <!-- Tab Button "lectures" -->
+      <div class="relative group cursor-pointer" @click="CourseStore.setValueTap('lectures')">
+        <div class="relative w-full h-14 opacity-90 overflow-hidden rounded-xl z-10"
+          :class="[CourseStore.showTap == 'lectures' ? 'bg-black' : '']">
+          <div
+            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
+            :class="[CourseStore.showTap == 'lectures' ? 'translate-x-[30rem] bg-gradient-to-r from-gray-500 to-white/10' : '']">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            <button name="text" class="input font-semibold lg:text-lg text-base h-full opacity-90 w-full px-2 py-3 rounded-xl"
+              :class="[CourseStore.showTap == 'lectures' ? 'bg-black' : 'bg-fpDark2']">
+              {{ $t("course_lectures") }}
+            </button>
+          </div>
+          <div class="absolute duration-1000 w-full h-[100px]"
+            :class="[CourseStore.showTap == 'lectures' ? 'animate-spin bg-gradient-to-r from-pink-500 to-violet-500 blur-[25px]' : '']">
+          </div>
+        </div>
+      </div>
+      <!-- Tab Button "files" -->
+      <div class="relative group cursor-pointer" @click="CourseStore.setValueTap('files')">
+        <div class="relative w-full h-14 opacity-90 overflow-hidden rounded-xl z-10"
+          :class="[CourseStore.showTap == 'files' ? 'bg-black' : '']">
+          <div
+            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
+            :class="[CourseStore.showTap == 'files' ? 'translate-x-[30rem] bg-gradient-to-r from-gray-500 to-white/10' : '']">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            <button name="text" class="input font-semibold lg:text-lg text-base h-full opacity-90 w-full px-2 py-3 rounded-xl"
+              :class="[CourseStore.showTap == 'files' ? 'bg-black' : 'bg-fpDark2']">
+              {{ $t("course_files") }}
+            </button>
+          </div>
+          <div class="absolute duration-1000 w-full h-[100px]"
+            :class="[CourseStore.showTap == 'files' ? 'animate-spin bg-gradient-to-r from-pink-500 to-violet-500 blur-[25px]' : '']">
+          </div>
+        </div>
+      </div>
+      <!-- Tab Button "comments" -->
+      <div class="relative group cursor-pointer" @click="CourseStore.setValueTap('comments')">
+        <div class="relative w-full h-14 opacity-90 overflow-hidden rounded-xl z-10"
+          :class="[CourseStore.showTap == 'comments' ? 'bg-black' : '']">
+          <div
+            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
+            :class="[CourseStore.showTap == 'comments' ? 'translate-x-[30rem] bg-gradient-to-r from-gray-500 to-white/10' : '']">
+          </div>
+
+          <div
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            <button name="text" class="input font-semibold lg:text-lg text-base h-full opacity-90 w-full px-2 py-3 rounded-xl"
+              :class="[CourseStore.showTap == 'comments' ? 'bg-black' : 'bg-fpDark2']">
+              {{ $t("course_comments") }}
+            </button>
+          </div>
+          <div class="absolute duration-1000 w-full h-[100px]"
+            :class="[CourseStore.showTap == 'comments' ? 'animate-spin bg-gradient-to-r from-pink-500 to-violet-500 blur-[25px]' : '']">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
 <script setup>
-import {useCourseStore} from "@/store/CourseStore";
+import { useCourseStore } from "@/store/CourseStore";
 const CourseStore = useCourseStore();
 </script>
