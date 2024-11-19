@@ -29,8 +29,9 @@
             <div class="flex sm:flex-col sm:gap-y-4 sm:py-2 justify-between items-center w-full">
               <div class="flex items-center sm:w-full sm:justify-between sm:px-4">
                 <!-- <Icon name="ic-baseline-play-circle" class="text-3xl lg:ms-6 dark:text-white" /> -->
-                <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`" class="text-xl lg:text-2xl text-gray-800" />
-                <span class="font-bold ms-3 text-sm md:text-base text-fpDark3">{{ lecture.title }}</span>
+                <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`"
+                  class="text-xl lg:text-2xl text-gray-800" />
+                <span class="font-bold ms-3 text-sm md:text-base text-fpDark2 lg:dark:text-gray-200">{{ lecture.title }}</span>
                 <span class="font-normal sm:text-md md:text-xl text-fp2 lg:ms-2"
                   v-if="lecture.price != 0 && !course.subscribed">({{ lecture.price }} {{
                     CourseStore.getCourse.currency.name }})</span>
@@ -95,8 +96,11 @@
                     <Icon name="ph:files-bold" class="text-white text-xl -mt-1" />
                   </span>
                 </button>
-                <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`"
-                  class="sm:text-white lg:dark:text-white text-xl mx-4 hidden lg:block" />
+                <span
+                  class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-medium bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                  <Icon name="solar:clapperboard-play-broken" class="transition-all me-1 text-xl lg:text-2xl" />
+                  {{ $t("view_video") }}
+                </span>
               </div>
             </div>
           </div>

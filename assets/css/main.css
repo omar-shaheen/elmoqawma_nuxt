@@ -171,7 +171,7 @@ nav a.router-link-active {
     box-shadow: 2px 3px 10px #8a8a8a8f;
   }
   .hero_course {
-    background-color: rgba(255, 255, 255, 0.02);
+    @apply bg-slate-700;
     -webkit-backdrop-filter: blur(9px);
     backdrop-filter: blur(9px);
     border-top: 1px solid #fff2;
@@ -422,13 +422,9 @@ nav.student > button.active-link::before {
 }
 
 /* ***************************************** */
-
 /* ***************************************** */
-
 /* ***************************************** */
-
 /* ***************************************** */
-
 /* ***************************************** */
 
 .splide__track {
@@ -530,6 +526,9 @@ nav.student > button.active-link::before {
 .text_clip {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500;
 }
+.text_clip2 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:text-gray-100;
+}
 
 .splide__slide {
   @apply !pb-7;
@@ -558,4 +557,45 @@ nav.student > button.active-link::before {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #ff3300, #ff9900); /* Changes on hover */
+}
+
+
+/* From Uiverse.io by mi-series */ 
+.btn_subscriber {
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #40B3A2;
+  min-width: 200px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  padding: 16px 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn_subscriber:hover {
+  opacity: .95;
+}
+.btn_subscriber .animation {
+  border-radius: 100%;
+  animation: ripple 0.6s linear infinite;
+}
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
 }

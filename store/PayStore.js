@@ -4,7 +4,9 @@ import {useCourseStore} from "@/store/CourseStore";
 import {useOfferStore} from "@/store/OfferStore";
 import {useAuthStore} from "@/store/AuthStore";
 import {useGlobalStore} from "@/store/GlobalStore";
+
 const errors = reactive(useErrors());
+
 export const usePayStore = defineStore("usePayStore", {
   state: () => {
     return {
@@ -27,6 +29,7 @@ export const usePayStore = defineStore("usePayStore", {
       this.payData[type] = value;
     },
     sendDataPay() {
+      let tost = useTostStore();
       let codeTrim = this.payData.code?.trim();
       let formData = {
         code: codeTrim,
