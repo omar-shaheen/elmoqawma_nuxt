@@ -38,7 +38,7 @@ export const usePayStore = defineStore("usePayStore", {
       };
       if (this.payData.type == "cash") {
         if (this.payData.photo == null) {
-          tost.add({
+          useAuthStore().add({
             type: "error",
             message: "يجب ارفاق إيصال الدفع",
           });
@@ -60,7 +60,7 @@ export const usePayStore = defineStore("usePayStore", {
         body: formData,
       }).then(res => {
         if (res.status) {
-          tost.add({
+          useAuthStore().add({
             type: "success",
             message: res.message,
           });
@@ -76,7 +76,7 @@ export const usePayStore = defineStore("usePayStore", {
           if (res.errCode == 403) {
             errors.record({code: res.message});
           }
-          tost.add({
+          useAuthStore().add({
             type: "error",
             message: res.message,
           });
@@ -86,7 +86,7 @@ export const usePayStore = defineStore("usePayStore", {
     },
     checkUser(price) {
       if (localStorage.getItem("user") == null) {
-        tost.add({
+        useAuthStore().add({
           type: "error",
           message: "لازم تسجل دخول الأول",
         });
@@ -106,7 +106,7 @@ export const usePayStore = defineStore("usePayStore", {
     setValueOrder(type, id, price = 1, lecture_views = false) {
       const tost = useTostStore();
       if (!lecture_views && type === "lecture" && useCourseStore().getCourse.subscribed) {
-        return tost.add({
+        return useAuthStore().add({
           type: "error",
           message: "يجب عليك اجتياز امتحان الحصة  السابق أولا",
         });
