@@ -4,8 +4,8 @@ import {useAuthStore} from "@/store/AuthStore";
 import {usePayStore} from "@/store/PayStore";
 import {useGlobalStore} from "@/store/GlobalStore";
 
-const tost = useTostStore();
-const auth = useAuthStore();
+// const tost = useTostStore();
+// const auth = useAuthStore();
 const errors = reactive(useErrors());
 
 export const useCourseStore = defineStore("course", {
@@ -71,13 +71,13 @@ export const useCourseStore = defineStore("course", {
           },
         }).then(res => {
           if (!res.data) {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: res.message,
             });
             navigateTo("/");
           } else if (!res.data.status) {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: useT("course_not_avilable"),
             });
@@ -131,14 +131,14 @@ export const useCourseStore = defineStore("course", {
                   let watermark = document.createElement("div");
                   watermark.id = "watermark";
                   watermark.className = "watermark bg-fpDark1/70 whitespace-nowrap absolute z-[9999] rounded-xl font-bold text-md text-white px-2 pt-1 w-fit mt-2";
-                  watermark.innerHTML = `#${auth.user.id} ${auth.user["name_" + this.locale]}`;
+                  watermark.innerHTML = `#${useAuthStore().user.id} ${useAuthStore().user["name_" + this.locale]}`;
                   plyr.appendChild(watermark);
                 }
               }
             }, 500);
             return (this.videoData.show = show);
           } else {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: "تم تجاوز العدد المسموع بة لمشاهدة هذة الحصة اشتري الحصة تاني",
             });
@@ -174,7 +174,7 @@ export const useCourseStore = defineStore("course", {
           body: {locale: this.locale, comment, course_id: this.course.id},
         }).then(res => {
           if (res.status) {
-            tost.add({
+            useTostStore().add({
               type: "success",
               message: "تم ارسال تعليقك لينا بنجاح ، بنشكرك",
             });
@@ -184,14 +184,14 @@ export const useCourseStore = defineStore("course", {
 
               for (const [key, value] of Object.entries(res.message)) {
                 ob[key] = value[0];
-                tost.add({
+                useTostStore().add({
                   type: "error",
                   message: value[0],
                 });
               }
               errors.record(ob);
             } else if (res.errCode == 0) {
-              tost.add({
+              useTostStore().add({
                 type: "error",
                 message: res.message,
               });
