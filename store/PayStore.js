@@ -29,7 +29,6 @@ export const usePayStore = defineStore("usePayStore", {
       this.payData[type] = value;
     },
     sendDataPay() {
-      let tost = useTostStore();
       let codeTrim = this.payData.code?.trim();
       let formData = {
         code: codeTrim,
@@ -104,7 +103,6 @@ export const usePayStore = defineStore("usePayStore", {
       return (this.payData.show = true);
     },
     setValueOrder(type, id, price = 1, lecture_views = false) {
-      const tost = useTostStore();
       if (!lecture_views && type === "lecture" && useCourseStore().getCourse.subscribed) {
         return useAuthStore().add({
           type: "error",

@@ -13,7 +13,6 @@ export const useOfferStore = defineStore("offer", {
   },
   actions: {
     async getOfferApi(ID) {
-      const tost = useTostStore();
       try {
         await $fetch(`${useRuntimeConfig().public.apiURL}/getOffer/${ID}`, {
           headers: {
@@ -23,7 +22,7 @@ export const useOfferStore = defineStore("offer", {
           if (res.status) {
             this.offer = res.data;
           } else {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: res.message,
             });

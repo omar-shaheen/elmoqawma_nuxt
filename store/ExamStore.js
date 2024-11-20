@@ -1,7 +1,6 @@
 import {defineStore} from "pinia";
 import {useTostStore} from "@/store/TostStore";
 import {useGlobalStore} from "@/store/GlobalStore";
-const tost = useTostStore();
 
 export const useExamStore = defineStore("ExamStore", {
   state: () => {
@@ -56,14 +55,14 @@ export const useExamStore = defineStore("ExamStore", {
             this.course = res.data.course;
 
             if (this.questions.length == 0) {
-              tost.add({
+              useTostStore().add({
                 type: "error",
                 message: "مفيش أسئلة في الوقت الحالي ، ممكن تلاقي قريب",
               });
               navigateTo(`/course/${this.course.id}`);
             }
             if (res.data.available_re_exam) {
-              tost.add({
+              useTostStore().add({
                 type: "error",
                 message: "إنتهت كل محاولاتك المسموح بها،حاول مجددا غدا",
               });
@@ -73,7 +72,7 @@ export const useExamStore = defineStore("ExamStore", {
             this.DetailsQuestions.lenQuestions = this.questions.length;
           } else {
             navigateTo(`/`);
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: res.message,
             });
@@ -97,7 +96,7 @@ export const useExamStore = defineStore("ExamStore", {
           if (res.status) {
             this.pathFile = res.data.file;
           } else {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: res.message,
             });
@@ -110,7 +109,7 @@ export const useExamStore = defineStore("ExamStore", {
     },
     doneQuestions(submission) {
       if (submission && this.userAnswers.length < this.DetailsQuestions.lenQuestions) {
-        tost.add({
+        useTostStore().add({
           type: "error",
           message: `تم حل ${this.userAnswers.length} أسئلة من ${this.DetailsQuestions.lenQuestions} يجب حل جميع الأسئلة`,
         });
@@ -137,7 +136,7 @@ export const useExamStore = defineStore("ExamStore", {
           latest: this.lecture.latest,
         }).then(res => {
           if (res.available_re_exam) {
-            tost.add({
+            useTostStore().add({
               type: "error",
               message: "إنتهت كل محاولاتك المسموح بها،حاول مجددا غدا",
             });
@@ -182,7 +181,7 @@ export const useExamStore = defineStore("ExamStore", {
         this.userAnswers.push(data);
         this.activeAnswers[data.question_id] = data.answer_id;
       } else {
-        tost.add({
+        useTostStore().add({
           type: "error",
           message: "إنتهي اﻹمتحان",
         });
