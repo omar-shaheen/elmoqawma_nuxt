@@ -13,7 +13,7 @@
         class="bg-gray-50 dark:text-gray-300 dark:bg-fpDark1 fixed lg:absolute top-16 lg:top-10 end-0 w-full lg:w-72 z-[110] rounded-lg shadow-xl dark:border-t dark:border-t-fp2">
         <div class="flex items-center justify-between border-b border-b-fpLightGray dark:border-b-fpDark2 pb-2 p-4">
           <p class="text-gray-900 dark:text-gray-300 text-lg font-bold">{{ $t("notification") }}</p>
-          <button @click="globalStore.markAsRead()" type="button" class="btn_custom2">
+          <button @click="globalStore.markAsRead()" type="button" class="btn_custom2 !text-sm !py-1">
             {{ globalStore.notifications.length }} {{ $t("read_all") }}
           </button>
         </div>
@@ -23,7 +23,7 @@
             <button v-if="'certificate' in notification.data" @click="
               globalStore.removeNotificationUser('certificate', notification.id);
             globalStore.HashURLFile(`${baseURL}/images/certificates/${notification.data.certificate.file}.pdf`);
-            " class="item_notif">
+            " class="link_dropdown_link">
               <span class="flex flex-col text-start ms-2">
                 <span class="text-base font-medium dark:text-fpLightBack"
                   v-text="`${notification.data.certificate.message ?? ''}`"></span>
@@ -33,14 +33,14 @@
               globalStore.removeNotificationUser('message', notification.id);
             globalStore.messageNotification = notification.data.message;
             globalStore.ModalMessage = true;
-            " class="item_notif">
+            " class="link_dropdown_link">
               <span class="flex flex-col text-start ms-2">
                 <span class="text-base font-medium dark:text-fpLightBack">{{ $t("message_site") }}</span>
               </span>
             </button>
             <nuxt-link v-if="'course' in notification.data"
               @click="globalStore.removeNotificationUser('course', notification.id)"
-              :to="localePath(`/course/${notification.data.course.id}`)" class="item_notif">
+              :to="localePath(`/course/${notification.data.course.id}`)" class="link_dropdown_link">
               <img :src="`${baseURL}/images/${notification.data.course.photo}`" alt="post image"
                 class="w-8 h-8 rounded-full object-cover" />
               <span class="flex flex-col text-start ms-2">
@@ -51,7 +51,7 @@
             </nuxt-link>
             <nuxt-link v-else-if="'offer' in notification.data"
               @click="globalStore.removeNotificationUser('offer', notification.id)"
-              :to="localePath(`/offer/${notification.data.offer.id}`)" class="item_notif">
+              :to="localePath(`/offer/${notification.data.offer.id}`)" class="link_dropdown_link">
               <img :src="`${baseURL}/images/${notification.data.offer.photo}`" alt="post image"
                 class="w-8 h-8 rounded-full object-cover" />
               <span class="flex flex-col text-start ms-2">

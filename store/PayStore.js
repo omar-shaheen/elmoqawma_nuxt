@@ -1,9 +1,10 @@
 import {defineStore} from "pinia";
-import {useTostStore} from "@/store/TostStore";
+// import {useTostStore} from "@/store/TostStore";
 import {useCourseStore} from "@/store/CourseStore";
 import {useOfferStore} from "@/store/OfferStore";
 import {useAuthStore} from "@/store/AuthStore";
 import {useGlobalStore} from "@/store/GlobalStore";
+
 
 const errors = reactive(useErrors());
 
@@ -29,6 +30,7 @@ export const usePayStore = defineStore("usePayStore", {
       this.payData[type] = value;
     },
     sendDataPay() {
+      let auth = useAuthStore();
       let codeTrim = this.payData.code?.trim();
       let formData = {
         code: codeTrim,
@@ -37,7 +39,7 @@ export const usePayStore = defineStore("usePayStore", {
       };
       if (this.payData.type == "cash") {
         if (this.payData.photo == null) {
-          useAuthStore().add({
+          auth.add({
             type: "error",
             message: "يجب ارفاق إيصال الدفع",
           });
@@ -59,7 +61,7 @@ export const usePayStore = defineStore("usePayStore", {
         body: formData,
       }).then(res => {
         if (res.status) {
-          useAuthStore().add({
+          auth.add({
             type: "success",
             message: res.message,
           });
@@ -70,12 +72,12 @@ export const usePayStore = defineStore("usePayStore", {
           } else {
             useCourseStore().getCourseApi(modelID);
           }
-          useAuthStore().user.balance = res.data.balance;
+          auth.user.balance = res.data.balance;
         } else {
           if (res.errCode == 403) {
             errors.record({code: res.message});
           }
-          useAuthStore().add({
+          auth.add({
             type: "error",
             message: res.message,
           });
@@ -84,8 +86,9 @@ export const usePayStore = defineStore("usePayStore", {
       });
     },
     checkUser(price) {
+      let auth = useAuthStore();
       if (localStorage.getItem("user") == null) {
-        useAuthStore().add({
+        auth.add({
           type: "error",
           message: "لازم تسجل دخول الأول",
         });
@@ -103,8 +106,9 @@ export const usePayStore = defineStore("usePayStore", {
       return (this.payData.show = true);
     },
     setValueOrder(type, id, price = 1, lecture_views = false) {
+      let auth = useAuthStore();
       if (!lecture_views && type === "lecture" && useCourseStore().getCourse.subscribed) {
-        return useAuthStore().add({
+        return auth.add({
           type: "error",
           message: "يجب عليك اجتياز امتحان الحصة  السابق أولا",
         });

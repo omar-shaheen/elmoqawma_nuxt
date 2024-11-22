@@ -1,28 +1,10 @@
 <template>
-  <section class="py-8 lg:pb-24">
-    <div class="container mx-auto">
-      <div class="">
-        <div class="flex flex-col-reverse lg:flex-row lg:justify-center lg:items-center">
-          <div class="lg:w-5/12 sm:text-center">
-            <Skeleton type="text" :count="1" v-if="section.length == 0" />
-            <h1 class="text-fp2 text-4xl lg:text-6xl font-bold sm:mt-10" v-if="section.length != 0"
-              v-text="section['name_' + currentLocale]"></h1>
-            <p class="text-4xl text-fp3 mt-2" v-if="section.length != 0"
-              v-html="section['description_' + currentLocale]"></p>
-          </div>
-          <div class="lg:w-5/12">
-            <Skeleton type="image" :count="1" v-if="section.length == 0" />
-            <img v-if="section.length != 0" :src="`${baseURL}/images/${section.photo}`" alt="post image"
-              class="object-cover rounded-2xl" />
-          </div>
-        </div>
-      </div>
-
+  <section class="pb-8 lg:pb-24">
+    <PageTitle :title="t('classes')" :linkUrl="localePath(`/sections`)"
+      :currentPage="section['description_' + currentLocale]" />
+    <div class="container mx-auto mt-10">
       <TransitionGroup name="taps-down">
-        <div class="mt-10 lg:mt-28" v-show="showSection == 'subjects'">
-          <h2
-            class="text-3xl lg:text-5xl text-fp2 dark:text-fp1 font-bold border-b-2 border-fp2 w-fit mx-auto pb-2 lg:pb-6 mb-16">
-            {{ $t("subjects") }}</h2>
+        <div class="" v-show="showSection == 'subjects'">
           <Skeleton type="card" :count="3" v-if="!section.subjects" />
           <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-10 cursor-pointer">
             <div v-for="subject in section.subjects" :key="subject.id" @click="setData('teachers', subject.teachers)"
@@ -44,15 +26,13 @@
             </div>
           </div>
         </div>
-        <div class="mt-10 lg:mt-28" v-show="showSection == 'teachers'">
-          <div class="flex justify-between items-start">
-            <h2
-              class="text-3xl lg:text-5xl text-fp2 dark:text-fp1 font-bold border-b-2 border-fp2 w-fit mx-auto pb-2 lg:pb-6 mb-16">
+        <div class="mt-10" v-show="showSection == 'teachers'">
+          <div class="flex items-center justify-between mb-10">
+            <h2 class="text_clip text-4xl font-extrabold">
               {{ $t("teachers") }}</h2>
-            <button @click="showSection = 'subjects'"
-              class="text-white whitespace-nowrap bg-fp2 hover:bg-fp3 dark:bg-fp1 dark:hover:bg-fp2 transition font-bold rounded-lg text-md lg:text-lg text-center px-5 lg:px-4 py-2 lg:py-2.5 block focus:outline-none dark:focus:ring-fp2">
-              {{ $t("subjects") }}
+            <button @click="showSection = 'subjects'" class="custom_btn1 !m-0 !text-lg">
               <Icon name="ic:sharp-menu-book" class="text-white text-xl" />
+              {{ $t("subjects") }}
             </button>
           </div>
 
@@ -70,14 +50,13 @@
             </button>
           </div>
         </div>
-        <div class="mt-10 lg:mt-28" v-show="showSection == 'courses'">
-          <div class="flex justify-between items-center">
-            <h2 class="text-2xl lg:text-5xl text-fp2 dark:text-fp1 font-bold border-b-2 border-fp2 w-fit mx-auto">{{
+        <div class="mt-10" v-show="showSection == 'courses'">
+          <div class="flex items-center justify-between mb-10">
+            <h2 class="text_clip text-4xl font-extrabold">{{
               $t("courses") }}</h2>
-            <button @click="showSection = 'teachers'"
-              class="text-white whitespace-nowrap bg-fp2 hover:bg-fp3 dark:bg-fp1 dark:hover:bg-fp2 transition font-bold rounded-lg text-md lg:text-lg text-center px-5 lg:px-4 py-2 lg:py-2.5 block focus:outline-none dark:focus:ring-fp2">
-              {{ $t("teachers") }}
+            <button @click="showSection = 'teachers'" class="custom_btn1 !m-0 !text-lg">
               <Icon name="ph:student-fill" class="text-white text-xl" />
+              {{ $t("teachers") }}
             </button>
           </div>
           <CourseCourses v-if="Object.keys(courses).length" :courses="courses" />
@@ -92,8 +71,9 @@
 </template>
 
 <script setup>
-import {useTostStore} from "@/store/TostStore";
+import { useTostStore } from "@/store/TostStore";
 
+const { t } = useI18n();
 const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const route = useRoute();

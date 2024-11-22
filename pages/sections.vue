@@ -1,6 +1,6 @@
 <template>
   <section class="pb-8 lg:pb-24">
-    <Waves :title="t('all_offers')" class2="text-center !justify-center" />
+    <PageTitle :title="t('classes')" />
     <div class="container mx-auto">
       <div class="mt-10">
         <Skeleton type="image" :count="3" v-if="sections.length == 0" />

@@ -44,15 +44,16 @@
       <div class="lg:p-4 lg:w-7/12 order-1 lg:order-2 lg:mb-0 mb-16">
         <div class="flex items-center flex-wrap justify-center md:gap-4 gap-3">
           <div v-for="review in props.reviews" :key="review.id">
-            <div class="md:w-20 md:h-20 w-12 h-12 rounded-full overflow-hidden shadow-sm bg-white relative z-[1] border border-gray-100"
+            <div
+              class="md:w-20 md:h-20 w-12 h-12 rounded-full overflow-hidden shadow-sm bg-white relative z-[1] border border-gray-100"
               @click="selectReview(review)">
               <img :src="review.user.photo
                 ? review.user.oauth_type == null
                   ? `${baseURL}/images/${review.user.photo}`
                   : `${review.user.photo}`
                 : defaultAvatar
-                " class="cursor-pointer w-full h-full object-contain block" 
-                  :class="selectedReview && selectedReview.id === review.id ? 'opacity-100 shadow-2xl' : 'opacity-80'"
+                " class="cursor-pointer w-full h-full object-contain block"
+                :class="selectedReview && selectedReview.id === review.id ? 'opacity-100 shadow-2xl' : 'opacity-80'"
                 alt="user photo" />
 
               <div v-if="selectedReview && selectedReview.id === review.id"

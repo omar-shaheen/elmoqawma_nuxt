@@ -4,12 +4,12 @@
     <div v-for="chapter in CourseStore.getCourse.chapters" :key="chapter.id">
       <div class="relative z-50 p-1">
         <button type="button" @click="CourseStore.setActiveChapter(chapter.id)"
-          class="flex items-center justify-between w-full p-5 font-medium text-white bg-gradient-to-r hover:from-violet-500 hover:from-10% hover:via-sky-500 hover:via-30% hover:to-pink-500 hover:to-90% hover:bg-[length:400%] transition group rounded-lg"
+          class="flex items-center justify-between w-full py-3 px-5 font-medium text-white bg-gradient-to-r hover:from-violet-500 hover:from-10% hover:via-sky-500 hover:via-30% hover:to-pink-500 hover:to-90% hover:bg-[length:400%] transition group rounded-lg"
           aria-expanded="true"
           :class="[CourseStore.activeChapter[chapter.id] == chapter.id ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%]' : 'from-fpDark1 to-fpDark3']">
-          <div class="flex justify-between items-center">
-            <Icon name="solar:clipboard-list-broken" class="text-base md:text-xl lg:text-4xl" />
-            <span class="ms-3 lg:text-2xl text-inherit font-bold">{{ chapter["name_" + currentLocale] }}</span>
+          <div class="flex justify-between items-center gap-x-3">
+            <Icon name="solar:clipboard-list-broken" class="text-base md:text-xl lg:text-3xl" />
+            <span class="lg:text-2xl text-inherit font-bold">{{ chapter["name_" + currentLocale] }}</span>
           </div>
           <Icon name="fa6-solid:chevron-down" class="shrink-0 transition-all ease-in-out"
             :class="[CourseStore.activeChapter[chapter.id] == chapter.id ? 'rotate-0' : 'rotate-180']" />
@@ -31,7 +31,8 @@
                 <!-- <Icon name="ic-baseline-play-circle" class="text-3xl lg:ms-6 dark:text-white" /> -->
                 <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`"
                   class="text-xl lg:text-2xl text-gray-800" />
-                <span class="font-bold ms-3 text-sm md:text-base text-fpDark2 lg:dark:text-gray-200">{{ lecture.title }}</span>
+                <span class="font-bold ms-3 text-sm md:text-base text-fpDark2 lg:dark:text-gray-200">{{ lecture.title
+                  }}</span>
                 <span class="font-normal sm:text-md md:text-xl text-fp2 lg:ms-2"
                   v-if="lecture.price != 0 && !course.subscribed">({{ lecture.price }} {{
                     CourseStore.getCourse.currency.name }})</span>
@@ -44,9 +45,10 @@
                   v-if="lecture.questions_count && lecture.subscribed"
                   class="ms-auto text-green-500 text-xl font-bold relative z-50">
                   <span
-                    class="text-white whitespace-nowrap bg-gradient-to-b from-green-400 to-green-500/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-2.5 focus:outline-none">
+                    class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-bold bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                    <Icon name="healthicons:i-exam-multiple-choice-outline"
+                      class="transition-all me-1 text-xl lg:text-2xl" />
                     {{ $t("exam_lecture") }}
-                    <Icon name="mdi:certificate-outline" class="text-white text-xl -mt-1" />
                   </span>
                 </nuxt-link>
                 <nuxt-link
@@ -54,18 +56,19 @@
                   v-if="lecture.assignments_count && lecture.subscribed"
                   class="ms-auto text-green-500 text-xl font-bold relative z-50">
                   <span
-                    class="text-white whitespace-nowrap bg-gradient-to-b from-green-400 to-green-500/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-2.5 focus:outline-none">
+                    class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-bold bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                    <Icon name="hugeicons:task-edit-01" class="transition-all me-1 text-xl lg:text-2xl" />
                     {{ $t("assignments_lecture") }}
-                    <Icon name="ic:baseline-assignment-turned-in" class="text-white text-xl -mt-1" />
                   </span>
                 </nuxt-link>
                 <nuxt-link v-if="lecture.exam_google && lecture.subscribed"
                   :to="{ path: localePath(`/exam_google/${course.id}`), query: { plan: encodeString(lecture.exam_google) } }"
                   class="ms-auto text-green-500 text-xl font-bold relative z-50">
                   <span
-                    class="text-white whitespace-nowrap bg-gradient-to-b from-green-400 to-green-500/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-2.5 focus:outline-none">
+                    class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-bold bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                    <Icon name="healthicons:i-exam-multiple-choice-outline"
+                      class="transition-all me-1 text-xl lg:text-2xl" />
                     {{ $t("exam_google") }}
-                    <Icon name="ic:baseline-assignment-turned-in" class="text-white text-xl -mt-1" />
                   </span>
                 </nuxt-link>
                 <a v-if="lecture.type_video === 'zoom' || lecture.type_video === 'googleMeeting' || lecture.type_video === 'liveStream'"
@@ -91,13 +94,13 @@
                   @click="CourseStore.setAttachments(lecture.attachments, lecture.title)"
                   class="text-green-500 text-xl font-bold relative z-50">
                   <span
-                    class="text-white whitespace-nowrap bg-gradient-to-b from-green-400 to-green-500/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-2.5 focus:outline-none">
+                    class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-bold bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                    <Icon name="ph:files-light" class="transition-all me-1 text-xl lg:text-2xl" />
                     {{ $t("binding_assembly") }}
-                    <Icon name="ph:files-bold" class="text-white text-xl -mt-1" />
                   </span>
                 </button>
                 <span
-                  class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-medium bg-slate-300 text-black hover:bg-slate-400 transition-all">
+                  class="py-1 px-1 md:px-2 rounded-lg text-[10px] md:text-xs lg:text-sm font-bold bg-slate-300 text-black hover:bg-slate-400 transition-all">
                   <Icon name="solar:clapperboard-play-broken" class="transition-all me-1 text-xl lg:text-2xl" />
                   {{ $t("view_video") }}
                 </span>

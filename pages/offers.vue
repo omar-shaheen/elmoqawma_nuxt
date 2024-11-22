@@ -1,11 +1,12 @@
 <template>
   <section class="pb-8 lg:pb-24">
-    <Waves :title="t('all_offers')" class2="text-center !justify-center" />
-    <div class="container mx-auto">
+    <PageTitle :title="t('all_offers')" />
+    <div class="container mx-auto mt-10">
       <Skeleton type="card" :count="3" v-if="offers.length == 0" />
       <!-- <pre dir="ltr" class="text-gray-200">{{ offers }}</pre> -->
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-x-5 gap-y-8 h-fit" v-if="offers.length > 0">
-        <div class="bg-white dark:bg-fpDark2 border rounded-xl overflow-hidden shadow-md group" v-for="offer in offers" :key="offer.id">
+        <div class="bg-white dark:bg-fpDark2 border rounded-xl overflow-hidden shadow-md group" v-for="offer in offers"
+          :key="offer.id">
           <nuxt-link :to="localePath(`/offer/${offer.id}`)">
             <img :src="`${baseURL}/images/${offer.photo}`" alt="post image"
               class="w-full h-[250px] object-cover rounded-t-2xl" />

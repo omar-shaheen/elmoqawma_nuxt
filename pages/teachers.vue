@@ -1,6 +1,6 @@
 <template>
   <section class="pb-8 lg:pb-24">
-    <Waves :title="t('teachers')" class2="text-center !justify-center" />
+    <PageTitle :title="t('teachers')" />
     <div class="container mx-auto">
       <div class="mt-10">
         <!-- <h2
