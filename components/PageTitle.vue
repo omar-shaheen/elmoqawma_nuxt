@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-title bg-[#ede7d1] dark:bg-slate-600 py-12 relative z-10">
+    <div class="page-title bg-linearGradient3 dark:bg-slate-600 py-12 relative z-10">
       <div class="container mx-auto">
         <div
           class="flex items-center md:flex-row flex-col md:gap-0 gap-y-5 md:justify-between justify-center md:text-start text-center">
