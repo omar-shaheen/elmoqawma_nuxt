@@ -15,10 +15,12 @@
       <Icon id="toggleMode" class="text-2xl" name="line-md:sun-rising-twotone-loop"
         v-show="globalStore.mode == 'dark'" />
     </button>
+
     <button v-if="auth.isLoggedIn" title="إشحن محفظتك الأن" type="button" @click.stop="auth.openModalWallet = true"
       class="btn_actions_header hover:brightness-110 hover:animate-pulse">
       <Icon name="solar:wallet-money-bold-duotone" class="text-2xl" />
     </button>
+    
     <HeaderNotifications />
     <HeaderProfile />
 

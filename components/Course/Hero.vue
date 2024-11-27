@@ -16,7 +16,7 @@
             </div>
             <div class="pt-6 px-4 pb-2 gap-4">
               <div class="mb-2">
-                <h4 class="font-manrope font-bold lg:text-lg text-lg text_clip">{{ `${course.name} ` }}</h4>
+                <h4 class="font-bold lg:text-lg text-lg text_clip">{{ `${course.name} ` }}</h4>
               </div>
               <p class="text-base font-medium text-gray-500 mb-4">
                 <span class="flex justify-center gap-x-1 mt-4" v-if="course.price != 0">
@@ -51,7 +51,8 @@
         </div>
         <div class="lg:col-span-3 pb-6 px-6 lg:mt-0 mt-10">
           <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-y-8 gap-y-4 gap-x-4">
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/01.png" class="w-full h-full object-contain" alt="">
               </div>
@@ -59,21 +60,24 @@
               <p class="text_clip text-lg lg:text-xl font-extrabold">{{ $t("number_subscriptions") }}
               </p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/02.png" class="w-full h-full object-contain" alt="">
               </div>
               <strong class="text-3xl block text_clip2"> {{ course.count_videos }} </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold">{{ $t("count_videos") }}</p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/03.png" class="w-full h-full object-contain" alt="">
               </div>
               <strong class="text-3xl block text_clip2"> {{ course.count_exams }} </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold">{{ $t("count_exams") }}</p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/04.png" class="w-full h-full object-contain" alt="">
               </div>
@@ -81,34 +85,40 @@
                 $t("minutes") }}</b> </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold"> {{ $t("exam_duration") }} </p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/05.png" class="w-full h-full object-contain" alt="">
               </div>
               <strong class="text-3xl block text_clip2"> {{ course.count_attachments }} </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold"> {{ $t("count_files") }} </p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/06.png" class="w-full h-full object-contain" alt="">
               </div>
               <strong class="text-3xl block text_clip2"> {{ course.comments.length }} </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold"> {{ $t("count_comments") }} </p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
-                <img src="/imgs/icons/06.png" class="w-full h-full object-contain" alt="">
+                <img src="/imgs/icons/07.png" class="w-full h-full object-contain" alt="">
               </div>
-              <strong class="lg:text-2xl text-lg block text_clip2"> {{ course.section["name_" + currentLocale] }} </strong>
+              <strong class="lg:text-2xl text-lg block text_clip2"> {{ course.section["name_" + currentLocale] }}
+              </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold">
                 {{ $t("class") }}
               </p>
             </div>
-            <div class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
+            <div
+              class="lg:bg-white/40 lg:dark:bg-fpDark3 border-2 border-dashed border-slate-600 lg:py-4 py-2 px-2 rounded-lg text-center space-y-3">
               <div class="flex items-center justify-center md:w-18 md:h-18 w-16 h-16 mx-auto">
                 <img src="/imgs/icons/08.png" class="w-full h-full object-contain" alt="">
               </div>
-              <strong class="lg:text-2xl text-lg block text_clip2"> {{ course.subject["name_" + currentLocale] }} </strong>
+              <strong class="lg:text-2xl text-lg block text_clip2"> {{ course.subject["name_" + currentLocale] }}
+              </strong>
               <p class="text_clip text-lg lg:text-xl font-extrabold"> {{ $t("subject") }} </p>
             </div>
           </div>

@@ -20,8 +20,9 @@
               $t("code") }}</label>
             <div class="relative mb-6">
               <div
-                class="absolute inset-y-0 end-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
-                <Icon name="mynaui:gift" class="size-7" />
+                class="absolute inset-y-0 end-0 flex items-center pointer-events-none px-2 rounded-e-lg">
+                <!-- <Icon name="mynaui:gift" class="size-7" /> -->
+                <img src="/imgs/payments/wallet-charge.png" class="size-7" alt="">
               </div>
               <input type="text" id="code"
                 class="bg-gray-50 placeholder-gray-400 text-base lg:text-xl rounded-lg block w-full p-4 dark:bg-fpDark2 dark:text-gray-300 outline outline-1 outline-gray-200 dark:outline-none dark:focus:border-gray-500"

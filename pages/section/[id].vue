@@ -28,9 +28,9 @@
         </div>
         <div class="mt-10" v-show="showSection == 'teachers'">
           <div class="flex items-center justify-between mb-10">
-            <h2 class="text_clip text-4xl font-extrabold">
+            <h2 class="text_clip md:text-4xl text-2xl font-extrabold">
               {{ $t("teachers") }}</h2>
-            <button @click="showSection = 'subjects'" class="custom_btn1 !m-0 !text-lg">
+            <button @click="showSection = 'subjects'" class="custom_btn1 !m-0 lg:!text-lg !text-base">
               <Icon name="ic:sharp-menu-book" class="text-white text-xl" />
               {{ $t("subjects") }}
             </button>
@@ -52,19 +52,26 @@
         </div>
         <div class="mt-10" v-show="showSection == 'courses'">
           <div class="flex items-center justify-between mb-10">
-            <h2 class="text_clip text-4xl font-extrabold">{{
-              $t("courses") }}</h2>
-            <button @click="showSection = 'teachers'" class="custom_btn1 !m-0 !text-lg">
+            <h2 class="text_clip md:text-4xl text-2xl font-extrabold">
+              {{ $t("courses") }}
+            </h2>
+            <button @click="showSection = 'teachers'" class="custom_btn1 !m-0 lg:!text-lg !text-base">
               <Icon name="ph:student-fill" class="text-white text-xl" />
               {{ $t("teachers") }}
             </button>
           </div>
           <CourseCourses v-if="Object.keys(courses).length" :courses="courses" />
         </div>
-        <p v-show="courses.length == 0 && showSection === 'courses'"
-          class="text-center text-yellow-500 text-2xl lg:text-5xl font-bold mt-20 shadow-lg py-2">
-          {{ $t("not_found_courses") }}
-        </p>
+
+        <div class="text-center" v-show="courses.length == 0 && showSection === 'courses'">
+          <img src="/imgs/no-data.svg" class="w-80 mx-auto" alt="" />
+          <div class="mt-10">
+            <h2 class="lg:text-3xl text-xl text-center text-black font-semibold leading-relaxed pb-1">
+              {{ $t("not_found_courses") }}
+            </h2>
+          </div>
+        </div>
+
       </TransitionGroup>
     </div>
   </section>

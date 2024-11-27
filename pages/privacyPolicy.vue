@@ -1,7 +1,9 @@
 <template>
   <section class="bg-fp2/10 privacy-policy">
     <!-- <BreadCrumbs :classes="'bg-breadcrumb h-28 lg:h-[500px] text-white'" :contents="['سياسة الخصوصية']" /> -->
-    <div class="container mx-auto bg-gray-100 dark:bg-gray-900 my-box-shadow pt-24 pb-40" v-html="globalStore.appSettings.privacy_policy"></div>
+    <div class="container mx-auto py-5">
+      <div v-html="globalStore.appSettings.privacy_policy" class="bg-white dark:bg-gray-900 p-10 rounded-lg shadow-custom1"></div>
+    </div>
   </section>
 </template>
 <script setup>

@@ -58,6 +58,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;

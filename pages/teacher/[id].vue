@@ -37,17 +37,22 @@
           <div class="flex items-center justify-between mb-10">
             <h2 class="text_clip text-4xl font-extrabold">{{
               $t("courses") }}</h2>
-            <button @click="showSection = false"
-              class="custom_btn1 !m-0 !text-lg">
+            <button @click="showSection = false" class="custom_btn1 !m-0 !text-lg">
               {{ $t("all_courses") }}
               <Icon name="ph:student-fill" class="text-white text-xl" />
             </button>
           </div>
           <CourseCourses v-if="Object.keys(courses).length" :courses="courses" />
         </div>
-        <p v-show="courses.length == 0 && showSection"
-          class="text-center text-yellow-500 text-2xl lg:text-5xl font-bold mt-20 shadow-lg py-2">{{
-            $t("not_found_courses") }}</p>
+
+        <div class="text-center" v-show="courses.length == 0 && showSection">
+          <img src="/imgs/no-data.svg" class="w-80 mx-auto" alt="" />
+          <div class="mt-10">
+            <h2 class="lg:text-3xl text-xl text-center text-black font-semibold leading-relaxed pb-1">
+              {{ $t("not_found_courses") }}
+            </h2>
+          </div>
+        </div>
       </TransitionGroup>
     </div>
   </section>

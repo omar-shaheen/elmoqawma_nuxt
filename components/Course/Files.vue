@@ -2,24 +2,32 @@
   <div class="flex sm:flex-col justify-between gap-x-10">
     <div class="shadow-lg w-full lg:w-1/6 p-4 rounded-lg h-fit">
       <button @click="CourseStore.setTapFilesGroups('files')" :class="[
-        CourseStore.TapFilesGroups == 'files' ? 'fill-fp1 text-fp1 dark:fill-fp1 dark:text-fp1 bg-gray-200 dark:bg-fpDark2 ' : ' dark:fill-fpLightGray dark:text-fpLightGray',
-      ]"
-        class="font-bold text-start px-2 hover:bg-gray-200 dark:hover:bg-fpDark2 w-full text-xl rounded-lg py-2 hover:fill-fp1 dark:hover:fill-fp1 dark:hover:text-fp1 hover:text-fp1 transition whitespace-nowrap">
+        CourseStore.TapFilesGroups == 'files' ? 'btn_custom2' : ' dark:fill-fpLightGray dark:text-fpLightGray',
+      ]" class="font-bold text-start px-2 w-full text-xl rounded-lg py-2 transition whitespace-nowrap">
         <Icon class="text-3xl" name="solar:folder-with-files-broken" /> {{ $t("files") }}
       </button>
 
       <button @click="CourseStore.setTapFilesGroups('groups')"
-        :class="[CourseStore.TapFilesGroups == 'groups' ? 'fill-fp1 text-fp1 bg-gray-200 dark:bg-fpDark2' : 'dark:fill-fpLightGray dark:text-fpLightGray']"
-        class="font-bold text-start px-2 mt-2 hover:bg-gray-200 dark:hover:bg-fpDark2 w-full text-xl rounded-lg py-2 hover:fill-fp1 dark:hover:fill-fp1 dark:hover:text-fp1 hover:text-fp1 transition whitespace-nowrap">
-        <Icon class="text-3xl" name="ic:round-telegram" /> {{ $t("course_groups") }}
+        :class="[CourseStore.TapFilesGroups == 'groups' ? 'btn_custom2' : 'dark:fill-fpLightGray dark:text-fpLightGray']"
+        class="font-bold text-start px-2 mt-2 w-full text-xl rounded-lg py-2 transition whitespace-nowrap">
+        <Icon class="text-3xl" name="hugeicons:telegram" /> {{ $t("course_groups") }}
       </button>
     </div>
     <transition name="taps-right" v-if="CourseStore.TapFilesGroups == 'files'">
       <div class="w-full lg:w-5/6 sm:mt-10">
         <div class="shadow-lg border-t-2 border-fp1 rounded-lg divide-y">
-          <div v-if="course.attachments.length == 0" class="lg:w-5/6 lg:ml-auto h-fit p-6">
+          <!-- <div class="lg:w-5/6 lg:ml-auto h-fit p-6">
             <h4 class="text-center text-2xl font-bold dark:text-white">{{ $t("sorry") }}</h4>
             <p class="text-center text-yellow-500 text-2xl mt-4">{{ $t("not_found_files") }}</p>
+          </div> -->
+          <div v-if="course.attachments.length == 0" class="text-center p-5">
+            <img src="/imgs/no-data.svg" class="w-52 mx-auto" alt="" />
+            <div class="mt-10">
+              <h2 class="lg:text-3xl text-xl text-center text-black font-semibold leading-relaxed pb-1">
+                {{ $t("sorry") }}
+              </h2>
+              <p class="text-center text-yellow-500 text-2xl mt-4">{{ $t("not_found_files") }}</p>
+            </div>
           </div>
           <div v-for="file in course.attachments" :key="file.id" class="py-2">
             <button v-if="course.subscribed"
@@ -53,44 +61,44 @@
     </transition>
 
     <transition name="taps-right">
-      <div class="w-full lg:w-5/6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center sm:mt-10"
+      <div class="w-full lg:w-5/6 grid grid-cols-1 md:grid-cols-3 gap-5 text-center sm:mt-10"
         v-if="CourseStore.TapFilesGroups == 'groups'">
-        <div class="shadow-xl rounded-xl p-6">
+        <div class="shadow-lg rounded-xl border border-gray-100 p-6">
           <a target="_blank" :href="`${course.whatsapp}`">
-            <Icon class="text-fp1 text-8xl" name="ic:baseline-whatsapp" />
+            <!-- <Icon class="text-fp1 text-8xl" name="ic:baseline-whatsapp" /> -->
+            <img src="/imgs/socials/whatsapp.png" class="w-16 mx-auto" alt="">
           </a>
-          <h2 class="text-fp1 text-xl font-medium my-2">{{ $t("join_groups") }}</h2>
-          <div class="flex justify-between items-center mt-4">
-            <a :href="`${course.whatsapp}`" target="_blank"
-              class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-2 focus:outline-none block w-full">
+          <h2 class="text_clip text-xl font-bold my-3">{{ $t("join_groups") }}</h2>
+          <div class="flex justify-between items-center">
+            <a :href="`${course.whatsapp}`" target="_blank" class="custom_btn1 flex items-center">
               {{ $t("join_now") }}
-              <Icon class="text-white text-2xl -mt-1" name="ic:baseline-whatsapp" />
+              <Icon class="text-white text-2xl" name="hugeicons:whatsapp-business" />
             </a>
           </div>
         </div>
-        <div class="shadow-xl rounded-xl p-6">
+        <div class="shadow-lg rounded-xl border border-gray-100 p-6">
           <a target="_blank" :href="`${course.facebook}`">
-            <Icon class="text-fp1 text-8xl" name="ic:baseline-facebook" />
+            <!-- <Icon class="text-fp1 text-8xl" name="ic:baseline-facebook" /> -->
+            <img src="/imgs/socials/facebook.png" class="w-16 mx-auto" alt="">
           </a>
-          <h2 class="text-fp1 text-xl font-medium my-2">{{ $t("join_facebook") }}</h2>
-          <div class="flex justify-between items-center mt-4">
-            <a :href="`${course.facebook}`" target="_blank"
-              class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-2 focus:outline-none block w-full">
+          <h2 class="text_clip text-xl font-bold my-3">{{ $t("join_facebook") }}</h2>
+          <div class="flex justify-between items-center">
+            <a :href="`${course.facebook}`" target="_blank" class="custom_btn1 flex items-center">
               {{ $t("join_now") }}
-              <Icon class="text-white text-2xl -mt-1" name="ic:baseline-whatsapp" />
+              <Icon class="text-white text-2xl" name="hugeicons:facebook-02" />
             </a>
           </div>
         </div>
-        <div class="shadow-xl rounded-xl p-6">
+        <div class="shadow-lg rounded-xl border border-gray-100 p-6">
           <a target="_blank" :href="`${course.telegram}`">
-            <Icon class="text-fp1 text-8xl" name="ic:baseline-telegram" />
+            <!-- <Icon class="text-fp1 text-8xl" name="ic:baseline-telegram" /> -->
+            <img src="/imgs/socials/telegram.png" class="w-16 mx-auto" alt="">
           </a>
-          <h2 class="text-fp1 text-xl font-medium my-2">{{ $t("join_telegram") }}</h2>
-          <div class="flex justify-between items-center mt-4">
-            <a :href="`${course.telegram}`" target="_blank"
-              class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-2 focus:outline-none block w-full">
+          <h2 class="text_clip text-xl font-bold my-3">{{ $t("join_telegram") }}</h2>
+          <div class="flex justify-between items-center">
+            <a :href="`${course.telegram}`" target="_blank" class="custom_btn1 flex items-center">
               {{ $t("join_now") }}
-              <Icon class="text-white text-2xl -mt-1" name="ic:baseline-telegram" />
+              <Icon class="text-white text-2xl" name="hugeicons:telegram" />
             </a>
           </div>
         </div>

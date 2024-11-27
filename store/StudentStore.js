@@ -2,7 +2,6 @@ import {defineStore} from "pinia";
 import {useAuthStore} from "@/store/AuthStore";
 import {useTostStore} from "@/store/TostStore";
 import {useGlobalStore} from "@/store/GlobalStore";
-const auth = useAuthStore();
 export const useStudentStore = defineStore("StudentStore", {
   state: () => {
     return {
@@ -52,7 +51,7 @@ export const useStudentStore = defineStore("StudentStore", {
     },
     setValueStudentMenu(value) {
       if (value == "profile" || value == "settings") {
-        this.data.user = auth.user;
+        this.data.user = useAuthStore().user;
         this.pageShow = false;
       }
       useGlobalStore().menuMobileScreen = false;

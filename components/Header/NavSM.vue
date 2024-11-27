@@ -15,36 +15,40 @@
         <nuxt-link :to="localePath('/')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("home") }}</span>
-          <Icon class="text-3xl ms-auto" name="ic-baseline-house" />
+          <!-- <Icon class="text-3xl ms-auto" name="ic-baseline-house" /> -->
+          <img src="/imgs/icons/00.png" class="w-7" alt="">
         </nuxt-link>
       </li>
       <li class="py-3">
         <nuxt-link :to="localePath('/sections')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("classes") }}</span>
-          <Icon class="text-3xl" name="uis:window-section" />
+          <!-- <Icon class="text-3xl" name="uis:window-section" /> -->
+          <img src="/imgs/icons/07.png" class="w-7" alt="">
         </nuxt-link>
       </li>
       <li class="py-3">
         <nuxt-link :to="localePath('/teachers')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("teachers") }}</span>
-          <Icon class="text-3xl" name="game-icons:teacher" />
+          <!-- <Icon class="text-3xl" name="game-icons:teacher" /> -->
+          <img src="/imgs/icons/01.png" class="w-7" alt="">
         </nuxt-link>
       </li>
       <li class="py-3">
         <nuxt-link :to="localePath('/subjects')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("subjects") }}</span>
-          <Icon class="text-3xl" name="mdi:book-open-page-variant-outline" />
+          <!-- <Icon class="text-3xl" name="mdi:book-open-page-variant-outline" /> -->
+          <img src="/imgs/icons/09.png" class="w-7" alt="">
         </nuxt-link>
       </li>
-
       <li class="py-3">
         <nuxt-link :to="localePath('/offers')" @click="globalStore.closeMenu()"
           class="offers text-fpDark2 dark:text-gray-300 flex items-center justify-between"><span>{{ $t("offers")
             }}</span>
-          <Icon class="text-3xl" name="ic:baseline-card-giftcard" />
+          <!-- <Icon class="text-3xl" name="ic:baseline-card-giftcard" /> -->
+          <img src="/imgs/menu-icons/coupon.png" class="w-7" alt="">
         </nuxt-link>
       </li>
 
@@ -52,25 +56,28 @@
         <nuxt-link :to="localePath('/about')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("about") }}</span>
-          <Icon class="text-3xl" name="mdi-account-box-multiple-outline" />
+          <!-- <Icon class="text-3xl" name="mdi-account-box-multiple-outline" /> -->
+          <img src="/imgs/icons/010.png" class="w-7" alt="">
         </nuxt-link>
       </li>
       <li class="py-3">
         <nuxt-link :to="localePath('/review')" @click="globalStore.closeMenu()"
           class="reviews text-fpDark2 dark:text-gray-300 flex items-center justify-between"><span>{{ $t("reviews")
             }}</span>
-          <Icon class="text-3xl" name="ph-users-three-bold" />
+          <!-- <Icon class="text-3xl" name="ph-users-three-bold" /> -->
+          <img src="/imgs/icons/06.png" class="w-7" alt="">
         </nuxt-link>
       </li>
-
       <li class="py-3">
         <nuxt-link :to="localePath('/contact')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">
           <span>{{ $t("contact") }}</span>
-          <Icon class="text-3xl" name="ph-envelope-open-fill" />
+          <!-- <Icon class="text-3xl" name="ph-envelope-open-fill" /> -->
+          <img src="/imgs/icons/012.png" class="w-7" alt="">
         </nuxt-link>
       </li>
     </ul>
+
     <div class="flex flex-col justify-center items-center gap-y-4 py-4">
       <nuxt-link v-if="!auth.isLoggedIn" :to="localePath('/login')" @click="globalStore.closeMenu()"
         class="custom_btn1 hover:animate-gradient-xy md:!text-base !text-sm !m-0 md:p-3 !p-1">
