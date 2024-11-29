@@ -39,7 +39,7 @@
   "dont_account": "معندكش اكاونت ؟",
   "new_account": "اعمل اكاونت جديد",
   "create_new_account": "اعمل اكاونت",
-  "or_register_from": "أو ",
+  "or_register_from": "او",
   "register_coch": "سجل كمدرس",
   "have_account": "عندك أكاونت بالفعل ؟",
   "name_ar": "اسمك باللغة العربية",
@@ -239,7 +239,7 @@
   "not_inovoices": "مفيش فواتير",
   "classes": "الصفوف الدراسية",
   "name": "اﻹسم",
-  "login_video": "كيف تسجيل الدخول واﻹشتراك",
+  "login_video": "كيفية تسجيل الدخول واﻹشتراك",
   "done_meeting": "إنتهت الجلسة",
   "with_time_cairo": "بتوقيت القاهرة",
   "classes_courses": "المواد الدراسية",
@@ -253,5 +253,5 @@
   "all_classes": "جميع الصفوف الدراسية",
   "class": "الصف",
   "view_video": "مشاهدة الفيديو",
-  "balance": "الرصيد"
+  "EnterPass": "أدخل كلمة المرور"
 }

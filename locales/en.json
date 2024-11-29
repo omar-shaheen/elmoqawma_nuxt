@@ -207,5 +207,6 @@
   "go_course": "go_course",
   "class": "class",
   "view_video": "view video",
-  "balance": "balance"
+  "balance": "balance",
+  "EnterPass": "Enter Password"
 }
