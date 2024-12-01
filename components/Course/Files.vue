@@ -23,10 +23,10 @@
           <div v-if="course.attachments.length == 0" class="text-center p-5">
             <img src="/imgs/no-data.svg" class="w-52 mx-auto" alt="" />
             <div class="mt-10">
-              <h2 class="lg:text-3xl text-xl text-center text-black font-semibold leading-relaxed pb-1">
+              <h2 class="lg:text-4xl text-xl text-center text-slate-700 dark:text-white font-bold leading-relaxed pb-1">
                 {{ $t("sorry") }}
               </h2>
-              <p class="text-center text-yellow-500 text-2xl mt-4">{{ $t("not_found_files") }}</p>
+              <p class="text-center text-yellow-500 lg:text-3xl text-xl font-semibold mt-4">{{ $t("not_found_files") }}</p>
             </div>
           </div>
           <div v-for="file in course.attachments" :key="file.id" class="py-2">

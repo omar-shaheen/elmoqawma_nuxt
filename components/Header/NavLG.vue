@@ -1,7 +1,7 @@
 <template>
   <nav class="dark:bg-fpDark2 dark:text-fpLightBack inset-y-0 end-0 z-50 w-9/12 px-4 hidden lg:block">
     <ul
-      class="flex flex-row items-center dark:divide-fpDark2 text-md font-bold whitespace-nowrap text-fp1 dark:text-gray-300">
+      class="flex flex-row items-center dark:divide-fpDark2 text-sm font-bold whitespace-nowrap text-fp1 dark:text-gray-300">
       <li class="py-0">
         <nuxt-link :to="localePath('/')" @click="globalStore.closeMenu()"
           class="px-2 xl:text-base text-sm text-[#003b3f] hover:text-fp1 dark:text-slate-300 dark:hover:text-fp1">

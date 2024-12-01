@@ -24,7 +24,7 @@
           <div
             v-if="globalStore.appSettings.show_watermark === 'yes'"
             id="watermark"
-            class="watermark bg-fpDark1/70 whitespace-nowrap absolute z-[9999] rounded-xl font-bold text-md text-white px-2 pt-1 w-fit mt-2"
+            class="watermark bg-fpDark1/70 whitespace-nowrap absolute z-[9999] rounded-xl font-bold text-sm text-white px-2 pt-1 w-fit mt-2"
             v-text="`${auth.user.name_ar} #${auth.user.id}`"
           ></div>
           <iframe

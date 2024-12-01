@@ -17,7 +17,7 @@
                   <p class="text-fp1 font-bold text-lg lg:text-xl block"
                     v-text="selectedReview.user['name_' + currentLocale]"></p>
                   <nuxt-link :to="localePath(`/section/${selectedReview.section.id}`)"
-                    class="text-fp1 font-bold text-sm lg:text-md block">
+                    class="text-fp1 font-bold text-sm lg:text-sm block">
                     <span class="text-fpDark3">{{ $t('section') }}: </span>
                     {{
                       selectedReview.section.id == 1
@@ -31,7 +31,7 @@
                       name="solar:stars-minimalistic-bold-duotone" />
                   </div>
 
-                  <p class="relative font-medium text-md lg:text-base dark:text-fpLightGray"
+                  <p class="relative font-medium text-sm lg:text-base dark:text-fpLightGray"
                     v-html="selectedReview.comment"></p>
                 </div>
               </div>

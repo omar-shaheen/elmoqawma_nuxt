@@ -13,7 +13,7 @@
             />
             <path d="M24.4479 48.2087L16.083 39.8438L24.4479 31.479L25.5525 32.5837L18.2924 39.8438L25.5525 47.104L24.4479 48.2087Z" />
           </svg>
-          <span class="ms-2 mt-1 text-md lg:text-2xl font-medium dark:text-fpLightBack">{{ $t("re_test") }}</span>
+          <span class="ms-2 mt-1 text-sm lg:text-2xl font-medium dark:text-fpLightBack">{{ $t("re_test") }}</span>
         </button>
         <img src="~/assets/images/student/sad.png" alt="" class="block mx-auto w-20 lg:w-auto lg:-mt-28" />
         <span class="text-center block text-3xl lg:text-5xl mt-6 dark:text-fpLightBack">{{ $t("good_luck") }}</span>

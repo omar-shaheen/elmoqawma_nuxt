@@ -1,6 +1,6 @@
 <template>
   <section class="pb-8 lg:pb-24">
-    <PageTitle :title="t('subjects')" :currentPage="subject['name_' + currentLocale]" :linkUrl="localePath(`/subjects`)"
+    <PageTitle :title="t('classes')" :currentPage="subject['name_' + currentLocale]" :linkUrl="localePath(`/subjects`)"
       :linkTitle="t('all_subjects')" />
     <div class="container mx-auto mt-10">
       <TransitionGroup name="taps-down">
@@ -19,17 +19,20 @@
         </div>
         <div class="mt-10" v-show="showSection == 'sections'">
           <div class="flex items-center justify-between mb-10">
-            <h2 class="text_clip text-4xl font-extrabold">
+            <h2 class="text_clip lg:text-4xl text-xl font-extrabold">
               {{ $t("classes") }}</h2>
-            <button @click="showSection = 'teachers'" class="custom_btn1 !m-0 !text-lg">
+            <button @click="showSection = 'teachers'" class="custom_btn1 !m-0 !text-sm lg:!text-lg">
               {{ $t("teachers") }}
               <Icon name="ph:student-fill" class="text-white text-xl" />
             </button>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
             <button @click="setData('courses', section.courses)" v-for="section in sections" :key="section.id"
-              class="link_classe relative z-20 hover:scale-105 shadow-lg transition-all overflow-hidden border-0">
-              <img :src="`${baseURL}/images/${section.photo}`" alt="post image" class="object-cover rounded-2xl" />
+              class="rounded-2xl relative text-fp1 hover:text-fp3 dark:text-fp2 dark:hover:text-fp3">
+              <img :src="`${baseURL}/images/${section.photo}`" class="rounded-2xl" alt="post image" />
+              <div class="p-3 pt-0">
+                <p class="custom_btn1 hover:animate-gradient-xy !text-xl" v-text="section['name_' + currentLocale]"></p>
+              </div>
             </button>
           </div>
           <p v-show="sections.length == 0 && showSection == 'sections'"
@@ -39,9 +42,9 @@
         </div>
         <div class="mt-10" v-show="showSection == 'courses'">
           <div class="flex items-center justify-between mb-10">
-            <h2 class="text_clip text-4xl font-extrabold">{{
+            <h2 class="text_clip lg:text-4xl text-xl font-extrabold">{{
               $t("course") }}</h2>
-            <button @click="showSection = 'sections'" class="custom_btn1 !m-0 !text-lg">
+            <button @click="showSection = 'sections'" class="custom_btn1 !m-0 !text-sm lg:!text-lg">
               {{ $t("classes") }}
               <Icon name="ph:student-fill" class="text-white text-xl" />
             </button>

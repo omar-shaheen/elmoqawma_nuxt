@@ -7,7 +7,7 @@
           <div class="flex flex-wrap -m-2">
             <div class="flex flex-wrap -m-2">
               <div class="p-2 sm:w-full md:w-1/2">
-                <label for="name_ar" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("name_ar") }}</label>
+                <label for="name_ar" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("name_ar") }}</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                     <Icon name="ic:baseline-account-box" class="text-start text-2xl" />
@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class="p-2 sm:w-full md:w-1/2">
-                <label for="name_en" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("name_en") }}</label>
+                <label for="name_en" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("name_en") }}</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                     <Icon name="ic:baseline-account-box" class="text-start text-2xl" />
@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="p-2 sm:w-full md:w-1/2">
-                <label for="phone" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_user") }}</label>
+                <label for="phone" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_user") }}</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                     <Icon name="ic:baseline-phone" class="text-start text-2xl" />
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="p-2 sm:w-full md:w-1/2">
-                <label for="birth" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("birth_user") }}</label>
+                <label for="birth" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("birth_user") }}</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                     <Icon name="iconoir:birthday-cake" class="text-start text-2xl" />
@@ -79,7 +79,7 @@
                 </div>
               </div>
               <div class="p-2 sm:w-full md:w-1/2">
-                <label for="success" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("email_user") }}</label>
+                <label for="success" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("email_user") }}</label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                     <!-- <p v-text="updateValue.email" class="text-fp2 font-bold me-2 -mb-1"></p> -->

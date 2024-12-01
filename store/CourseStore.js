@@ -128,7 +128,7 @@ export const useCourseStore = defineStore("course", {
                 if (!plyr.contains(document.getElementById("watermark"))) {
                   let watermark = document.createElement("div");
                   watermark.id = "watermark";
-                  watermark.className = "watermark bg-fpDark1/70 whitespace-nowrap absolute z-[9999] rounded-xl font-bold text-md text-white px-2 pt-1 w-fit mt-2";
+                  watermark.className = "watermark bg-fpDark1/70 whitespace-nowrap absolute z-[9999] rounded-xl font-bold text-sm text-white px-2 pt-1 w-fit mt-2";
                   watermark.innerHTML = `#${useAuthStore().user.id} ${useAuthStore().user["name_" + this.locale]}`;
                   plyr.appendChild(watermark);
                 }

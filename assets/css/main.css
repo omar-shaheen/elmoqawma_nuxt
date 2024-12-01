@@ -601,7 +601,7 @@ nav.student > button.active-link::before {
 }
 
 .gradient {
-  background: linear-gradient(90deg, #8b5cf6 0%, #0ea5e9 100%);
+  @apply bg-[linear-gradient(90deg,_#8b5cf6_0%,_#0ea5e9_100%)] dark:bg-[linear-gradient(90deg,_#111827_0%,_#212438_100%)];
 }
 
 select {

@@ -24,26 +24,26 @@
           <hr class="-mr-10 my-4 w-[112%] bg-fp1 h-1" />
           <div class="flex items-center justify-between mt-10">
             <span class="text-xl lg:text-2xl dark:text-fpLightBack">{{ $t("name_user") }} :</span>
-            <p class="text-md text-gray-600 dark:text-gray-300" v-text="user['name_' + currentLocale]"></p>
+            <p class="text-sm text-gray-600 dark:text-gray-300" v-text="user['name_' + currentLocale]"></p>
           </div>
           <hr class="-mr-10 mt-2 w-[109%]" />
           <div class="flex items-center justify-between mt-10">
-            <span class="text-md lg:text-2xl dark:text-fpLightBack">{{ $t("email_user") }} :</span>
+            <span class="text-sm lg:text-2xl dark:text-fpLightBack">{{ $t("email_user") }} :</span>
             <p class="text-lg text-gray-600 dark:text-gray-300" v-text="props.user.email"></p>
           </div>
           <hr class="-mr-10 mt-2 w-[109%]" />
           <div class="flex items-center justify-between mt-10">
-            <span class="text-md lg:text-2xl dark:text-fpLightBack">{{ $t("status") }}:</span>
+            <span class="text-sm lg:text-2xl dark:text-fpLightBack">{{ $t("status") }}:</span>
             <p class="text-lg text-gray-600 dark:text-gray-300">Approved</p>
           </div>
           <hr class="-mr-10 mt-2 w-[109%]" />
           <div class="flex items-center justify-between mt-10">
-            <span class="text-md lg:text-2xl dark:text-fpLightBack">{{ $t("phone_user") }}:</span>
+            <span class="text-sm lg:text-2xl dark:text-fpLightBack">{{ $t("phone_user") }}:</span>
             <p class="text-lg text-gray-600 dark:text-gray-300" v-text="props.user.phone"></p>
           </div>
           <hr class="-mr-10 mt-2 w-[109%]" />
           <div class="flex items-center justify-between mt-10">
-            <span class="text-md lg:text-2xl dark:text-fpLightBack">{{ $t("join_date") }}:</span>
+            <span class="text-sm lg:text-2xl dark:text-fpLightBack">{{ $t("join_date") }}:</span>
             <p class="text-lg text-gray-600 dark:text-gray-300">{{ getDate(props.user.created_at) }}</p>
           </div>
         </div>

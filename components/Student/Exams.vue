@@ -82,7 +82,7 @@
                   <td class="px-6 py-4">
                     <button
                       @click="userShowAnswers(detailExam.course_id, detailExam.id)"
-                      class="lg:w-1/2 mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-1.5 focus:outline-none block text-white"
+                      class="lg:w-1/2 mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
                     >
                       {{ detailExam.id }}
                       <Icon name="ic:baseline-remove-red-eye" class="text-white text-2xl -mt-0.5" />
@@ -122,7 +122,7 @@
                 ]"
                 class="block w-full text-start border-2 rounded-lg lg:rounded-full transition-all py-2 lg:py-4 ps-16 lg:ps-20 relative after:absolute after:start-5 lg:after:start-8 after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:start-7 lg:before:start-10 before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full"
               >
-                <span class="text-md lg:text-xl" v-text="answer.answer"></span>
+                <span class="text-sm lg:text-xl" v-text="answer.answer"></span>
               </button>
               <!-- {{ indexAnswer }} -->
               <!-- <div>
@@ -139,7 +139,7 @@
                       </svg>
                       رائع! أجابتك صحيحة :
                     </span>
-                    <p class="text-md lg:text-2xl text-green-400 ms-2" v-text="answer.answer"></p>
+                    <p class="text-sm lg:text-2xl text-green-400 ms-2" v-text="answer.answer"></p>
                   </button>
                 </div>
                 <div v-if="activeAnswers[question.id] != answer.id && done == true && answer.status == 1">
@@ -156,7 +156,7 @@
                       </svg>
                       خطاء الحل الصحيح هوا :
                     </span>
-                    <p class="text-md lg:text-3xl text-green-400 ms-2" v-text="answer.answer"></p>
+                    <p class="text-sm lg:text-3xl text-green-400 ms-2" v-text="answer.answer"></p>
                   </button>
                 </div>
               </div> -->

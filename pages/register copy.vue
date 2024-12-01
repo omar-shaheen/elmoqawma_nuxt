@@ -11,7 +11,7 @@
         </p>
         <form @submit.prevent="submitUserRegister" method="post" action @keydown="errors.clear($event.target.name)">
           <div class="mb-6">
-            <label for="name_ar" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("name") }}</label>
+            <label for="name_ar" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("name") }}</label>
             <div class="relative mb-6">
               <div class="absolute inset-y-0 -end-1 flex items-center h-[42px] pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                 <Icon name="ic:baseline-account-box" class="text-start text-2xl" />
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="mb-6">
-            <label for="phone" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_user") }}</label>
+            <label for="phone" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_user") }}</label>
             <div class="relative mb-6">
               <div class="absolute inset-y-0 -end-1 flex items-center h-[42px] pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                 <Icon name="ic:baseline-phone" class="text-start text-2xl" />
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="mb-6">
-            <label for="phone_parent" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_parent_user") }}</label>
+            <label for="phone_parent" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("phone_parent_user") }}</label>
             <div class="relative mb-6">
               <div class="absolute inset-y-0 -end-1 flex items-center h-[42px] pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                 <Icon name="ic:baseline-phone" class="text-start text-2xl" />
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="mb-6">
-            <label for="birth" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("birth_user") }}</label>
+            <label for="birth" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("birth_user") }}</label>
             <div class="relative mb-6">
               <div class="absolute inset-y-0 -end-1 flex items-center h-[42px] pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                 <Icon name="iconoir:birthday-cake" class="text-start text-2xl" />
@@ -84,7 +84,7 @@
           </div>
 
           <div class="mb-6">
-            <label for="success" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("email_user") }}</label>
+            <label for="success" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("email_user") }}</label>
             <div class="relative mb-6">
               <div class="absolute inset-y-0 -end-1 flex items-center h-[42px] pointer-events-none bg-slate-200 dark:bg-fp1 dark:text-white px-2 rounded-e-lg">
                 <!-- <p v-text="register.email" class="text-fp2 font-bold me-2 -mb-1"></p> -->
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="mb-6">
-            <label for="success" class="block mb-2 text-sm lg:text-md font-medium text-fpDark2 dark:text-gray-300">{{ $t("password_user") }}</label>
+            <label for="success" class="block mb-2 text-sm lg:text-sm font-medium text-fpDark2 dark:text-gray-300">{{ $t("password_user") }}</label>
             <div class="relative">
               <button
                 :class="errors.has('password') ? 'is-invalid' : ''"
@@ -146,7 +146,7 @@
               <span class="">تسجيل الدخول عبر جوجل</span>
             </button>
           </div> -->
-          <div class="text-md lg:text-xl mt-5 lg:my-10">
+          <div class="text-sm lg:text-xl mt-5 lg:my-10">
             <span class="dark:text-gray-300">{{ $t("have_account") }}</span>
             <nuxt-link :to="localePath(`/login`)" class="text-fp1 font-bold ms-1">{{ $t("login") }}</nuxt-link>
           </div>

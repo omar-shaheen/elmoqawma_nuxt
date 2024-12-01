@@ -3,9 +3,6 @@
     <PageTitle :title="t('teachers')" />
     <div class="container mx-auto">
       <div class="mt-10">
-        <!-- <h2
-          class="text-3xl lg:text-5xl text-fp2 dark:text-fp1 font-bold border-b-2 border-fp2 w-fit mx-auto pb-2 lg:pb-6 mb-16">
-          {{ $t("teachers") }}</h2> -->
         <Skeleton type="image_text" :count="3" v-if="teachers.length == 0" />
         <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10">
           <NuxtLink :to="localePath(`/teacher/${teacher.id}`)" v-for="teacher in teachers" :key="teacher.id"
@@ -35,6 +32,7 @@
     </div>
   </section>
 </template>
+
 <script setup>
 const { currentLocale, dir } = useLang();
 const { t } = useI18n();

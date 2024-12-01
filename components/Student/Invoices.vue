@@ -31,14 +31,14 @@
                   <nuxt-link
                     :to="localePath(`/${invoice.data_type}/${invoice[invoice.data_type].id}`)"
                     v-if="invoice.data_type == 'course' || invoice.data_type == 'offer'"
-                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-1.5 focus:outline-none block text-white"
+                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
                   >
                     {{ invoice.data_type == "course" ? `${invoice.course.name} ${invoice.course.subject["name_" + currentLocale]}` : invoice.offer["name_" + currentLocale] }}
                   </nuxt-link>
                   <nuxt-link
                     :to="localePath(`/course/${invoice.lecture.course_id}`)"
                     v-else
-                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-1.5 focus:outline-none block text-white"
+                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
                   >
                     {{ invoice.lecture.title }}
                   </nuxt-link>

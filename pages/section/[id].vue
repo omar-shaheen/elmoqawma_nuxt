@@ -9,10 +9,10 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:gap-x-10 cursor-pointer">
             <div v-for="subject in section.subjects" :key="subject.id" @click="setData('teachers', subject.teachers)"
               class="rounded-2xl relative border overflow-hidden hover:shadow-lg transition-all">
-              <div class="sm:mx-1 bg-white dark:bg-fpDark2 flex flex-col lg:pb-8">
+              <div class="sm:mx-1 bg-white dark:bg-fpDark2 flex flex-col pb-8">
                 <div>
                   <img :src="`${baseURL}/images/${subject.photo}`" alt="post image"
-                    class="w-full h-[300px] object-cover rounded-2xl" />
+                    class="w-full lg:h-[300px] h-[200px] object-cover rounded-2xl" />
                 </div>
                 <div class="px-6 h-full text-center">
                   <b class="text-2xl dark:text-fpLightBack text-fp1 font-bold mt-6 block">{{ subject["name_" +
@@ -28,8 +28,7 @@
         </div>
         <div class="mt-10" v-show="showSection == 'teachers'">
           <div class="flex items-center justify-between mb-10">
-            <h2 class="text_clip md:text-4xl text-2xl font-extrabold">
-              {{ $t("teachers") }}</h2>
+            <h2 class="text_clip md:text-4xl text-2xl font-extrabold">{{ $t("teachers") }}</h2>
             <button @click="showSection = 'subjects'" class="custom_btn1 !m-0 lg:!text-lg !text-base">
               <Icon name="ic:sharp-menu-book" class="text-white text-xl" />
               {{ $t("subjects") }}

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] dark:bg-fpDark2">
+    class="relative bg-gradient-to-r from-violet-500 dark:from-fpDark1 from-10% via-sky-500 dark:via-fpDark2 via-30% to-pink-500 dark:to-fpBlack to-90% bg-[length:400%]">
     <footer class="bg-header py-10 relative">
       <div class="container mx-auto 2xl:px-0">
         <div class="flex flex-col items-center lg:flex-row lg:items-start gap-x-10">
@@ -10,8 +10,9 @@
                 <p class="text-fp3 text-3xl font-bold">{{ $t(`site_name`) }}</p>
                 <p class="text-white dark:text-white text-xs mt-4 whitespace-nowrap">{{ $t("small_text_footer") }}</p>
               </div> -->
-              <div class="">
-                <img src="~/assets/images/global/logo-regtangle.png" class="rounded-3xl shadow mb-3 w-2/3" alt="background footer" />
+              <div class="text-center lg:text-start">
+                <img src="~/assets/images/global/logo-regtangle.png" class="rounded-3xl shadow mb-3 w-2/3 mx-auto lg:mx-0"
+                  alt="background footer" />
               </div>
             </div>
             <p class="text-white dark:text-white text-justify sm:mt-6"

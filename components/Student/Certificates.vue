@@ -20,14 +20,14 @@
             <div class="flex justify-between items-center mt-4">
               <button
                 @click="globalStore.HashURLFile(`${baseURL}/images/certificates/${certificate.file}.pdf`)"
-                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-1.5 focus:outline-none"
+                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none"
               >
                 {{ $t("certificate_pdf") }}
                 <Icon name="ic:baseline-picture-as-pdf" class="text-white text-2xl -mt-1" />
               </button>
               <button
                 @click="globalStore.HashURLFile(`${baseURL}/images/certificates/${certificate.file}.png`)"
-                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-md px-2 py-1.5 focus:outline-none"
+                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none"
               >
                 {{ $t("certificate_png") }}
                 <Icon name="ic:baseline-photo-library" class="text-white text-2xl -mt-1" />

@@ -10,7 +10,7 @@
         <img src="~/assets/images/global/logo.png" alt="logo" class="w-16" />
       </div>
     </div>
-    <ul class="flex flex-col divide-y dark:divide-fpDark2 mt-6 h-full text-md font-normal">
+    <ul class="flex flex-col divide-y dark:divide-fpDark2 mt-6 h-full text-sm font-normal">
       <li class="py-3">
         <nuxt-link :to="localePath('/')" @click="globalStore.closeMenu()"
           class="text-fpDark2 dark:text-gray-300 flex items-center justify-between">

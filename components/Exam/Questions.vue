@@ -58,7 +58,7 @@
               ]"
               class="dark:text-fpLightBack block w-full text-start border-2 transition-all relative after:absolute after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full"
             >
-              <span class="text-md lg:text-xl" v-if="answer.answer_type == 'text'" v-text="answer.answer"></span>
+              <span class="text-sm lg:text-xl" v-if="answer.answer_type == 'text'" v-text="answer.answer"></span>
               <img v-else-if="answer.answer_type == 'image'" :src="`${baseURL}/images/${answer.answer}`" class="lg:w-1/2 mx-auto object-cover" />
             </button>
             <!-- {{ indexAnswer }} -->
@@ -76,9 +76,9 @@
                     </svg>
                     {{ $t("answer_correct") }} :
                   </span>
-                  <p class="text-md lg:text-2xl text-green-400 ms-2" v-text="answer.answer"></p>
+                  <p class="text-sm lg:text-2xl text-green-400 ms-2" v-text="answer.answer"></p>
                 </button>
-                <p class="text-md lg:text-3xl text-green-400 ms-2 block mt-6" v-text="question.Justify"></p>
+                <p class="text-sm lg:text-3xl text-green-400 ms-2 block mt-6" v-text="question.Justify"></p>
               </div>
               <div v-if="ExamStore.activeAnswers[question.id] != answer.id && ExamStore.getDetailsQuestions.done == true && answer.status == 1">
                 <button class="flex items-center text-red-500 mt-10">
@@ -94,10 +94,10 @@
                     </svg>
                     {{ $t("answer_wrong") }} :
                   </span>
-                  <p v-if="answer.answer_type == 'text'" class="text-md lg:text-3xl text-green-400 ms-2" v-text="answer.answer"></p>
+                  <p v-if="answer.answer_type == 'text'" class="text-sm lg:text-3xl text-green-400 ms-2" v-text="answer.answer"></p>
                   <img v-else-if="answer.answer_type == 'image'" :src="`${baseURL}/images/${answer.answer}`" class="lg:w-2/6 mx-auto object-cover" />
                 </button>
-                <p class="text-md lg:text-3xl text-green-400 ms-2 block mt-6" v-text="question.Justify"></p>
+                <p class="text-sm lg:text-3xl text-green-400 ms-2 block mt-6" v-text="question.Justify"></p>
               </div>
             </div>
           </div>
