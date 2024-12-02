@@ -5,7 +5,7 @@
     <transition name="menu-down" v-show="globalStore.hoverProfile">
       <!-- style="display: none" -->
       <div
-        class="bg-white dark:text-gray-300 dark:bg-fpDark1 fixed lg:absolute top-16 lg:top-10 end-0 lg:-end-20 w-full lg:w-72 z-[110] rounded-lg shadow-custom1">
+        class="bg-white dark:text-gray-300 dark:bg-fpDark1 fixed lg:absolute top-11 lg:top-10 end-0 lg:-end-20 w-full lg:w-72 z-[110] rounded-lg shadow-custom1">
         <div class="flex items-center gap-x-3 border-b-2 border-b-gray-200 dark:border-b-fpDark2 pb-2 p-4">
           <div>
             <img v-if="auth.user.photo" :src="`${baseURL}/images/${auth.user.photo}`"

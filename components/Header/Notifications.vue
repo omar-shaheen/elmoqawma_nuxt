@@ -10,7 +10,7 @@
     <transition name="menu-down" v-show="globalStore.hoverNotification"
       v-if="Object.keys(globalStore.notifications).length > 0">
       <div style="display: none"
-        class="bg-gray-50 dark:text-gray-300 dark:bg-fpDark1 fixed lg:absolute top-16 lg:top-10 end-0 w-full lg:w-72 z-[110] rounded-lg shadow-xl dark:border-t dark:border-t-fp2">
+        class="bg-gray-50 dark:text-gray-300 dark:bg-fpDark1 fixed lg:absolute top-11 lg:top-10 end-0 w-full lg:w-72 z-[110] rounded-lg shadow-xl dark:border-t dark:border-t-fp2">
         <div class="flex items-center justify-between border-b border-b-fpLightGray dark:border-b-fpDark2 pb-2 p-4">
           <p class="text-gray-900 dark:text-gray-300 text-lg font-bold">{{ $t("notification") }}</p>
           <button @click="globalStore.markAsRead()" type="button" class="btn_custom2 !text-sm !py-1">
