@@ -131,7 +131,7 @@
   "qutions": "أسئلة",
   "show": "عرض",
   "edit_account": "تعديل بيانات الاكاونت",
-  "update_account": "تحديث اكاونتى",
+  "update_account": "تحديث الحساب",
   "old_password": "الباسورد القديم",
   "new_password": "الباسورد الجديد",
   "confirm_password": "تأكيد كلمة المرور",
@@ -253,5 +253,7 @@
   "all_classes": "جميع الصفوف الدراسية",
   "class": "الصف",
   "view_video": "مشاهدة الفيديو",
-  "EnterPass": "أدخل كلمة المرور"
+  "EnterPass": "أدخل كلمة المرور",
+  "Contact us at any time": "اتصل بنا في أي وقت",
+  "not_files_courses": "لا يوجد ملفات متاحة حاليا في هذه الدورة"
 }

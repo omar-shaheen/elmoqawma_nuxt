@@ -1,12 +1,15 @@
 <template>
   <div>
-    <section class="container mx-auto pt-10 bg-white dark:bg-fpDark1 relative">
+    <section class="container mx-auto lg:px-3 pt-10 bg-white dark:bg-fpDark1 relative">
       <div>
-        <h2 class="font-bold text-p-dark text-2xl lg:text-5xl mb-3 text-center lg:text-start dark:text-fp1">
-          {{ $t("all_inovoices") }}
-        </h2>
+        <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
+          <img src="/imgs/menu-icons/256/bill.png" class="w-12" alt="">
+          <h2 class="font-bold text-p-dark text-2xl lg:text-4xl text-center lg:text-start text-fpDark2 dark:text-fp1">
+            {{
+              $t("all_inovoices") }}</h2>
+        </div>
 
-        <div v-if="invoices.length > 0" class="relative overflow-x-auto shadow-md sm:rounded-lg lg:mt-20">
+        <div v-if="invoices.length > 0" class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <thead class="text-white uppercase bg-fp1 dark:bg-fpDark2 dark:text-gray-400">
               <tr class="text-2xl">
@@ -21,25 +24,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="invoice in invoices"
-                :key="invoice.id"
-                class="text-xl whitespace-nowrap bg-white text-gray-600 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-100 dark:hover:bg-gray-600"
-              >
+              <tr v-for="invoice in invoices" :key="invoice.id"
+                class="text-xl whitespace-nowrap bg-white text-gray-600 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-100 dark:hover:bg-gray-600">
                 <td class="px-6 py-4" v-text="invoice.id"></td>
                 <td class="px-6 py-4">
-                  <nuxt-link
-                    :to="localePath(`/${invoice.data_type}/${invoice[invoice.data_type].id}`)"
+                  <nuxt-link :to="localePath(`/${invoice.data_type}/${invoice[invoice.data_type].id}`)"
                     v-if="invoice.data_type == 'course' || invoice.data_type == 'offer'"
-                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
-                  >
-                    {{ invoice.data_type == "course" ? `${invoice.course.name} ${invoice.course.subject["name_" + currentLocale]}` : invoice.offer["name_" + currentLocale] }}
+                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white">
+                    {{ invoice.data_type == "course" ? `${invoice.course.name} ${invoice.course.subject["name_" +
+                      currentLocale]}` : invoice.offer["name_" + currentLocale] }}
                   </nuxt-link>
-                  <nuxt-link
-                    :to="localePath(`/course/${invoice.lecture.course_id}`)"
-                    v-else
-                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
-                  >
+                  <nuxt-link :to="localePath(`/course/${invoice.lecture.course_id}`)" v-else
+                    class="mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white">
                     {{ invoice.lecture.title }}
                   </nuxt-link>
                 </td>
@@ -50,16 +46,22 @@
                   <span class="bg-[#9bffbfe6] block rounded-md font-bold mx-auto">{{ invoice.price }}</span>
                 </td>
                 <td class="px-6 py-4">
-                  <span class="bg-[#9bffbfe6] block rounded-md font-bold mx-auto">{{ invoice.code == "null" || invoice.code == null ? "--" : invoice.code }}</span>
+                  <span class="bg-[#9bffbfe6] block rounded-md font-bold mx-auto">{{ invoice.code == "null" ||
+                    invoice.code == null ? "--" : invoice.code }}</span>
                 </td>
                 <td class="px-6 py-4">
-                  <span :class="invoice.status == 1 ? 'bg-[#9bffbfe6]' : 'bg-[#ff9b9be6]'" class="block rounded-md font-bold mx-auto">{{ invoice.status }}</span>
+                  <span :class="invoice.status == 1 ? 'bg-[#9bffbfe6]' : 'bg-[#ff9b9be6]'"
+                    class="block rounded-md font-bold mx-auto">{{ invoice.status }}</span>
                 </td>
                 <td class="px-6 py-4">
                   <span class="block rounded-md font-bold mx-auto">
-                    <button @click="globalStore.HashURLFile(`${invoice.photo != null ? `${baseURL}/images/${invoice.photo}` : ``}`)" target="_blank">
-                      <img v-if="invoice.photo" :src="`${baseURL}/images/${invoice.photo}`" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
-                      <img v-else src="/imgs/avatar.png" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
+                    <button
+                      @click="globalStore.HashURLFile(`${invoice.photo != null ? `${baseURL}/images/${invoice.photo}` : ``}`)"
+                      target="_blank">
+                      <img v-if="invoice.photo" :src="`${baseURL}/images/${invoice.photo}`"
+                        class="sm:mb-4 object-cover w-14 h-14 rounded-full inline" alt="user photo" />
+                      <img v-else src="/imgs/avatar.png" class="sm:mb-4 object-cover w-14 h-14 rounded-full inline"
+                        alt="user photo" />
                     </button>
                   </span>
                 </td>
@@ -85,9 +87,9 @@
   </div>
 </template>
 <script setup>
-import {useGlobalStore} from "@/store/GlobalStore";
+import { useGlobalStore } from "@/store/GlobalStore";
 const globalStore = useGlobalStore();
-const {currentLocale, dir} = useLang();
+const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const props = defineProps({
   invoices: {

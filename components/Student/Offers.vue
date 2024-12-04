@@ -1,32 +1,39 @@
 <template>
   <section>
-    <div class="container mx-auto">
-      <h2 class="font-bold text-p-dark text-4xl lg:text-5xl text-center lg:text-start my-10 dark:text-fp1">{{ $t("my_all_offers") }}</h2>
+    <div class="container mx-auto lg:px-3 mt-5">
+      <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
+        <img src="/imgs/menu-icons/256/coupon.png" class="w-12" alt="">
+        <h2 class="font-bold text-p-dark text-2xl lg:text-4xl text-center lg:text-start text-fpDark2 dark:text-fp1">{{
+          $t("my_all_offers") }}</h2>
+      </div>
       <div class="lg:w-5/6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 h-fit" v-if="offers.length > 0">
         <div class="rounded-2xl overflow-hidden sm:pb-20" v-for="offer in offers" :key="offer.id">
           <div class="shadow-xl lg:my-10 rounded-lg md:mx-4 sm:mx-1 bg-white dark:bg-fpDark2 flex flex-col pb-8">
             <nuxt-link :to="localePath(`/offer/${offer.id}`)">
-              <img :src="`${baseURL}/images/${offer.photo}`" alt="post image" class="w-full h-[250px] object-cover rounded-t-2xl" />
+              <img :src="`${baseURL}/images/${offer.photo}`" alt="post image"
+                class="w-full h-[250px] object-cover rounded-t-2xl" />
             </nuxt-link>
             <div class="px-6 h-full">
-              <nuxt-link :to="localePath(`/offer/${offer.id}`)" class="text-nd dark:text-fpLightBack text-fp1 font-bold mt-6 block">{{ offer["name_" + currentLocale] }}</nuxt-link>
-              <span class="text-fpDarkGray dark:text-fpLightBack text-sm block mt-1"
-                ><Icon class="text-xl text-fp1 me-1" name="ic:outline-person" />{{ $t("number_subscriptions") }} {{ offer.subscribers }}</span
-              >
+              <nuxt-link :to="localePath(`/offer/${offer.id}`)"
+                class="text-nd dark:text-fpLightBack text-fp1 font-bold mt-6 block">{{ offer["name_" + currentLocale]
+                }}</nuxt-link>
+              <span class="text-fpDarkGray dark:text-fpLightBack text-sm block mt-1">
+                <Icon class="text-xl text-fp1 me-1" name="ic:outline-person" />{{ $t("number_subscriptions") }} {{
+                  offer.subscribers }}
+              </span>
 
-              <span class="text-fpDarkGray dark:text-fpLightBack text-sm block mt-1"
-                ><Icon class="text-xl text-fp1 me-1" name="healthicons:low-level" />{{ $t("duration") }}
+              <span class="text-fpDarkGray dark:text-fpLightBack text-sm block mt-1">
+                <Icon class="text-xl text-fp1 me-1" name="healthicons:low-level" />{{ $t("duration") }}
                 <span :dir="currentLocale == 'ar' ? 'ltr' : 'rtl'"> {{ offer.duration.replace(/-/g, "/") }}</span>
               </span>
               <div class="mt-1 flex">
-                <Icon v-for="i in offer.stars" class="text-xl text-fp1 me-1" name="ic:baseline-star-purple500" />
+                <Icon v-for="i in offer.stars" :key="i" class="text-xl text-fp1 me-1"
+                  name="ic:baseline-star-purple500" />
               </div>
               <div class="flex justify-between items-center mt-2">
                 <span class="text-fp1 flex text-xl">{{ offer.price }} {{ offer.currency.name }} </span>
-                <nuxt-link
-                  :to="localePath(`/offer/${offer.id}`)"
-                  class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none"
-                >
+                <nuxt-link :to="localePath(`/offer/${offer.id}`)"
+                  class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none">
                   {{ $t("show") }}
                   <Icon name="ic:baseline-check-circle-outline" class="text-white text-xl -mt-1" />
                 </nuxt-link>
@@ -40,7 +47,7 @@
   </section>
 </template>
 <script setup>
-const {currentLocale, dir} = useLang();
+const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const props = defineProps({
   offers: {

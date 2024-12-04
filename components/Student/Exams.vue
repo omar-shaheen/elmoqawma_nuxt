@@ -1,54 +1,29 @@
 <template>
   <div>
-    <!-- #2F3349 -->
-
-    <!-- Breadcrumb -->
-    <nav
-      class="flex justify-center items-center px-5 py-3 text-fpDark2 sm:rounded-none border border-gray-200 rounded-b-lg sticky top-0 bg-gray-50 dark:bg-fpDark2 dark:border-fpDark3"
-      aria-label="Breadcrumb"
-    >
-      <ol class="inline-flex items-center sm:flex-wrap space-x-1 md:space-x-3 text-xl lg:text-2xl">
-        <li class="inline-flex items-center">
-          <nuxt-link :to="localePath('/')" class="inline-flex leading-10 items-center font-medium text-fpDark2 hover:text-fp1 dark:text-gray-400 dark:hover:text-white">
-            <Icon name="ic:sharp-house" class="text-4xl" />
-            <!-- <Icon name="ic:baseline-chevron-left" class="text-xl" /> -->
-            <span class="mt-2">{{ $t("home") }}</span>
-          </nuxt-link>
-        </li>
-        <li class="inline-flex items-center" v-for="(breadcrumb, index) in breadcrumbs" :key="index">
-          <button
-            @click="section = `${breadcrumb.section}`"
-            class="inline-flex leading-10 items-center font-medium text-fpDark2 hover:text-fp1 dark:text-gray-400 dark:hover:text-white"
-          >
-            <Icon name="ic:baseline-chevron-left" class="text-4xl" />
-            <span class="mt-2">{{ breadcrumb.text }}</span>
-          </button>
-        </li>
-      </ol>
-    </nav>
-
-    <section class="container mx-auto pt-10 bg-white dark:bg-fpDark1 relative">
+    <section class="container mx-auto lg:px-3 pt-10 bg-white dark:bg-fpDark1 relative">
       <TransitionGroup name="taps-down">
         <div v-if="section == 'courses'">
-          <h2 class="font-bold text-p-dark text-4xl lg:text-5xl mb-3 text-center lg:text-start dark:text-fp1">{{ $t("my_all_exams") }}</h2>
-          <div v-if="Object.keys(props.courses).length" class="lg:w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center mt-10 lg:mt-16 h-fit">
+          <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
+            <img src="/imgs/menu-icons/256/test.png" class="w-12" alt="">
+            <h2 class="font-bold text-p-dark text-2xl lg:text-4xl text-center lg:text-start text-fpDark2 dark:text-fp1">
+              {{
+                $t("my_all_exams") }}</h2>
+          </div>
+          <div v-if="Object.keys(props.courses).length"
+            class="lg:w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center mt-10 lg:mt-16 h-fit">
             <div class="shadow-xl rounded-xl p-6 dark:bg-fpDark3" v-for="course in props.courses" :key="course.id">
               <button @click="getUserExams(course.id)">
-                <svg width="100" height="134" class="mx-auto block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                <svg width="100" height="134" class="mx-auto block" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M9.29289 1.29289C9.48043 1.10536 9.73478 1 10 1H18C19.6569 1 21 2.34315 21 4V7C21 7.55228 20.5523 8 20 8C19.4477 8 19 7.55228 19 7V4C19 3.44772 18.5523 3 18 3H11V8C11 8.55228 10.5523 9 10 9H5V20C5 20.5523 5.44772 21 6 21H11C11.5523 21 12 21.4477 12 22C12 22.5523 11.5523 23 11 23H6C4.34315 23 3 21.6569 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289L9.29289 1.29289ZM6.41421 7H9V4.41421L6.41421 7ZM18.25 20.75C18.25 21.4404 17.6904 22 17 22C16.3096 22 15.75 21.4404 15.75 20.75C15.75 20.0596 16.3096 19.5 17 19.5C17.6904 19.5 18.25 20.0596 18.25 20.75ZM15.1353 12.9643C15.3999 12.4596 16.0831 12 17 12C18.283 12 19 12.8345 19 13.5C19 14.1655 18.283 15 17 15C16.4477 15 16 15.4477 16 16V17C16 17.5523 16.4477 18 17 18C17.5523 18 18 17.5523 18 17V16.8866C19.6316 16.5135 21 15.2471 21 13.5C21 11.404 19.0307 10 17 10C15.4566 10 14.0252 10.7745 13.364 12.0357C13.1075 12.5248 13.2962 13.1292 13.7853 13.3857C14.2744 13.6421 14.8788 13.4535 15.1353 12.9643Z"
-                    class="fill-fp1"
-                  />
+                    class="fill-fp1" />
                 </svg>
               </button>
               <p class="text-xl dark:text-fpLightBack">{{ $t("course_exams") }}</p>
               <h2 class="text-fp1 text-2xl font-medium mt-2 mb-4">{{ `${course.name} ` }}</h2>
-              <button
-                @click="getUserExams(course.id)"
-                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-xl px-2 py-2 focus:outline-none"
-              >
+              <button @click="getUserExams(course.id)"
+                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-xl px-2 py-2 focus:outline-none">
                 {{ $t("course_exams") }}
                 <Icon name="ci:help-questionmark" class="text-white text-2xl -mt-1" />
               </button>
@@ -73,32 +48,31 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="detailExam in detailExams"
-                  :key="detailExam.id"
+                <tr v-for="detailExam in detailExams" :key="detailExam.id"
                   class="text-xl whitespace-nowrap cursor-pointer bg-white text-gray-600 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-100 dark:hover:bg-gray-600"
-                  @click="userShowAnswers(detailExam.course_id, detailExam.id)"
-                >
+                  @click="userShowAnswers(detailExam.course_id, detailExam.id)">
                   <td class="px-6 py-4">
-                    <button
-                      @click="userShowAnswers(detailExam.course_id, detailExam.id)"
-                      class="lg:w-1/2 mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white"
-                    >
+                    <button @click="userShowAnswers(detailExam.course_id, detailExam.id)"
+                      class="lg:w-1/2 mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white">
                       {{ detailExam.id }}
                       <Icon name="ic:baseline-remove-red-eye" class="text-white text-2xl -mt-0.5" />
                     </button>
                   </td>
                   <td class="px-6 py-4">
-                    <span :class="detailExam.score >= score ? 'bg-[#9bffbfe6]' : 'bg-[#ff9b9be6]'" class="lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score }}</span>
+                    <span :class="detailExam.score >= score ? 'bg-[#9bffbfe6]' : 'bg-[#ff9b9be6]'"
+                      class="lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score }}</span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.correct }}</span>
+                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.correct
+                      }}</span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#ff9b9be6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.mistake }}</span>
+                    <span class="bg-[#ff9b9be6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.mistake
+                      }}</span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score >= score ? "إجتاز اﻹمتحان" : "لم يجتاز اﻹمتحان" }}</span>
+                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score >=
+                      score ? "إجتاز اﻹمتحان" : "لم يجتاز اﻹمتحان" }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -110,18 +84,18 @@
             {{ $t("qutions") }} {{ `${course.name} ` }} {{ $t("number") }} => {{ examID }}
           </h2>
           <div v-for="(question, index) in questions" :key="question.id" class="lg:w-2/3 mx-auto shadow-xl p-6 h-auto">
-            <p class="text-xl lg:text-2xl text-fp1 font-semibold text-center w-5/6 mx-auto mt-6" v-html="question['question_' + currentLocale]"></p>
-            <p class="text-xl lg:text-2xl text-fp2 font-semibold text-start w-5/6 mx-auto mt-6" v-text="`${$t('note')}${question.Justify}`"></p>
+            <p class="text-xl lg:text-2xl text-fp1 font-semibold text-center w-5/6 mx-auto mt-6"
+              v-html="question['question_' + currentLocale]"></p>
+            <p class="text-xl lg:text-2xl text-fp2 font-semibold text-start w-5/6 mx-auto mt-6"
+              v-text="`${$t('note')}${question.Justify}`"></p>
             <div class="mt-10" v-for="(answer, indexAnswer) in question.answers" :key="answer.id">
-              <button
-                :class="[
-                  (answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1
-                    ? ' border-green-400 after:border-green-400 before:bg-green-400 text-green-400'
-                    : 'after:border-gray-300 before:bg-gray-300 dark:text-fpLightBack',
-                  answersIDS.includes(answer.id) && answer.status == 0 ? 'border-red-400 after:border-red-400 before:bg-red-400 text-red-400' : 'dark:text-fpLightBack',
-                ]"
-                class="block w-full text-start border-2 rounded-lg lg:rounded-full transition-all py-2 lg:py-4 ps-16 lg:ps-20 relative after:absolute after:start-5 lg:after:start-8 after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:start-7 lg:before:start-10 before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full"
-              >
+              <button :class="[
+                (answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1
+                  ? ' border-green-400 after:border-green-400 before:bg-green-400 text-green-400'
+                  : 'after:border-gray-300 before:bg-gray-300 dark:text-fpLightBack',
+                answersIDS.includes(answer.id) && answer.status == 0 ? 'border-red-400 after:border-red-400 before:bg-red-400 text-red-400' : 'dark:text-fpLightBack',
+              ]"
+                class="block w-full text-start border-2 rounded-lg lg:rounded-full transition-all py-2 lg:py-4 ps-16 lg:ps-20 relative after:absolute after:start-5 lg:after:start-8 after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:start-7 lg:before:start-10 before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full">
                 <span class="text-sm lg:text-xl" v-text="answer.answer"></span>
               </button>
               <!-- {{ indexAnswer }} -->
@@ -168,19 +142,19 @@
   </div>
 </template>
 <script setup>
-import {useTostStore} from "@/store/TostStore";
-const {currentLocale, dir} = useLang();
+import { useTostStore } from "@/store/TostStore";
+const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const score = useRuntimeConfig().public.score;
 const tost = useTostStore();
-const {t} = useI18n();
+const { t } = useI18n();
 const props = defineProps({
   courses: {
     type: Object,
     // required: true,
   },
 });
-let breadcrumbs = ref([{text: t("my_all_exams"), section: "courses"}]);
+let breadcrumbs = ref([{ text: t("my_all_exams"), section: "courses" }]);
 let detailExams = ref([]);
 let section = ref("courses");
 let courseExam = ref({});
@@ -195,14 +169,14 @@ const getUserExams = course_id => {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("user")}`,
     },
-    body: {course_id},
+    body: { course_id },
   }).then(res => {
     if (res.status) {
       detailExams.value = res.data.detailExams;
       courseExam.value = res.data.course;
       breadcrumbs.value = [
-        {text: t("my_all_exams"), section: "courses"},
-        {text: `${t("all_course_exams")} ${res.data.course.subject["name_" + currentLocale.value]}`, section: "exams"},
+        { text: t("my_all_exams"), section: "courses" },
+        { text: `${t("all_course_exams")} ${res.data.course.subject["name_" + currentLocale.value]}`, section: "exams" },
       ];
       section.value = "exams";
     } else {
@@ -219,7 +193,7 @@ const userShowAnswers = (course_id, exam_id) => {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("user")}`,
     },
-    body: {course_id, exam_id},
+    body: { course_id, exam_id },
   }).then(res => {
     if (res.status) {
       questions.value = res.data.questions;
@@ -228,9 +202,9 @@ const userShowAnswers = (course_id, exam_id) => {
       user.value = res.data.user;
       examID.value = exam_id;
       breadcrumbs.value = [
-        {text: t("my_all_exams"), section: "courses"},
-        {text: `${t("all_course_exams")} ${res.data.course.subject["name_" + currentLocale.value]}`, section: "exams"},
-        {text: exam_id, section: "answers"},
+        { text: t("my_all_exams"), section: "courses" },
+        { text: `${t("all_course_exams")} ${res.data.course.subject["name_" + currentLocale.value]}`, section: "exams" },
+        { text: exam_id, section: "answers" },
       ];
       section.value = "answers";
     } else {
