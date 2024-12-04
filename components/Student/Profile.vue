@@ -1,6 +1,6 @@
 <template>
   <section class="px-3 pb-10 mt-5">
-    <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 border border-gray-300">
+    <div class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-fpDark2 text-gray-700 border border-gray-300 dark:border-gray-600">
       <div class="relative bg-clip-border mt-4 mx-4 rounded-xl overflow-hidden bg-white text-gray-700 h-60">
         <img src="/imgs/cover-profile.jpg" class="w-full h-full object-cover object-center" loading="lazy" alt="dark" />
       </div>
@@ -14,13 +14,13 @@
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUS8TjFE3RRsUZV9JietSrxIY8xke14UuulctZGjudNedC9oVgaJhQK9AE2nM8IXSXvls&usqp=CAU"
               alt="" class="w-full h-full object-cover shadow-md" />
             <div class="space-y-1">
-              <h6 class="block antialiased tracking-normal text-xl font-semibold leading-relaxed text-blue-gray-900">
+              <h6 class="block antialiased tracking-normal text-xl font-semibold leading-relaxed text-blue-gray-900 dark:text-gray-100">
                 {{ user["name_" + currentLocale] }}
               </h6>
-              <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600"
+              <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600 dark:text-gray-100"
                 v-text="props.user.email">
               </p>
-              <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600"
+              <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600 dark:text-gray-100"
                 v-text="props.user.phone">
               </p>
               <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full font-medium"
@@ -31,7 +31,7 @@
           </div>
           <div class="">
             <span
-              class="align-middle select-none font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm p-3 rounded-lg border border-gray-400 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] flex items-center gap-2 shadow-lg">
+              class="align-middle select-none font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm p-3 rounded-lg border border-gray-400 text-gray-900 dark:text-gray-100 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] flex items-center gap-2 shadow-lg">
               <Icon name="solar:calendar-broken" class="-mt-1 size-5" />
               <span> تاريخ انشاء الحساب </span>
               ({{ getDate(props.user.created_at) }})
@@ -42,7 +42,7 @@
     </div>
 
     <div
-      class="mt-5 relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 border border-gray-300 p-6">
+      class="mt-5 relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-fpDark2 text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600 p-6">
       <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
         <div
           class="border border-gray-400 p-4 text-center rounded-lg space-y-4 flex items-center justify-between relative">

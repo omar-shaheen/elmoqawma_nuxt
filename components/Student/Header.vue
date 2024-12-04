@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="hidden lg:flex items-center gap-x-10">
         <nuxt-link :to="localePath(`/`)" class="flex items-center font-medium text-gray-900 lg:me-20">
-          <img src="~/assets/images/global/logo.png" alt="" class="w-20 lg:w-32" />
+          <img src="~/assets/images/global/logo.png" alt="" class="w-20 lg:w-24" />
         </nuxt-link>
         <div class="relative w-full">
           <div class="relative h-fit w-full mx-auto">

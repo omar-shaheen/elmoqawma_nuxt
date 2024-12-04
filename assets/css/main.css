@@ -604,7 +604,7 @@ nav.student>button.active-link::before {
 }
 
 .link_dropdown_link {
-  @apply flex items-center gap-x-2 text-fpDark2 dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2.5 transition duration-200 hover:bg-gradient-to-r from-violet-500 to-pink-500 hover:text-white;
+  @apply flex items-center gap-x-2 text-fpDark2 dark:text-white dark:bg-fpDark2 dark:hover:bg-fpDark3 w-full text-start px-4 py-2.5 transition duration-200 hover:bg-gradient-to-r from-violet-500 to-pink-500 hover:text-white;
 }
 
 .text_clip {

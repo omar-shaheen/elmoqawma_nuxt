@@ -27,7 +27,6 @@
     </div>
   </div>
 </template>
-
 <script setup>
 const props = defineProps({
   title: String,
@@ -38,53 +37,42 @@ const props = defineProps({
   class2: String
 });
 </script>
-
 <style scoped>
 .footer-wave-parallax>use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
-
 .footer-wave-parallax>use:nth-child(1) {
   animation-delay: -2s;
   animation-duration: 7s;
 }
-
 .footer-wave-parallax>use:nth-child(2) {
   animation-delay: -3s;
   animation-duration: 10s;
 }
-
 .footer-wave-parallax>use:nth-child(3) {
   animation-delay: -4s;
   animation-duration: 13s;
 }
-
 .footer-wave-parallax>use:nth-child(4) {
   animation-delay: -5s;
   animation-duration: 20s;
 }
-
 .dark .footer-wave-parallax>use:nth-child(1) {
   fill: rgb(9 12 20 / 70%);
 }
-
 .dark .footer-wave-parallax>use:nth-child(2) {
   fill: rgb(9 12 20 / 50%);
 }
-
 .dark .footer-wave-parallax>use:nth-child(3) {
   fill: rgb(9 12 20 / 30%);
 }
-
 .dark .footer-wave-parallax>use:nth-child(4) {
   fill: rgb(9 12 20 / 100%);
 }
-
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);
   }
-
   100% {
     transform: translate3d(85px, 0, 0);
   }

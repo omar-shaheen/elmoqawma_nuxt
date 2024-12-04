@@ -1,29 +1,36 @@
 <template>
   <section class="">
     <div class="container mx-auto mt-5 mb-10 lg:px-3 space-y-4">
-      <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 border border-gray-300">
+      <div class="relative flex flex-col bg-clip-border rounded-xl bg-white dark:bg-fpDark2 text-gray-700 dark:text-white border border-gray-300 dark:border-gray-600">
         <div class="relative bg-clip-border mt-4 mx-4 rounded-xl overflow-hidden bg-white text-gray-700 h-60">
           <img src="/imgs/cover-profile.jpg" class="w-full h-full object-cover object-center" loading="lazy"
             alt="dark" />
         </div>
         <div class="p-6">
-          <div class="flex lg:gap-0 gap-6 flex-wrap justify-between items-center">
-            <div class="flex items-center gap-3">
-              <img v-if="props.user.photo"
-                :src="props.user.oauth_type == null ? `${baseURL}/images/${props.user.photo}` : `${props.user.photo}`"
-                alt="avatar"
-                class="inline-block shadow-md relative object-cover object-center w-40 h-40 rounded-full" />
-              <img v-else
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUS8TjFE3RRsUZV9JietSrxIY8xke14UuulctZGjudNedC9oVgaJhQK9AE2nM8IXSXvls&usqp=CAU"
-                alt="" class="w-full h-full object-cover shadow-md" />
-              <div class="space-y-1">
-                <h6 class="block antialiased tracking-normal text-xl font-semibold leading-relaxed text-blue-gray-900">
+          <div class="flex md:gap-0 gap-6 flex-wrap md:justify-between justify-center items-center">
+            <div class="flex items-center md:flex-row flex-col md:justify-start justify-center gap-3">
+              <button class="relative">
+                <Icon name="solar:gallery-edit-broken"
+                  class="bg-fpDark2 text-white hover:bg-fp2 hover:text-fpDark1 transition p-1 md:size-10 size-6 rounded-full absolute bottom-0 end-0 cursor-pointer"
+                  @click="showInputImage()" />
+                <input type="file" hidden id="image" @change="e => getImage(e)" accept="image/*" />
+                <div class="md:w-40 md:h-40 w-20 h-20 rounded-full bg-gray-200 overflow-hidden shadow-xl">
+                  <img v-if="props.user.photo"
+                    :src="props.user.oauth_type == null ? `${baseURL}/images/${props.user.photo}` : `${props.user.photo}`"
+                    alt="" class="w-full h-full object-cover" />
+                  <img v-else
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUS8TjFE3RRsUZV9JietSrxIY8xke14UuulctZGjudNedC9oVgaJhQK9AE2nM8IXSXvls&usqp=CAU"
+                    alt="" class="w-full h-full object-cover" />
+                </div>
+              </button>
+              <div class="space-y-1 text-center md:text-start">
+                <h6 class="block antialiased tracking-normal md:text-xl font-semibold leading-relaxed text-blue-gray-900 dark:text-gray-100">
                   {{ user["name_" + currentLocale] }}
                 </h6>
-                <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600"
+                <p class="block antialiased md:text-lg leading-normal text-inherit font-normal text-gray-600 dark:text-gray-100"
                   v-text="props.user.email">
                 </p>
-                <p class="block antialiased text-lg leading-normal text-inherit font-normal text-gray-600"
+                <p class="block antialiased md:text-lg leading-normal text-inherit font-normal text-gray-600 dark:text-gray-100"
                   v-text="props.user.phone">
                 </p>
                 <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full font-medium"
@@ -34,7 +41,7 @@
             </div>
             <div class="">
               <span
-                class="align-middle select-none font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm p-3 rounded-lg border border-gray-400 text-gray-900 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] flex items-center gap-2 shadow-lg">
+                class="align-middle select-none font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm p-3 rounded-lg border border-gray-400 text-gray-900 dark:text-gray-100 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] flex items-center gap-2 shadow-lg">
                 <Icon name="solar:calendar-broken" class="-mt-1 size-5" />
                 <span> تاريخ انشاء الحساب </span>
                 ({{ getDate(props.user.created_at) }})
@@ -44,7 +51,7 @@
         </div>
       </div>
 
-      <fieldset class="rounded-xl bg-white border border-gray-300 p-6">
+      <fieldset class="rounded-xl bg-white dark:bg-fpDark2 border border-gray-300 dark:border-gray-600 p-6">
         <legend class="text_clip font-bold text-center text-2xl lg:text-4xl">{{ $t("edit_account") }}</legend>
         <form @submit.prevent="onSubmitUpdate" method="post" action @keydown="errors.clear($event.target.name)">
           <div class="grid lg:grid-cols-12 grid-cols-1 gap-5">
@@ -125,8 +132,9 @@
             </div>
             <div class="lg:col-span-4">
               <div class="relative">
-                <label for="oldPassword" class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
-                  $t("old_password") }}</label>
+                <label for="oldPassword"
+                  class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
+                    $t("old_password") }}</label>
                 <div class="relative">
                   <input id="oldPassword" name="old_password" :placeholder="t('old_password')"
                     class="block w-full rounded-md bg-gray-50 dark:bg-fpDark2 dark:text-white py-4 px-4 ps-11 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -147,8 +155,9 @@
               </div>
             </div>
             <div class="lg:col-span-4">
-              <label for="password" class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
-                $t("new_password") }}</label>
+              <label for="password"
+                class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
+                  $t("new_password") }}</label>
               <div class="relative">
                 <input :type="togglePassword ? 'text' : 'password'"
                   class="block w-full rounded-md bg-gray-50 dark:bg-fpDark2 dark:text-white py-4 px-4 ps-11 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -168,8 +177,9 @@
               <p v-if="errors.has('password')" class="mt-2 text-sm text-red-500">{{ errors.get("password") }}</p>
             </div>
             <div class="lg:col-span-4">
-              <label for="cpassword" class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
-                $t("confirm_password") }}</label>
+              <label for="cpassword"
+                class="block mb-2 text-sm lg:text-base font-medium text-fpDark2 dark:text-gray-300">{{
+                  $t("confirm_password") }}</label>
               <div class="relative">
                 <input :type="togglePassword ? 'text' : 'password'"
                   class="block w-full rounded-md bg-gray-50 dark:bg-fpDark2 dark:text-white py-4 px-4 ps-11 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-200 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
@@ -193,7 +203,7 @@
             <button type="submit" class="custom_btn1 !m-0">
               <Icon name="dashicons-update2" class="size-7" /> {{ $t("update_account") }}
             </button>
-            <button type="button" @click="StudentStore.setValueStudentMenu('profile')" class="btn_custom2">
+            <button type="button" class="btn_custom2" @click="StudentStore.setValueStudentMenu('profile')">
               <Icon name="ri:user-3-fill" class="size-7" /> {{ $t("profile") }}
             </button>
           </div>
@@ -283,5 +293,46 @@ const onSubmitUpdate = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const showInputImage = () => {
+  document.getElementById("image").click();
+};
+const getImage = async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  let formData = new FormData();
+  formData.append("photo", file);
+  // update image
+  await useAsyncData("updateImage", () =>
+    $fetch(`${apiURL}/auth/updateImage`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("user")}`,
+      },
+      body: formData,
+    }).then(res => {
+      if (res.status) {
+        auth.setUser(res.user);
+
+        tost.add({
+          type: "success",
+          message: currentLocale.value == "ar" ? t("update_image_message") : `success update your image`,
+        });
+        document.getElementById("photo-user").src = res.user.photo;
+      } else {
+        console.log(res);
+        let ob = {};
+        for (const [key, value] of Object.entries(res.message)) {
+          ob[key] = value[0];
+          tost.add({
+            type: "error",
+            message: value[0],
+          });
+        }
+        errors.record(ob);
+      }
+    })
+  );
 };
 </script>

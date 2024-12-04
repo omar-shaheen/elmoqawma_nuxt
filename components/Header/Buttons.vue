@@ -8,6 +8,7 @@
         " size="20" />
       <span class="ms-1">{{ locale == "ar" ? "EN" : "العربية" }} </span>
     </button>
+    
     <button title="Dark mode and Light mode" :class="auth.isLoggedIn ? '' : 'ms-auto'"
       @click.stop="globalStore.toggleDarkmode()" class="btn_actions_header hover:brightness-110 hover:animate-pulse">
       <Icon class="text-2xl" name="line-md:sunny-filled-loop-to-moon-filled-loop-transition"

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container mx-auto lg:my-10 lg:px-3">
+    <div class="container mx-auto mt-5 mb-10 lg:px-3">
       <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
         <img src="/imgs/menu-icons/256/files.png" class="w-12" alt="">
         <h2 class="font-bold text-p-dark text-2xl lg:text-4xl text-center lg:text-start text-fpDark2 dark:text-fp1">{{

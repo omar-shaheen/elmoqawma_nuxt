@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="container mx-auto lg:px-3 pt-10 bg-white dark:bg-fpDark1 relative">
+    <section class="container mx-auto lg:px-3 mt-5 bg-white dark:bg-fpDark1 relative">
       <TransitionGroup name="taps-down">
         <div v-if="section == 'courses'">
           <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
@@ -10,22 +10,19 @@
                 $t("my_all_exams") }}</h2>
           </div>
           <div v-if="Object.keys(props.courses).length"
-            class="lg:w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-center mt-10 lg:mt-16 h-fit">
-            <div class="shadow-xl rounded-xl p-6 dark:bg-fpDark3" v-for="course in props.courses" :key="course.id">
-              <button @click="getUserExams(course.id)">
-                <svg width="100" height="134" class="mx-auto block" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9.29289 1.29289C9.48043 1.10536 9.73478 1 10 1H18C19.6569 1 21 2.34315 21 4V7C21 7.55228 20.5523 8 20 8C19.4477 8 19 7.55228 19 7V4C19 3.44772 18.5523 3 18 3H11V8C11 8.55228 10.5523 9 10 9H5V20C5 20.5523 5.44772 21 6 21H11C11.5523 21 12 21.4477 12 22C12 22.5523 11.5523 23 11 23H6C4.34315 23 3 21.6569 3 20V8C3 7.73478 3.10536 7.48043 3.29289 7.29289L9.29289 1.29289ZM6.41421 7H9V4.41421L6.41421 7ZM18.25 20.75C18.25 21.4404 17.6904 22 17 22C16.3096 22 15.75 21.4404 15.75 20.75C15.75 20.0596 16.3096 19.5 17 19.5C17.6904 19.5 18.25 20.0596 18.25 20.75ZM15.1353 12.9643C15.3999 12.4596 16.0831 12 17 12C18.283 12 19 12.8345 19 13.5C19 14.1655 18.283 15 17 15C16.4477 15 16 15.4477 16 16V17C16 17.5523 16.4477 18 17 18C17.5523 18 18 17.5523 18 17V16.8866C19.6316 16.5135 21 15.2471 21 13.5C21 11.404 19.0307 10 17 10C15.4566 10 14.0252 10.7745 13.364 12.0357C13.1075 12.5248 13.2962 13.1292 13.7853 13.3857C14.2744 13.6421 14.8788 13.4535 15.1353 12.9643Z"
-                    class="fill-fp1" />
-                </svg>
-              </button>
-              <p class="text-xl dark:text-fpLightBack">{{ $t("course_exams") }}</p>
-              <h2 class="text-fp1 text-2xl font-medium mt-2 mb-4">{{ `${course.name} ` }}</h2>
-              <button @click="getUserExams(course.id)"
-                class="text-white whitespace-nowrap bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-xl px-2 py-2 focus:outline-none">
+            class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-y-5 gap-x-3 mt-5">
+            <div class="shadow-lg border border-gray-200 rounded-xl p-6 dark:bg-fpDark3 flex flex-col justify-between"
+              v-for="course in props.courses" :key="course.id">
+              <div class="space-y-5 text-center">
+                <img src="/imgs/exam.png" class="lg:size-20 size-16 mx-auto" alt="">
+                <span
+                  class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-sm font-medium border border-gray-200 bg-white text-gray-800 shadow-sm dark:bg-neutral-900 dark:border-neutral-700 dark:text-white">{{
+                    $t("course_exams") }}</span>
+                <h2 class="text_clip text-xl font-bold">{{ `${course.name} ` }}</h2>
+              </div>
+              <button @click="getUserExams(course.id)" class="custom_btn1">
                 {{ $t("course_exams") }}
-                <Icon name="ci:help-questionmark" class="text-white text-2xl -mt-1" />
+                <Icon :name="currentLocale == 'ar' ? 'solar:arrow-left-up-broken' : 'solar:arrow-right-up-broken'" class="text-white text-2xl -mt-1" />
               </button>
             </div>
           </div>
@@ -38,13 +35,13 @@
 
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg lg:mt-20">
             <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
-              <thead class="text-white uppercase bg-fp1 dark:bg-fpDark2 dark:text-gray-400">
-                <tr class="text-2xl">
-                  <th scope="col" class="px-6 py-3">{{ $t("number") }}</th>
-                  <th scope="col" class="px-6 py-3">{{ $t("score") }}</th>
-                  <th scope="col" class="px-6 py-3">{{ $t("correct") }}</th>
-                  <th scope="col" class="px-6 py-3">{{ $t("mistake") }}</th>
-                  <th scope="col" class="px-6 py-3">{{ $t("result") }}</th>
+              <thead class="text-white uppercase bg-gradient-to-r from-violet-500 to-pink-500">
+                <tr class="text-lg">
+                  <th scope="col" class="px-3 py-3">{{ $t("number") }}</th>
+                  <th scope="col" class="px-3 py-3">{{ $t("score") }}</th>
+                  <th scope="col" class="px-3 py-3">{{ $t("correct") }}</th>
+                  <th scope="col" class="px-3 py-3">{{ $t("mistake") }}</th>
+                  <th scope="col" class="px-3 py-3">{{ $t("result") }}</th>
                 </tr>
               </thead>
               <tbody>

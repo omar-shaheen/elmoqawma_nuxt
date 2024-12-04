@@ -25,7 +25,7 @@
                 <img src="/imgs/payments/wallet-charge.png" class="size-7" alt="">
               </div>
               <input type="text" id="code"
-                class="bg-gray-50 placeholder-gray-400 text-base lg:text-xl rounded-lg block w-full p-4 dark:bg-fpDark2 dark:text-gray-300 outline outline-1 outline-gray-200 dark:outline-none dark:focus:border-gray-500"
+                class="bg-gray-50 placeholder-gray-400 text-base lg:text-xl rounded-lg block w-full p-4 dark:bg-fpDark2 dark:text-gray-300 outline outline-1 outline-gray-200 dark:outline-gray-200 dark:focus:border-gray-500"
                 :placeholder="$t('code')" v-model="auth.codeWallet" :class="errors.has('code') ? 'is-invalid' : ''"
                 required />
             </div>

@@ -2,7 +2,7 @@
   <div>
     <section>
       <div class="container mx-auto mt-5 lg:px-3">
-        <div class="flex items-center flex-col lg:flex-row shadow-lg rounded-3xl p-10 lg:py-4">
+        <div class="flex items-center flex-col lg:flex-row shadow-lg dark:bg-fpDark2 rounded-3xl p-10 lg:py-4">
           <img src="~/assets/images/student/my_courses/books.svg" class="h-60" alt="" />
           <div class="lg:ms-20">
             <h1 class="text_clip py-3 text-xl lg:text-4xl font-bold mt-10 lg:mt-0 mb-6">{{ $t("desc_app_student") }}

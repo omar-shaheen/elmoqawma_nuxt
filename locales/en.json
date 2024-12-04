@@ -210,5 +210,7 @@
   "balance": "balance",
   "EnterPass": "Enter Password",
   "Contact us at any time": "Contact us anytime",
-  "not_files_courses": "No any attachment available in this course yet , come back soon"
+  "not_files_courses": "No any attachment available in this course yet , come back soon",
+  "Rejected": "Rejected",
+  "Accepted": "Accepted"
 }

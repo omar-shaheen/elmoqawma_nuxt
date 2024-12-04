@@ -16,8 +16,8 @@
         </div>
       </button>
       <div class="">
-        <span class="font-bold whitespace-nowrap">{{ auth.user["name_" + currentLocale] }}</span>
-        <p class="">{{ auth.user.email }}</p>
+        <span class="font-bold text-xl text_clip">{{ auth.user["name_" + currentLocale] }}</span>
+        <p class="dark:text-gray-100">{{ auth.user.email }}</p>
       </div>
     </div>
     <nav class="student overflow-hidden space-y-2 px-2">
