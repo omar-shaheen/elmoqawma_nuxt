@@ -26,9 +26,9 @@
             <tbody>
               <tr v-for="invoice in invoices" :key="invoice.id"
                 class="text-xl whitespace-nowrap bg-white text-gray-600 dark:text-gray-100 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-100 dark:hover:bg-fpDark2">
-                <td class="px-6 py-4" v-text="invoice.id"></td>
+                <!-- <td class="px-6 py-4" v-text="invoice.id"></td> -->
                 <td class="px-6 py-4">
-                  <nuxt-link :to="localePath(`/${invoice.data_type}/${invoice[invoice.data_type].id}`)"
+                  <!-- <nuxt-link :to="localePath(`/${invoice.data_type}/${invoice[invoice.data_type].id}`)"
                     v-if="invoice.data_type == 'course' || invoice.data_type == 'offer'" class="btn_custom2 text-sm">
                     {{ invoice.data_type == "course" ? `${invoice.course.name} ${invoice.course.subject["name_" +
                       currentLocale]}` : invoice.offer["name_" + currentLocale] }}
@@ -36,7 +36,7 @@
                   <nuxt-link :to="localePath(`/course/${invoice.lecture.course_id}`)" v-else
                     class="btn_custom2 text-sm">
                     {{ invoice.lecture.title }}
-                  </nuxt-link>
+                  </nuxt-link> -->
                 </td>
                 <td class="px-6 py-4">
                   <span
@@ -97,6 +97,7 @@
     </section>
   </div>
 </template>
+
 <script setup>
 import { useGlobalStore } from "@/store/GlobalStore";
 const globalStore = useGlobalStore();
