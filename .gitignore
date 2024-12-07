@@ -8,7 +8,7 @@ node_modules
 
 /.nuxt
 .nuxt
-
+.output
 
 # testing
 /coverage

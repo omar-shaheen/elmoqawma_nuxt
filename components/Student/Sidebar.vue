@@ -21,7 +21,7 @@
       </div>
     </div>
     <nav class="student overflow-hidden space-y-2 px-2">
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('profile')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -30,7 +30,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('profile')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'profile' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('courses')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -55,7 +55,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('courses')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'courses' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('offers')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -80,7 +80,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('offers')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'offers' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('files')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -105,7 +105,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('files')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'files' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -121,7 +121,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('certificates')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -130,7 +130,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('certificates')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'certificates' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -146,7 +146,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('exams')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -155,7 +155,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('exams')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'exams' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -171,7 +171,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('invoices')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -180,7 +180,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('invoices')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'invoices' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
@@ -196,7 +196,7 @@
           </div>
         </div>
       </div>
-      <div class="relative group cursor-pointer">
+      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('settings')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
             class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
@@ -205,7 +205,7 @@
 
           <div
             class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
-            <button name="text" @click="StudentStore.setValueStudentMenu('settings')"
+            <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'settings' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
               <div class="flex items-center gap-x-3">
