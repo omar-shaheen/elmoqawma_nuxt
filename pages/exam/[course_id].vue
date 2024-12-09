@@ -1,26 +1,31 @@
 <template>
-  <main class="" v-if="Object.keys(ExamStore.getQuestions).length">
+  <main class="bg-[url('/imgs/bg-qa.jpg')] bg-cover bg-center bg-no-repeat h-[100vw]"
+    v-if="Object.keys(ExamStore.getQuestions).length">
     <ExamHeader />
-    <TransitionGroup name="questions">
-      <ExamDetails v-if="ExamStore.activeSection == 'details'" />
-      <ExamQuestions v-if="ExamStore.activeSection == 'questions'" />
-      <ExamSuccessful v-if="ExamStore.activeSection == 'successful'" />
-      <ExamFail v-if="ExamStore.activeSection == 'fail'" />
-      <ExamSuccessfulFail v-if="ExamStore.activeSection == 'fail' || ExamStore.activeSection == 'successful'" />
-    </TransitionGroup>
+
+    <section class="max-w-7xl mx-auto mt-16 mb-5 bg-white/80 p-10 pt-36 rounded-xl shadow-custom3 relative">
+      <TransitionGroup name="questions">
+        <ExamDetails v-if="ExamStore.activeSection == 'details'" />
+        <ExamQuestions v-if="ExamStore.activeSection == 'questions'" />
+        <ExamSuccessful v-if="ExamStore.activeSection == 'successful'" />
+        <ExamFail v-if="ExamStore.activeSection == 'fail'" />
+        <ExamSuccessfulFail v-if="ExamStore.activeSection == 'fail' || ExamStore.activeSection == 'successful'" />
+      </TransitionGroup>
+    </section>
+
     <ExamExit />
   </main>
 </template>
 <script setup>
-import {useExamStore} from "@/store/ExamStore";
-import {useGlobalStore} from "@/store/GlobalStore";
-import {useTostStore} from "@/store/TostStore";
+import { useExamStore } from "@/store/ExamStore";
+import { useGlobalStore } from "@/store/GlobalStore";
+import { useTostStore } from "@/store/TostStore";
 const tost = useTostStore();
 const globalStore = useGlobalStore();
 const ExamStore = useExamStore();
 const route = useRoute();
 const localePath = useLocalePath();
-const {t} = useI18n();
+const { t } = useI18n();
 if (route.query.plan == undefined || route.query.plan == "" || route.query.related == undefined || route.query.related == "") {
   navigateTo(localePath(`/course/${route.params.course_id}`));
 }
@@ -30,7 +35,7 @@ await ExamStore.getQuestionsApi(route.params.course_id, atob(route.query.plan), 
   try {
     useHead({
       title: `${t("exam")} ${res.title}`,
-      meta: [{name: "title", content: res.title}],
+      meta: [{ name: "title", content: res.title }],
     });
   } catch (error) {
     console.log(error);

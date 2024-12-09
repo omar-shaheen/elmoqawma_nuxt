@@ -68,8 +68,8 @@ nav a {
   background-color: #e24141;
   @apply transition-all duration-200 end-0;
 } */
-nav>ul>li>a:hover::after,
-nav>ul>li>a.router-link-active::after {
+nav > ul > li > a:hover::after,
+nav > ul > li > a.router-link-active::after {
   @apply start-0 transition-all duration-200 lg:w-full;
 }
 
@@ -105,10 +105,12 @@ nav a.router-link-active {
 .text-reflect {
   /* text-shadow: 0 0 12px #fff; */
   text-transform: uppercase;
-  background-image: linear-gradient(to right,
-      #328cca 20%,
-      #e24141 39%,
-      #f4d237 10%);
+  background-image: linear-gradient(
+    to right,
+    #328cca 20%,
+    #e24141 39%,
+    #f4d237 10%
+  );
   line-height: 3;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -388,11 +390,11 @@ nav a.router-link-active {
   border-bottom-right-radius: 3rem;
 }
 
-nav.student>button.active-link::after {
+nav.student > button.active-link::after {
   @apply w-5/6;
 }
 
-nav.student>button.active-link::before {
+nav.student > button.active-link::before {
   @apply translate-x-0;
 }
 
@@ -466,7 +468,7 @@ nav.student>button.active-link::before {
 }
 
 .cut_text_css,
-.cut_text_css>p {
+.cut_text_css > p {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
@@ -480,7 +482,7 @@ nav.student>button.active-link::before {
   align-items: center;
 }
 
-.ql-editor>p,
+.ql-editor > p,
 .ql-editor {
   text-align: start !important;
 }
@@ -610,6 +612,9 @@ nav.student>button.active-link::before {
 .text_clip {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500;
 }
+.text_clip3 {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-fp3 to-fp1;
+}
 
 .text_clip2 {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:text-gray-100;
@@ -630,9 +635,7 @@ nav.student>button.active-link::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(90deg,
-      #ffcccc,
-      #ffe6b3);
+  background: linear-gradient(90deg, #ffcccc, #ffe6b3);
   /* Soft playful background */
   border-radius: 0;
   /* Rounded track */
@@ -709,6 +712,25 @@ nav.student>button.active-link::before {
 
 .gradient {
   @apply bg-gradient-custom;
+}
+
+.item_one {
+  @apply text-center flex justify-center items-center bg-white pt-16 pb-8 px-3 rounded-xl shadow-lg space-y-5 relative z-[5] before:absolute before:z-[-1] before:-inset-1 before:rounded-xl before:bg-fp3 before:border-2 before:border-[#892626] after:absolute after:z-[-1] after:inset-1 after:rounded-xl after:bg-white after:border-2 after:border-[#892626];
+}
+.item_one_img {
+  @apply bg-white p-7 w-32 h-32 mx-auto rounded-full absolute z-[5] -top-16 left-1/2 -translate-x-1/2 before:absolute before:z-[-1] before:-inset-1 before:rounded-full before:bg-fp3 before:border-2 before:border-[#892626] after:absolute after:z-[-1] after:inset-1 after:rounded-full after:bg-white after:border-2 after:border-[#892626];
+}
+.item_two {
+  @apply text-center flex justify-center items-center bg-white pt-16 pb-8 px-3 rounded-xl shadow-lg space-y-5 relative z-[5] before:absolute before:z-[-1] before:-inset-1 before:rounded-xl before:bg-fp2 before:border-2 before:border-[#995e08] after:absolute after:z-[-1] after:inset-1 after:rounded-xl after:bg-white after:border-2 after:border-[#995e08];
+}
+.item_two_img {
+  @apply bg-white p-7 w-32 h-32 mx-auto rounded-full absolute z-[5] -top-16 left-1/2 -translate-x-1/2 before:absolute before:z-[-1] before:-inset-1 before:rounded-full before:bg-fp2 before:border-2 before:border-[#995e08] after:absolute after:z-[-1] after:inset-1 after:rounded-full after:bg-white after:border-2 after:border-[#995e08];
+}
+.item_three {
+  @apply text-center flex justify-center items-center bg-white pt-16 pb-8 px-3 rounded-xl shadow-lg space-y-5 relative z-[5] before:absolute before:z-[-1] before:-inset-1 before:rounded-xl before:bg-fp1 before:border-2 before:border-[#043c64] after:absolute after:z-[-1] after:inset-1 after:rounded-xl after:bg-white after:border-2 after:border-[#043c64];
+}
+.item_three_img {
+  @apply bg-white p-7 w-32 h-32 mx-auto rounded-full absolute z-[5] -top-16 left-1/2 -translate-x-1/2 before:absolute before:z-[-1] before:-inset-1 before:rounded-full before:bg-fp1 before:border-2 before:border-[#043c64] after:absolute after:z-[-1] after:inset-1 after:rounded-full after:bg-white after:border-2 after:border-[#043c64];
 }
 
 .link_sidebar_profile {
