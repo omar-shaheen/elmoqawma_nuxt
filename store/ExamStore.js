@@ -166,7 +166,7 @@ export const useExamStore = defineStore("ExamStore", {
         let minutesText = minutes < 10 ? `0${minutes}` : minutes;
         let secondsText = seconds < 10 ? `0${seconds}` : seconds;
         this.TimeQuestions.textTime = `${hoursText}:${minutesText}:${secondsText}`;
-        this.TimeQuestions.roundedBg = `conic-gradient(#328CCA ${Math.abs(num - 360)}deg , transparent 0deg)`;
+        this.TimeQuestions.roundedBg = `conic-gradient(#ec4899 ${Math.abs(num - 360)}deg , transparent 0deg)`;
         this.TimeQuestions.rotatePoint = `rotate(${Math.abs(num - 360)}deg)`;
         // console.log(`hours:${hours}:minutes:${minutes}:seconds:${seconds}`);
         if (hours <= 0 && minutes <= 0 && seconds <= 0) {

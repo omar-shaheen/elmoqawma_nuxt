@@ -3,9 +3,9 @@
     <div v-if="ExamStore.related === 'exams'"
       class="absolute left-1/2 -translate-x-1/2 -top-10 w-32 h-32 outline-2 outline-offset-[-1px] outline-fp1 outline-dotted rounded-full">
       <span :style="`transform: ${ExamStore.getTimeQuestions.rotatePoint}`"
-        class="rotate-point absolute -top-0.5 -right-0.5 w-[104%] h-[105%] rounded-full bg-transparent before:absolute before:inset-0 before:-top-1 before:right-1/2 before:translate-x-1/2 before:w-4 before:h-4 before:rounded-full before:bg-fp1 before:z-50 z-10 transition-all duration-1000 ease-linear"></span>
+        class="rotate-point absolute -top-0.5 -right-0.5 w-[104%] h-[105%] rounded-full bg-transparent before:absolute before:inset-0 before:-top-2 before:right-1/2 before:translate-x-1/2 before:w-6 before:h-6 before:rounded-full before:bg-pink-500 before:z-50 z-10 transition-all duration-1000 ease-linear"></span>
       <span :style="`background: ${ExamStore.getTimeQuestions.roundedBg}`"
-        class="rounded-bg absolute -top-1 -right-1 w-[105%] h-[105%] rounded-full after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 after:w-[93%] after:h-[93%] after:bg-white after:rounded-full">
+        class="rounded-bg absolute -top-1 -right-1 w-[105%] h-[105%] rounded-full shadow-custom3 after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 after:w-[85%] after:h-[85%] after:bg-white after:shadow-[0px_0px_10px_rgba(0,0,0,0.5)_inset] after:rounded-full">
       </span>
       <span
         class="text-time text-xl font-medium rounded-full flex items-center justify-center text-fp1 dark:text-fpLightBack dark:bg-fpDark2 w-full h-full relative z-50">
@@ -25,11 +25,16 @@
         <div v-if="question.type == 'text'"
           class="lg:text-3xl text-center lg:mt-6 py-4 bg-blue-200 border-4 border-black rounded-lg shadow-[4px_4px_0px_rgb(0,0,1)] dark:shadow-[4px_4px_0px_rgb(255,255,255)] dark:border-white"
           v-html="question['question_' + currentLocale]"></div>
-        <audio controls v-else-if="question.type == 'audio'" class="w-full">
-          <source :src="`${baseURL}/images/${question.file}`" type="audio/ogg" />
-          <source :src="`${baseURL}/images/${question.file}`" type="audio/mpeg" />
-          Your browser does not support the audio tag.
-        </audio>
+
+        <div v-else-if="question.type == 'audio'"
+          class="lg:text-3xl text-center lg:mt-6 py-4 px-4 bg-blue-200 border-4 border-black rounded-lg shadow-[4px_4px_0px_rgb(0,0,1)] dark:shadow-[4px_4px_0px_rgb(255,255,255)] dark:border-white">
+          <audio controls download="off" class="w-full">
+            <source :src="`${baseURL}/images/${question.file}`" type="audio/ogg" />
+            <source :src="`${baseURL}/images/${question.file}`" type="audio/mpeg" />
+            Your browser does not support the audio tag.
+          </audio>
+        </div>
+
         <div v-else-if="question.type == 'video'"
           class="relative max-w-4xl h-72 mx-auto rounded-xl overflow-hidden shadow-lg">
           <iframe :src="`${baseURL}/images/${question.file}`" loading="lazy" class="border-0 w-full h-full relative"
@@ -38,7 +43,7 @@
         </div>
 
         <img v-else-if="question.type == 'image'" :src="`${baseURL}/images/${question.file}`"
-          class="w-full rounded-xl shadow-md" />
+          class="w-full rounded-xl shadow-md pointer-events-none" />
 
         <div class="grid lg:grid-cols-12 grid-cols-1 items-center gap-5 mt-5">
           <div class="lg:col-span-8 grid lg:grid-cols-2 grid-cols-1 gap-3">
@@ -54,14 +59,14 @@
                     ? ' border-red-400 after:border-red-400 before:bg-red-400 text-red-400'
                     : '',
                   answer.answer_type == 'image'
-                    ? 'after:start-1/2 after:translate-x-1/2  before:start-1/2 before:translate-x-1/2'
+                    ? 'after:[content:unset] before:[content:unset] p-5 h-auto'
                     : 'py-2 lg:py-4 ps-16 lg:ps-20 rounded-lg lg:rounded-full after:start-5 lg:after:start-8 before:start-7 lg:before:start-10',
                 ]"
                 class="bg-white dark:text-fpLightBack block w-full h-24 text-start border-2 transition-all relative after:absolute after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full">
                 <span class="text-base lg:text-3xl font-bold" v-if="answer.answer_type == 'text'"
                   v-text="answer.answer"></span>
                 <img v-else-if="answer.answer_type == 'image'" :src="`${baseURL}/images/${answer.answer}`"
-                  class="lg:w-1/2 mx-auto object-cover" />
+                  class="lg:w-1/2 object-contain mx-auto pointer-events-none" />
               </button>
               <div
                 v-if="ExamStore.activeAnswers[question.id] == answer.id && ExamStore.getDetailsQuestions.done == true && answer.status == 1">
@@ -95,14 +100,14 @@
                   <p v-if="answer.answer_type == 'text'" class="text-sm lg:text-3xl text-green-400 ms-2"
                     v-text="answer.answer"></p>
                   <img v-else-if="answer.answer_type == 'image'" :src="`${baseURL}/images/${answer.answer}`"
-                    class="lg:w-2/6 mx-auto object-cover" />
+                    class="lg:w-2/6 mx-auto object-cover pointer-events-none" />
                 </button>
                 <p class="text-sm lg:text-3xl text-green-400 ms-2 block mt-6" v-text="question.Justify"></p>
               </div>
             </div>
           </div>
           <div class="lg:col-span-4">
-            <img src="/imgs/questions/exam.svg" class="w-full" alt="">
+            <img src="/imgs/questions/exam.svg" class="w-full pointer-events-none" alt="">
           </div>
         </div>
 
@@ -113,7 +118,8 @@
       <button
         v-if="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions && ExamStore.getDetailsQuestions.done == false"
         @click="ExamStore.doneQuestions(true)" type="button" class="custom_btn1 !py-2 !pe-4 !ps-16 !text-2xl relative">
-        <img src="/imgs/icons/report-card.png" class="w-20 absolute top-1/2 -start-6 -translate-y-1/2 animate-pulse" alt="" />
+        <img src="/imgs/icons/report-card.png"
+          class="w-20 absolute top-1/2 -start-6 -translate-y-1/2 animate-pulse pointer-events-none" alt="" />
         {{ $t("submission") }}
       </button>
 
@@ -128,13 +134,13 @@
     <div class="flex items-center ltr:flex-row-reverse justify-between mt-6">
       <button @click="ExamStore.switchTaps('next')" type="button"
         class="btn_custom2 flex items-center justify-center !text-2xl">
-        <img src="~/assets/images/student/video_playlist/next-arrow.svg" alt="" class="" />
+        <img src="~/assets/images/student/video_playlist/next-arrow.svg" alt="" class="pointer-events-none" />
         <span class="mt-1 ltr:me-2 rtl:ms-2">{{ $t("next_qution") }}</span>
       </button>
       <button @click="ExamStore.switchTaps('prev')" type="button"
         class="btn_custom2 flex items-center justify-center !text-2xl">
         <span class="mt-1 ltr:ms-2 rtl:me-2">{{ $t("prev_qution") }}</span>
-        <img src="~/assets/images/student/video_playlist/prev-arrow.svg" alt="" class="" />
+        <img src="~/assets/images/student/video_playlist/prev-arrow.svg" alt="" class="pointer-events-none" />
       </button>
     </div>
 
