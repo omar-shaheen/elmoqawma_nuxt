@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] py-5">
+  <div class="bg-gray-100 dark:bg-fpDark3 py-5">
     <div class="container mx-auto">
       <section class="bg-white dark:bg-gray-900 lg:p-10 p-5 rounded-lg shadow-custom1">
         <div>

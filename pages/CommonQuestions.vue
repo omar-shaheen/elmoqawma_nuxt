@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] privacy-policy">
+  <section class="bg-gray-100 dark:bg-fpDark3 privacy-policy">
     <!-- <BreadCrumbs :classes="'bg-breadcrumb h-28 lg:h-[500px] text-white'" :contents="['اﻷسئلة الشائعة']" /> -->
     <div class="container mx-auto py-5">
 

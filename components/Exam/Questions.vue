@@ -131,7 +131,7 @@
       </button>
     </div>
 
-    <div class="flex items-center ltr:flex-row-reverse justify-between mt-6">
+    <div class="flex items-center ltr:flex-row-reverse flex-col md:flex-row gap-5 md:gap-0 justify-between mt-6">
       <button @click="ExamStore.switchTaps('next')" type="button"
         class="btn_custom2 flex items-center justify-center !text-2xl">
         <img src="~/assets/images/student/video_playlist/next-arrow.svg" alt="" class="pointer-events-none" />

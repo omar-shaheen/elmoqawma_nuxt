@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-[url('/imgs/bg-qa.jpg')] bg-cover bg-center bg-no-repeat h-[100vw]"
+  <main class="bg-[url('/imgs/bg-qa.jpg')] bg-cover bg-center bg-fixed h-max pb-20 lg:px-0 px-5"
     v-if="Object.keys(ExamStore.getQuestions).length">
     <ExamHeader />
 

@@ -32,7 +32,7 @@
           <div v-for="file in course.attachments" :key="file.id" class="py-2">
             <button v-if="course.subscribed"
               @click="globalStore.HashURLFile(`${baseURL}/images/${file.file}`, file.name)"
-              class="flex justify-between items-center text-fpDark2 hover:text-fp1 px-4 cursor-pointer w-full">
+              class="flex justify-between items-center text-fpDark2 hover:text-fp1 hover:bg-gray-50 px-4 cursor-pointer w-full">
               <div class="flex items-center gap-x-2 font-medium">
                 <Icon class="size-7 -mt-1" name="solar:file-text-broken" />
                 <p>{{ file.name }}</p>

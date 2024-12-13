@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] dark:bg-fpDark1 privacy-policy">
+  <section class="bg-gray-100 dark:bg-fpDark3 privacy-policy">
     <!-- <BreadCrumbs :classes="'bg-breadcrumb h-28 lg:h-[500px] text-white'" :contents="['سياسة الخصوصية']" /> -->
     <div class="container mx-auto py-5">
-      <div v-html="globalStore.appSettings.privacy_policy" class="bg-white dark:bg-fpDark2 p-10 rounded-lg shadow-lg dark:text-white"></div>
+      <div v-html="globalStore.appSettings.privacy_policy" class="bg-white p-10 rounded-lg shadow-lg dark:bg-gray-900 dark:text-white"></div>
     </div>
   </section>
 </template>

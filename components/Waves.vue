@@ -5,7 +5,8 @@
         data-aos-anchor-placement="top-bottom" v-if="title">
         {{ title }}
       </strong>
-      <NuxtLink :to="linkUrl" class="custom_btn1 hover:animate-gradient-xy md:!text-lg text-sm !m-0" v-if="linkUrl && linkTitle">
+      <NuxtLink :to="linkUrl" class="custom_btn1 hover:animate-gradient-xy md:!text-lg text-sm !m-0"
+        v-if="linkUrl && linkTitle">
         {{ linkTitle }}
         <Icon :name="iconName ? iconName : `solar:map-arrow-left-line-duotone`" class="md:size-6 size-4 rotate-45" />
       </NuxtLink>
@@ -27,6 +28,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 const props = defineProps({
   title: String,
@@ -37,6 +39,7 @@ const props = defineProps({
   class2: String
 });
 </script>
+
 <style scoped>
 .footer-wave-parallax>use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
@@ -58,21 +61,23 @@ const props = defineProps({
   animation-duration: 20s;
 }
 .dark .footer-wave-parallax>use:nth-child(1) {
-  fill: rgb(9 12 20 / 70%);
+  fill: rgba(17, 24, 39, 0.5);
 }
 .dark .footer-wave-parallax>use:nth-child(2) {
-  fill: rgb(9 12 20 / 50%);
+  fill: rgba(17, 24, 39, 0.5);
 }
 .dark .footer-wave-parallax>use:nth-child(3) {
-  fill: rgb(9 12 20 / 30%);
+  fill: rgba(17, 24, 39, 0.5);
 }
 .dark .footer-wave-parallax>use:nth-child(4) {
-  fill: rgb(9 12 20 / 100%);
+  fill: rgba(17, 24, 39, 0.5);
 }
+
 @keyframes move-forever {
   0% {
     transform: translate3d(-90px, 0, 0);
   }
+
   100% {
     transform: translate3d(85px, 0, 0);
   }

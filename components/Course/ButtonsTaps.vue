@@ -11,7 +11,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-center gap-3"
               :class="[CourseStore.showTap == 'aboute' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -33,7 +33,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-center gap-3"
               :class="[CourseStore.showTap == 'lectures' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -55,7 +55,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-center gap-3"
               :class="[CourseStore.showTap == 'files' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -77,7 +77,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-center gap-3"
               :class="[CourseStore.showTap == 'comments' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">

@@ -21,15 +21,15 @@
       </div>
     </div>
     <nav class="student overflow-hidden space-y-2 px-2">
-      <div class="relative group cursor-pointer" @click="StudentStore.setValueStudentMenu('profile')">
+      <div class="relative group cursor-pointer overflow-hidden" @click="StudentStore.setValueStudentMenu('profile')">
         <div class="relative w-full h-16 opacity-90 overflow-hidden rounded-xl z-10">
           <div
-            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 opacity-30 -skew-x-12"
+            class="absolute z-10 -translate-x-44 ease-in-out transistion-all duration-700 h-full w-44 rounded-xl opacity-30 -skew-x-12"
             :class="[StudentStore.showStudentMenu == 'profile' ? 'translate-x-[30rem] bg-gradient-to-r from-gray-500 to-white/10' : '']">
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'profile' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -41,7 +41,7 @@
               <Icon name="solar:arrow-right-line-duotone" class="size-5 rtl:rotate-180" />
             </button>
           </div>
-          <div class="absolute duration-1000 w-full h-[100px]"
+          <div class="absolute w-full h-[100px] rounded-xl"
             :class="[StudentStore.showStudentMenu == 'profile' ? 'animate-spin bg-gradient-to-r from-pink-500 to-violet-500 blur-[25px]' : '']">
           </div>
         </div>
@@ -54,7 +54,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'courses' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -79,7 +79,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'offers' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -104,7 +104,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'files' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -129,7 +129,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'certificates' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -154,7 +154,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'exams' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -179,7 +179,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'invoices' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -204,7 +204,7 @@
           </div>
 
           <div
-            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-2xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
+            class="absolute flex items-center justify-center text-white z-[1] opacity-90 rounded-xl inset-0.5 bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%">
             <button name="text"
               class="font-semibold lg:text-lg text-base h-full opacity-90 w-full px-3 py-3 rounded-xl flex items-center justify-between gap-3"
               :class="[StudentStore.showStudentMenu == 'settings' ? 'from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90%' : 'bg-gradient-to-tl from-purple-700 to-pink-500']">
@@ -222,6 +222,7 @@
         </div>
       </div>
     </nav>
+
     <section class="mt-6">
       <div class="flex flex-col bg-fp1 ms-4 me-6 lg:me-10 p-4 rounded-3xl">
         <p class="text-white text-lg lg:text-xl">{{ $t("support") }} 24/7</p>
@@ -231,12 +232,14 @@
         <img src="~/assets/images/student/womon.svg" alt="" class="w-40 mx-auto" />
       </div>
     </section>
-    <div class="mt-8">
-      <button type="button" @click="auth.logout()"
-        class="flex items-center text-2xl hover:bg-gray-100 py-4 ps-6 transition w-full">
-        <img src="~/assets/images/student/sign-out.svg" alt="" class="pe-6" /> <span class="text-fpDark2">{{
-          $t("logout") }}</span>
+
+    <div class="mt-8 mx-3">
+      <button type='button' @click="auth.logout()"
+        class='lg:text-lg text-base w-full px-3 py-3 font-semibold bg-red-50 text-red-500 rounded-xl cursor-pointer text-center shadow-xs transition-all duration-500 hover:bg-red-100 hover:text-red-700 flex items-center justify-center gap-x-3'>
+        <img src="/imgs/icons/switch.png" class="" alt="" />
+        {{ $t("logout") }}
       </button>
+
     </div>
   </section>
 </template>

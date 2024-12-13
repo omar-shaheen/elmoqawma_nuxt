@@ -11,7 +11,6 @@
       </button>
 
 
-
       <div class="">
         <span class="block text-2xl lg:text-3xl text-center font-bold text-fp3 mb-5">{{ $t("good_luck") }}</span>
         <p class="text-2xl lg:text-4xl text-center font-bold text-violet-950">
