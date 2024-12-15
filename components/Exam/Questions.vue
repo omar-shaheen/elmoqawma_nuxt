@@ -42,8 +42,10 @@
             allowfullscreen="true"></iframe>
         </div>
 
-        <img v-else-if="question.type == 'image'" :src="`${baseURL}/images/${question.file}`"
-          class="w-full rounded-xl shadow-md pointer-events-none" />
+        <div v-else-if="question.type == 'image'" class="w-full h-80 overflow-hidden rounded-xl">
+          <img :src="`${baseURL}/images/${question.file}`"
+            class="w-full h-full shadow-md rounded-xl object-contain pointer-events-none" />
+        </div>
 
         <div class="grid lg:grid-cols-12 grid-cols-1 items-center gap-5 mt-5">
           <div class="lg:col-span-8 grid lg:grid-cols-2 grid-cols-1 gap-3">
@@ -133,12 +135,17 @@
 
     <div class="flex items-center ltr:flex-row-reverse flex-col md:flex-row gap-5 md:gap-0 justify-between mt-6">
       <button @click="ExamStore.switchTaps('next')" type="button"
-        class="btn_custom2 flex items-center justify-center !text-2xl">
+        class="btn_custom2 flex items-center justify-center !text-2xl"
+        :disabled="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? true : false"
+        :class="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? 'disabled:!cursor-not-allowed disabled:!bg-slate-300 text-black' : ''">
         <img src="~/assets/images/student/video_playlist/next-arrow.svg" alt="" class="pointer-events-none" />
         <span class="mt-1 ltr:me-2 rtl:ms-2">{{ $t("next_qution") }}</span>
       </button>
+
       <button @click="ExamStore.switchTaps('prev')" type="button"
-        class="btn_custom2 flex items-center justify-center !text-2xl">
+        class="btn_custom2 flex items-center justify-center !text-2xl"
+        :disabled="ExamStore.getDetailsQuestions.step == 1 ? true : false"
+        :class="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? 'disabled:!cursor-not-allowed disabled:!bg-slate-300 text-black' : ''">
         <span class="mt-1 ltr:ms-2 rtl:me-2">{{ $t("prev_qution") }}</span>
         <img src="~/assets/images/student/video_playlist/prev-arrow.svg" alt="" class="pointer-events-none" />
       </button>

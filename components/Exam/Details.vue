@@ -1,7 +1,6 @@
 <template>
-  <section v-if="Object.keys(ExamStore.getCourse).length"
-    class="">
-    <img src="/imgs/q-03.png" class="absolute -top-32 end-1/2 -translate-x-1/2 w-[250px]" alt="QuizIntro" />
+  <section v-if="Object.keys(ExamStore.getCourse).length" class="">
+    <img src="/imgs/q-03.png" class="absolute -top-32 end-1/2 -translate-x-1/2 lg:w-48 w-36" alt="QuizIntro" />
     <div class="">
       <h1 class="text-2xl lg:text-3xl text-center font-bold text-fp3 mb-5"> {{ `${course.name} ` }} </h1>
       <h2 class="text-2xl lg:text-4xl text-center font-bold text_clip"> {{ $t("increase_enthusiasm") }} </h2>

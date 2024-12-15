@@ -2,7 +2,8 @@
   <div>
     <section class="container mx-auto lg:px-3 mt-5 bg-white dark:bg-fpDark1 relative">
       <TransitionGroup name="taps-down">
-        <div v-if="section == 'courses'">
+
+        <div v-if="section == 'courses'" class="mb-10">
           <div class="flex items-center gap-x-5 border-b mb-4 pb-4">
             <img src="/imgs/menu-icons/256/test.png" class="w-12" alt="">
             <h2 class="font-bold text-p-dark text-2xl lg:text-4xl text-center lg:text-start text-fpDark2 dark:text-fp1">
@@ -22,12 +23,14 @@
               </div>
               <button @click="getUserExams(course.id)" class="custom_btn1">
                 {{ $t("course_exams") }}
-                <Icon :name="currentLocale == 'ar' ? 'solar:arrow-left-up-broken' : 'solar:arrow-right-up-broken'" class="text-white text-2xl -mt-1" />
+                <Icon :name="currentLocale == 'ar' ? 'solar:arrow-left-up-broken' : 'solar:arrow-right-up-broken'"
+                  class="text-white text-2xl -mt-1" />
               </button>
             </div>
           </div>
           <Empty v-else :message="$t('not_subscibed_courses')" />
         </div>
+
         <div v-if="section == 'exams'">
           <h2 class="font-bold text-p-dark text-2xl lg:text-5xl mb-3 text-center lg:text-start dark:text-fp1">
             {{ $t("all_course_exams") }} {{ courseExam["name_" + currentLocale] }}
@@ -46,38 +49,47 @@
               </thead>
               <tbody>
                 <tr v-for="detailExam in detailExams" :key="detailExam.id"
-                  class="text-xl whitespace-nowrap cursor-pointer bg-white text-gray-600 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-100 dark:hover:bg-gray-600"
+                  class="whitespace-nowrap cursor-pointer bg-white text-gray-600 border-b dark:bg-fpDark1 dark:border-fpDark2 hover:bg-gray-50 dark:hover:bg-gray-600"
                   @click="userShowAnswers(detailExam.course_id, detailExam.id)">
                   <td class="px-6 py-4">
-                    <button @click="userShowAnswers(detailExam.course_id, detailExam.id)"
-                      class="lg:w-1/2 mx-auto bg-gradient-to-b from-fp1 to-fp1/70 hover:bg-gradient-to-t transition font-bold rounded-lg text-sm px-2 py-1.5 focus:outline-none block text-white">
+                    <button type='button' @click="userShowAnswers(detailExam.course_id, detailExam.id)"
+                      class='py-2.5 px-6 text-sm bg-indigo-50 text-indigo-500 rounded-full cursor-pointer font-semibold text-center shadow-xs transition-all duration-500 hover:bg-indigo-100 flex items-center gap-x-2 mx-auto'>
+                      <img src="/imgs/icons/search.png" class="" alt="">
                       {{ detailExam.id }}
-                      <Icon name="ic:baseline-remove-red-eye" class="text-white text-2xl -mt-0.5" />
                     </button>
                   </td>
                   <td class="px-6 py-4">
-                    <span :class="detailExam.score >= score ? 'bg-[#9bffbfe6]' : 'bg-[#ff9b9be6]'"
-                      class="lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score }}</span>
+                    <span class="py-2.5 px-6 text-sm rounded-full cursor-pointer font-semibold text-center shadow-xs"
+                      :class="detailExam.score >= score ? 'bg-green-100 text-green-600' : 'bg-red-50 text-red-500'">
+                      {{ detailExam.score }}
+                    </span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.correct
-                      }}</span>
+                    <span
+                      class="py-2.5 px-6 text-sm bg-green-100 text-green-600 rounded-full cursor-pointer font-semibold text-center shadow-xs">
+                      {{ detailExam.correct }}
+                    </span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#ff9b9be6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.mistake
-                      }}</span>
+                    <span
+                      class="py-2.5 px-6 text-sm bg-red-50 text-red-500 rounded-full cursor-pointer font-semibold text-center shadow-xs">
+                      {{ detailExam.mistake }}
+                    </span>
                   </td>
                   <td class="px-6 py-4">
-                    <span class="bg-[#9bffbfe6] lg:w-1/2 block rounded-md font-bold mx-auto">{{ detailExam.score >=
-                      score ? "إجتاز اﻹمتحان" : "لم يجتاز اﻹمتحان" }}</span>
+                    <span class="py-2.5 px-6 text-sm rounded-full cursor-pointer font-semibold text-center shadow-xs"
+                      :class="detailExam.score >= score ? 'bg-green-100 text-green-600' : 'bg-red-50 text-red-500'">
+                      {{ detailExam.score >= score ? "إجتاز اﻹمتحان" : "لم يجتاز اﻹمتحان" }}
+                    </span>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
+
         <div v-if="section == 'answers'">
-          <h2 class="font-bold text-p-dark text-2xl lg:text-5xl mb-3 text-center lg:text-start dark:text-fp1">
+          <h2 class="font-medium text-p-dark text-2xl lg:text-3xl mb-5 text-center lg:text-start dark:text-fp1">
             {{ $t("qutions") }} {{ `${course.name} ` }} {{ $t("number") }} => {{ examID }}
           </h2>
           <div v-for="(question, index) in questions" :key="question.id" class="lg:w-2/3 mx-auto shadow-xl p-6 h-auto">
@@ -138,6 +150,7 @@
     </section>
   </div>
 </template>
+
 <script setup>
 import { useTostStore } from "@/store/TostStore";
 const { currentLocale, dir } = useLang();
