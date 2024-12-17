@@ -1,9 +1,9 @@
 <template>
-  <main class="bg-[url('/imgs/bg-qa.jpg')] bg-cover bg-center bg-fixed h-max pb-20 lg:px-0 px-5"
+  <main class="bg-[url('/imgs/bg-qa.jpg')] bg-cover bg-center bg-repeat min-h-screen pb-20 lg:px-0 px-5"
     v-if="Object.keys(ExamStore.getQuestions).length">
     <ExamHeader />
 
-    <section class="max-w-7xl mx-auto mt-16 mb-5 bg-white/80 p-10 pt-24 rounded-xl shadow-custom3 relative">
+    <section class="max-w-7xl mx-auto mt-10 mb-5 bg-white/80 p-10 pt-32 lg:pt-12 rounded-xl shadow-custom3 relative">
       <TransitionGroup name="questions">
         <ExamDetails v-if="ExamStore.activeSection == 'details'" />
         <ExamQuestions v-if="ExamStore.activeSection == 'questions'" />

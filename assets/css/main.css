@@ -13,6 +13,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: clip;
+  height: 100%;
 }
 
 /* body::-webkit-scrollbar {
@@ -452,7 +453,7 @@ nav.student > button.active-link::before {
 }
 
 .alert-leave {
-  bottom: -200px;
+  /* bottom: -200px; */
 }
 
 .alert-leave.open {
@@ -460,7 +461,7 @@ nav.student > button.active-link::before {
 }
 
 .overlay-leave.open {
-  display: block;
+  /* display: block; */
 }
 
 .lg-outer {

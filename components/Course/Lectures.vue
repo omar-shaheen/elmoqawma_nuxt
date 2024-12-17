@@ -36,10 +36,10 @@
                 <span class="font-normal sm:text-sm md:text-xl text-fp2 lg:ms-2"
                   v-if="lecture.price != 0 && !course.subscribed">({{ lecture.price }} {{
                     CourseStore.getCourse.currency.name }})</span>
-                <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`"
-                  class="sm:dark:text-white text-xl lg:hidden" />
+                <!-- <Icon :name="`${lecture.subscribed ? 'mdi-eye-outline' : 'ic-baseline-lock'}`"
+                  class="sm:dark:text-white text-xl lg:hidden" /> -->
               </div>
-              <div class="flex items-center gap-x-4 sm:w-full sm:justify-center sm:px-4">
+              <div class="flex items-center gap-x-4 sm:w-full md:justify-center justify-end sm:px-4">
                 <nuxt-link
                   :to="{ path: localePath(`/exam/${course.id}`), query: { plan: encodeString(lecture.id), related: encodeString('exams') } }"
                   v-if="lecture.questions_count && lecture.subscribed"

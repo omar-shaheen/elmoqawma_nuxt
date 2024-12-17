@@ -1,12 +1,13 @@
 <template>
   <section v-if="Object.keys(ExamStore.getCourse).length" class="">
     <img src="/imgs/q-03.png" class="absolute -top-32 end-1/2 -translate-x-1/2 lg:w-48 w-36" alt="QuizIntro" />
-    <div class="">
+    
+    <div class="mt-10">
       <h1 class="text-2xl lg:text-3xl text-center font-bold text-fp3 mb-5"> {{ `${course.name} ` }} </h1>
       <h2 class="text-2xl lg:text-4xl text-center font-bold text_clip"> {{ $t("increase_enthusiasm") }} </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mt-24 mb-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:gap-7 gap-y-24 mt-24 mb-10">
       <div class="item_one">
         <div class="item_one_img">
           <img src="/imgs/questions/3d-alarm.png" class="w-full mx-auto" alt="">
