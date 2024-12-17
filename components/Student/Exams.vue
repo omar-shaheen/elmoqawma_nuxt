@@ -32,11 +32,11 @@
         </div>
 
         <div v-if="section == 'exams'">
-          <h2 class="font-bold text-p-dark text-2xl lg:text-5xl mb-3 text-center lg:text-start dark:text-fp1">
+          <h2 class="font-bold text_clip pt-1 text-xl lg:text-3xl mb-5 text-center lg:text-start">
             {{ $t("all_course_exams") }} {{ courseExam["name_" + currentLocale] }}
           </h2>
 
-          <div class="relative overflow-x-auto shadow-md sm:rounded-lg lg:mt-20">
+          <div class="relative overflow-x-auto shadow-md sm:rounded-lg lg:mt-10">
             <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
               <thead class="text-white uppercase bg-gradient-to-r from-violet-500 to-pink-500">
                 <tr class="text-lg">
@@ -88,28 +88,41 @@
           </div>
         </div>
 
-        <div v-if="section == 'answers'">
-          <h2 class="font-medium text-p-dark text-2xl lg:text-3xl mb-5 text-center lg:text-start dark:text-fp1">
+
+        <div v-if="section == 'answers'" class="space-y-5 mb-5 w-full mx-auto">
+
+          <h2 class="font-bold text_clip pt-1 text-xl lg:text-2xl mb-5 text-center lg:text-start">
             {{ $t("qutions") }} {{ `${course.name} ` }} {{ $t("number") }} => {{ examID }}
           </h2>
-          <div v-for="(question, index) in questions" :key="question.id" class="lg:w-2/3 mx-auto shadow-xl p-6 h-auto">
-            <p class="text-xl lg:text-2xl text-fp1 font-semibold text-center w-5/6 mx-auto mt-6"
-              v-html="question['question_' + currentLocale]"></p>
-            <p class="text-xl lg:text-2xl text-fp2 font-semibold text-start w-5/6 mx-auto mt-6"
+
+          <div class="bg-white rounded-lg shadow-custom1 p-5" v-for="question in questions" :key="question.id">
+            <p class="text-xl lg:text-2xl text-fp1 font-semibold text-center mb-6"
+              v-if="question['question_' + currentLocale]" v-html="question['question_' + currentLocale]"></p>
+
+            <p class="text-xl lg:text-2xl text-fpDark2 font-semibold text-start mb-6"
               v-text="`${$t('note')}${question.Justify}`"></p>
-            <div class="mt-10" v-for="(answer, indexAnswer) in question.answers" :key="answer.id">
-              <button :class="[
-                (answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1
-                  ? ' border-green-400 after:border-green-400 before:bg-green-400 text-green-400'
-                  : 'after:border-gray-300 before:bg-gray-300 dark:text-fpLightBack',
-                answersIDS.includes(answer.id) && answer.status == 0 ? 'border-red-400 after:border-red-400 before:bg-red-400 text-red-400' : 'dark:text-fpLightBack',
-              ]"
-                class="block w-full text-start border-2 rounded-lg lg:rounded-full transition-all py-2 lg:py-4 ps-16 lg:ps-20 relative after:absolute after:start-5 lg:after:start-8 after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed before:absolute before:start-7 lg:before:start-10 before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full">
-                <span class="text-sm lg:text-xl" v-text="answer.answer"></span>
-              </button>
-            </div>
+
+            <ul class="flex flex-col space-y-1">
+              <li v-for="answer in question.answers" :key="answer.id"
+                class="inline-flex items-center gap-x-3.5 py-3 px-4 text-sm font-semibold bg-white border-2 border-gray-300 transition-all duration-300  text-gray-900 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg "
+                :class="[(answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1 ? ' border-green-400 after:border-green-400 before:bg-green-400 text-green-400' : 'after:border-gray-300 before:bg-gray-300 dark:text-fpLightBack', answersIDS.includes(answer.id) && answer.status == 0 ? 'border-red-400 after:border-red-400 before:bg-red-400 text-red-400' : 'dark:text-fpLightBack',]">
+                <div class="flex-none">
+                  <img v-if="(answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1"
+                    src="/imgs/icons/f-happy.png" class="size-10" alt="">
+                  <img v-else-if="answersIDS.includes(answer.id) && answer.status == 0" src="/imgs/icons/f-sad.png"
+                    class="size-10" alt="">
+                  <img v-else src="/imgs/icons/f-smile.png" class="size-10" alt="">
+                </div>
+
+                <span v-if="answer.answer_type == 'text'" class="text-sm lg:text-xl" v-text="answer.answer"></span>
+
+                <img v-else-if="answer.answer_type == 'image'" :src="`${baseURL}/images/${answer.answer}`"
+                  class="w-20 object-cover pointer-events-none" />
+              </li>
+            </ul>
           </div>
         </div>
+
       </TransitionGroup>
     </section>
   </div>
@@ -117,6 +130,7 @@
 
 <script setup>
 import { useTostStore } from "@/store/TostStore";
+
 const { currentLocale, dir } = useLang();
 const baseURL = useRuntimeConfig().public.baseURL;
 const score = useRuntimeConfig().public.score;
