@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative bg-gradient-to-r from-violet-500 dark:from-fpDark1 from-10% via-sky-500 dark:via-fpDark2 via-30% to-pink-500 dark:to-fpBlack to-90% bg-[length:400%]">
+    class="relative bg-linearGradient4 after:absolute after:end-0 after:bottom-0 after:bg-[url('/imgs/bg-footer.png')] after:bg-contain after:bg-no-repeat after:opacity-15 after:bg-center after:w-full after:h-full">
     <footer class="bg-header py-10 relative">
       <div class="container mx-auto 2xl:px-0">
         <div class="flex flex-col items-center lg:flex-row lg:items-start gap-x-10">

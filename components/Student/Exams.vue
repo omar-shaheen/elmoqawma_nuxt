@@ -95,23 +95,39 @@
             {{ $t("qutions") }} {{ `${course.name} ` }} {{ $t("number") }} => {{ examID }}
           </h2>
 
-          <div class="bg-white rounded-lg shadow-custom1 p-5" v-for="question in questions" :key="question.id">
-            <p class="text-xl lg:text-2xl text-fp1 font-semibold text-center mb-6"
+          <div class="bg-white dark:bg-fpDark2 rounded-lg shadow-custom1 p-5" v-for="question in questions" :key="question.id">
+
+            <p class="text-lg lg:text-xl text-fp1 dark:text-gray-100 font-semibold mb-6"
               v-if="question['question_' + currentLocale]" v-html="question['question_' + currentLocale]"></p>
 
-            <p class="text-xl lg:text-2xl text-fpDark2 font-semibold text-start mb-6"
-              v-text="`${$t('note')}${question.Justify}`"></p>
+            <div class="mb-3">
+
+              <p v-if="question.Justify" class="text-lg lg:text-xl text-fpDark2 dark:text-gray-200 font-semibold text-start mb-6"
+                v-text="`${$t('note')}${question.Justify}`"></p>
+
+              <img v-if="question.type == 'image'" :src="`${baseURL}/images/${question.file}`"
+                class="w-full lg:h-48 h-44 object-contain rounded-xl" />
+
+              <audio v-else-if="question.type == 'audio'" controls download="off" class="w-full">
+                <source :src="`${baseURL}/images/${question.file}`" type="audio/ogg" />
+                <source :src="`${baseURL}/images/${question.file}`" type="audio/mpeg" />
+                Your browser does not support the audio tag.
+              </audio>
+
+              <iframe v-else-if="question.type == 'video'" :src="`${baseURL}/images/${question.file}`" loading="lazy"
+                class="border-0 w-full h-full relative"></iframe>
+            </div>
 
             <ul class="flex flex-col space-y-1">
               <li v-for="answer in question.answers" :key="answer.id"
-                class="inline-flex items-center gap-x-3.5 py-3 px-4 text-sm font-semibold bg-white border-2 border-gray-300 transition-all duration-300  text-gray-900 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg "
+                class="inline-flex items-center gap-x-3.5 py-3 px-4 text-sm font-semibold bg-white dark:bg-fpDark1 border-2 border-gray-300 transition-all duration-300  text-gray-900 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg "
                 :class="[(answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1 ? ' border-green-400 after:border-green-400 before:bg-green-400 text-green-400' : 'after:border-gray-300 before:bg-gray-300 dark:text-fpLightBack', answersIDS.includes(answer.id) && answer.status == 0 ? 'border-red-400 after:border-red-400 before:bg-red-400 text-red-400' : 'dark:text-fpLightBack',]">
                 <div class="flex-none">
                   <img v-if="(answersIDS.includes(answer.id) && answer.status == 1) || answer.status == 1"
                     src="/imgs/icons/f-happy.png" class="size-10" alt="">
                   <img v-else-if="answersIDS.includes(answer.id) && answer.status == 0" src="/imgs/icons/f-sad.png"
                     class="size-10" alt="">
-                  <img v-else src="/imgs/icons/f-smile.png" class="size-10" alt="">
+                  <img v-else src="/imgs/icons/f-smile.png" class="size-10 dark:invert" alt="">
                 </div>
 
                 <span v-if="answer.answer_type == 'text'" class="text-sm lg:text-xl" v-text="answer.answer"></span>

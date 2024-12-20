@@ -46,17 +46,17 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-5 mt-10">
       <div class="flex flex-col items-center justify-center bg-white lg:p-7 p-5 rounded-xl shadow-custom2">
         <img src="/imgs/icons/correct.png" class="lg:w-20 w-12 mx-auto block" alt="" />
-        <span class="mt-5 lg:text-3xl text-lg font-medium dark:text-fpLightBack">{{ ExamStore.getDetailsQuestions.trueLengs }} {{
+        <span class="mt-5 lg:text-3xl text-lg font-medium">{{ ExamStore.getDetailsQuestions.trueLengs }} {{
           $t("qutions_correct") }}</span>
       </div>
       <div class="flex flex-col items-center justify-center bg-white lg:p-7 p-5 rounded-xl shadow-custom2">
         <img src="/imgs/icons/answer.png" class="lg:w-20 w-12 mx-auto block" alt="" />
-        <span class="mt-5 lg:text-3xl text-lg font-medium dark:text-fpLightBack">{{ ExamStore.DetailsQuestions.falseLengs }} {{
+        <span class="mt-5 lg:text-3xl text-lg font-medium">{{ ExamStore.DetailsQuestions.falseLengs }} {{
           $t("qutions_mistake") }}</span>
       </div>
       <div class="flex flex-col items-center justify-center bg-white lg:p-7 p-5 rounded-xl shadow-custom2">
         <img src="/imgs/icons/010.png" class="lg:w-20 w-12 mx-auto block" alt="" />
-        <span class="mt-5 lg:text-3xl text-lg font-medium dark:text-fpLightBack">{{ ExamStore.getDetailsQuestions.lenQuestions }}
+        <span class="mt-5 lg:text-3xl text-lg font-medium">{{ ExamStore.getDetailsQuestions.lenQuestions }}
           {{
             $t("qutions") }} </span>
       </div>

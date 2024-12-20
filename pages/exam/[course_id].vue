@@ -3,7 +3,7 @@
     v-if="Object.keys(ExamStore.getQuestions).length">
     <ExamHeader />
 
-    <section class="max-w-7xl mx-auto mt-10 mb-5 bg-white/80 p-10 pt-32 lg:pt-12 rounded-xl shadow-custom3 relative">
+    <section class="max-w-7xl mx-auto mt-10 mb-5 bg-white/80 lg:p-10 p-3 pt-32 lg:pt-12 rounded-xl shadow-custom3 relative">
       <TransitionGroup name="questions">
         <ExamDetails v-if="ExamStore.activeSection == 'details'" />
         <ExamQuestions v-if="ExamStore.activeSection == 'questions'" />

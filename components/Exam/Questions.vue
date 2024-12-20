@@ -8,7 +8,7 @@
         class="rounded-bg absolute -top-1 -right-1 w-[105%] h-[105%] rounded-full shadow-custom3 after:absolute after:content-[''] after:top-1/2 after:-translate-y-1/2 after:left-1/2 after:-translate-x-1/2 after:w-[85%] after:h-[85%] after:bg-white after:shadow-[0px_0px_10px_rgba(0,0,0,0.5)_inset] after:rounded-full">
       </span>
       <span
-        class="text-time text-xl font-medium rounded-full flex items-center justify-center text-fp1 dark:text-fpLightBack dark:bg-fpDark2 w-full h-full relative z-50">
+        class="text-time text-xl font-medium rounded-full flex items-center justify-center text-fp1 w-full h-full relative z-50">
         {{ ExamStore.getTimeQuestions.textTime }}
       </span>
     </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="grid lg:grid-cols-2 grid-cols-1 gap-3">
-              <div v-for="(answer, indexAnswer) in question.answers_random" :key="answer.id">
+              <div v-for="answer in question.answers_random" :key="answer.id">
                 <button
                   @click="ExamStore.checkAnswer({ answer_id: answer.id, status: answer.status, question_id: question.id })"
                   :class="[
@@ -65,10 +65,11 @@
                       ? 'after:[content:unset] before:[content:unset] h-auto justify-between'
                       : '',
                   ]"
-                  class="py-2 lg:py-2 ps-16 lg:ps-16 rounded-lg lg:rounded-full dark:text-fpLightBack block w-full h-auto text-start border-2 transition-all relative after:absolute after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed after:start-3 lg:after:start-5 before:start-5 lg:before:start-7 before:absolute before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full">
+                  class="py-2 lg:py-2 ps-16 lg:ps-16 rounded-lg lg:rounded-full block w-full h-auto text-start border-2 transition-all relative after:absolute after:top-1/2 after:-translate-y-1/2 after:w-8 after:h-8 after:border-2 after:rounded-full after:border-dashed after:start-3 lg:after:start-5 before:start-5 lg:before:start-7 before:absolute before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-4 before:rounded-full">
                   <span class="text-base lg:text-3xl inline-flex font-bold" v-if="answer.answer_type == 'text'"
                     v-text="answer.answer"></span>
-                  <div v-else-if="answer.answer_type == 'image'" class="w-20 h-full flex items-center justify-center rounded-lg overflow-hidden">
+                  <div v-else-if="answer.answer_type == 'image'"
+                    class="w-20 h-full flex items-center justify-center rounded-lg overflow-hidden">
                     <img :src="`${baseURL}/images/${answer.answer}`"
                       class="h-full w-full object-contain pointer-events-none" />
                   </div>
@@ -77,8 +78,7 @@
                   v-if="ExamStore.activeAnswers[question.id] == answer.id && ExamStore.getDetailsQuestions.done == true && answer.status == 1">
                   <button class="flex items-center text-green-400">
                     <span class="ms-3 -mb-1 text-xl">
-                      <svg class="inline size-5" viewBox="0 0 42 42" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                      <svg class="inline size-5" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M21.0232 22.2207L34.7128 8.53109C35.1441 8.09984 35.7441 7.879 36.3524 7.929C36.9607 7.97692 37.517 8.28942 37.8753 8.78525C37.8753 8.78525 37.9274 8.86025 37.9316 8.86442C40.3857 12.2832 41.8337 16.4728 41.8337 20.9998C41.8337 32.4978 32.4982 41.8332 21.0003 41.8332C9.50241 41.8332 0.166992 32.4978 0.166992 20.9998C0.166992 9.50192 9.50241 0.166504 21.0003 0.166504C24.3253 0.166504 27.4712 0.947754 30.2607 2.33734C31.292 2.84775 31.7107 4.09984 31.1982 5.129C30.6857 6.15817 29.4357 6.579 28.4066 6.0665C26.1753 4.95609 23.6587 4.33317 21.0003 4.33317C11.8024 4.33317 4.33366 11.8019 4.33366 20.9998C4.33366 30.1978 11.8024 37.6665 21.0003 37.6665C30.1982 37.6665 37.667 30.1978 37.667 20.9998C37.667 18.2373 36.9941 15.629 35.8003 13.3353L22.4982 26.6394C21.6837 27.454 20.3649 27.454 19.5503 26.6394L13.3003 20.3894C12.4878 19.5769 12.4878 18.2561 13.3003 17.4436C14.1149 16.6311 15.4337 16.6311 16.2482 17.4436L21.0232 22.2207Z"
                           fill="#3FDB77" />
@@ -93,8 +93,7 @@
                   v-if="ExamStore.activeAnswers[question.id] != answer.id && ExamStore.getDetailsQuestions.done == true && answer.status == 1">
                   <button class="flex items-center text-red-500">
                     <span class="ms-3 -mb-1 text-xl text-red-500">
-                      <svg class="inline size-5" viewBox="0 0 42 42" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                      <svg class="inline size-5" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M16.5064 14.4088C16.2082 14.4092 15.9169 14.4984 15.6697 14.665C15.4224 14.8316 15.2305 15.0681 15.1183 15.3443C15.0061 15.6206 14.9787 15.9239 15.0398 16.2157C15.1008 16.5076 15.2474 16.7746 15.4609 16.9828L19.4749 20.9968L15.4609 25.0108C15.3176 25.1492 15.2033 25.3147 15.1247 25.4977C15.0461 25.6807 15.0047 25.8775 15.003 26.0767C15.0013 26.2759 15.0392 26.4733 15.1146 26.6577C15.1901 26.842 15.3014 27.0096 15.4423 27.1504C15.5831 27.2913 15.7506 27.4026 15.9349 27.478C16.1193 27.5534 16.3168 27.5914 16.516 27.5897C16.7151 27.588 16.912 27.5465 17.095 27.4679C17.278 27.3893 17.4435 27.275 17.5819 27.1318L21.5959 23.1179L25.6129 27.1318C25.7512 27.275 25.9167 27.3893 26.0998 27.4679C26.2828 27.5465 26.4796 27.588 26.6788 27.5897C26.8779 27.5914 27.0754 27.5534 27.2598 27.478C27.4441 27.4026 27.6116 27.2913 27.7525 27.1504C27.8933 27.0096 28.0047 26.842 28.0801 26.6577C28.1555 26.4733 28.1935 26.2759 28.1917 26.0767C28.19 25.8775 28.1486 25.6807 28.07 25.4977C27.9914 25.3147 27.8771 25.1492 27.7339 25.0108L23.7199 20.9968L27.7339 16.9828C27.9503 16.772 28.0981 16.5009 28.1578 16.2047C28.2175 15.9086 28.1864 15.6013 28.0685 15.3231C27.9507 15.0449 27.7516 14.8087 27.4973 14.6456C27.243 14.4825 26.9453 14.4 26.6434 14.4088C26.2541 14.4203 25.8845 14.5828 25.6129 14.8619L21.5959 18.8759L17.5819 14.8619C17.442 14.7183 17.2747 14.6042 17.09 14.5264C16.9052 14.4486 16.7068 14.4087 16.5064 14.4088Z"
                           fill="#ED2B2B" />
@@ -137,26 +136,30 @@
       </button>
     </div>
 
-    <div class="flex items-center ltr:flex-row-reverse flex-col md:flex-row gap-5 md:gap-0 justify-between mt-6">
+    <div class="text-center mt-5">
+      <h3
+        class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-lg font-medium bg-blue-100 text-blue-800">
+        {{ $t("qution") }} {{ ExamStore.getDetailsQuestions.step }} / {{ ExamStore.getDetailsQuestions.lenQuestions }}
+      </h3>
+    </div>
+
+    <div class="flex items-center ltr:flex-row-reverse flex-row gap-5 md:gap-0 justify-between mt-6">
       <button @click="ExamStore.switchTaps('next')" type="button"
-        class="btn_custom2 flex items-center justify-center lg:!text-2xl"
+        class="btn_custom2 flex items-center justify-center lg:!text-2xl !text-sm"
         :disabled="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? true : false"
         :class="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? 'disabled:!cursor-not-allowed disabled:!bg-slate-300 text-black' : ''">
-        <img src="~/assets/images/student/video_playlist/next-arrow.svg" alt="" class="pointer-events-none" />
+        <img src="~/assets/images/student/video_playlist/next-arrow.svg" class="pointer-events-none lg:size-10 size-6"
+          alt="" />
         <span class="mt-1 ltr:me-2 rtl:ms-2">{{ $t("next_qution") }}</span>
       </button>
 
-      <h3
-        class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-lg font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500">
-        {{ $t("qution") }} {{ ExamStore.getDetailsQuestions.step }} / {{ ExamStore.getDetailsQuestions.lenQuestions }}
-      </h3>
-
       <button @click="ExamStore.switchTaps('prev')" type="button"
-        class="btn_custom2 flex items-center justify-center lg:!text-2xl"
+        class="btn_custom2 flex items-center justify-center lg:!text-2xl !text-sm"
         :disabled="ExamStore.getDetailsQuestions.step == 1 ? true : false"
         :class="ExamStore.getDetailsQuestions.step == ExamStore.getDetailsQuestions.lenQuestions ? 'disabled:!cursor-not-allowed disabled:!bg-slate-300 text-black' : ''">
         <span class="mt-1 ltr:ms-2 rtl:me-2">{{ $t("prev_qution") }}</span>
-        <img src="~/assets/images/student/video_playlist/prev-arrow.svg" alt="" class="pointer-events-none" />
+        <img src="~/assets/images/student/video_playlist/prev-arrow.svg" class="pointer-events-none lg:size-10 size-6"
+          alt="" />
       </button>
     </div>
 
